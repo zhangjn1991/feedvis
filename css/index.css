@@ -55,22 +55,108 @@ body{
 }
 
 .graph{
+	position: relative;
 	flex: none;
 
+	margin: 0.5em;
+}
+
+.graph svg{
 	width: 300px;
 	height: 200px;
-	margin: 0.5em;
-
 }
 
 .graph path{
-	fill:none;
+	fill: none;
 }
 
 .axis.x path{
-	stroke:black;
+	stroke: black;
 }
 
 .axis .tick line{
-	stroke:black;
+	stroke: black;
+}
 
+
+.line{
+	stroke-width: 1;
+	fill: none;
+}
+
+path.line.hidden{
+	/*more selector to force override*/
+	stroke: transparent;
+}
+
+
+
+.legend{
+	position: absolute;
+	top: 0;
+	left: 0;
+
+	list-style: none;
+}
+
+.legend .item{
+	display: table;
+
+	margin: 1em;
+}
+
+.legend .color{
+	display: inline-block;
+
+	width: 20px;
+	height: 20px;
+	margin-right: 0.5em;
+
+	border: 1px solid;
+}
+
+.item.hidden .color{
+	background: transparent;
+}
+
+.legend .label{
+	display: table-cell;
+
+	vertical-align: middle;
+}
+
+.series0 .color,
+.series0.line{
+	background: #1f77b4;
+
+	stroke: #1f77b4;
+
+	border-color: #1f77b4;
+}
+
+.series1 .color,
+.series1.line{
+	background: #ff7f0e;
+
+	stroke: #ff7f0e;
+
+	border-color: #ff7f0e;
+}
+
+.series2 .color,
+.series2.line{
+	background: #2ca02c;
+
+	stroke: #2ca02c;
+
+	border-color: #2ca02c;
+}
+
+.series3 .color,
+.series3.line{
+	background: #d62728;
+
+	stroke: #d62728;
+
+	border-color: #d62728;
+}

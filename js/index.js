@@ -1,3 +1,4 @@
+var SERIES_PREFIX = 'series';
 var totalWidth = 300,
 	totalHeight = 200,
 	margin = { top: 10, right: 10, bottom: 20, left: 30 },
@@ -85,36 +86,45 @@ function draw(data){
 	var graphContainer = columns.append('div')
 		.attr('class', 'graphContainer')
 
-	graphContainer.selectAll('.graph')
+	var graphs = graphContainer.selectAll('.graph')
 		.data(function(d) { return d.graphs; })
 		.enter()
-		.append('svg')
+		.append('div')		
 		.attr('class', 'graph')
+
+	graphs
+		.append('svg')
 		.append('g')
 		.attr('transform', 'translate(' + margin.left + ',' + margin.top + ')')
 		.each(drawLineChart)
-
-
+	
+	graphs
+		.append('ul')
+		.attr('class', 'legend')
+		.each(drawLegends)
 
 }
 
+function drawGraph(graphData){
+	drawLineChart(graphData);
+	// drawLegends(graphData);
+}
 
-function drawLineChart(data){	
+function drawLineChart(graphData){	
 	var svg = d3.select(this)	  
 	    
-	var allData =_.flatten(_.map(data.series,function(d) { return d.data; }));
+	var allData =_.flatten(_.map(graphData.series,function(d) { return d.data; }));
 	
 	x.domain(d3.extent(allData,function(d) { return d.date; }));
 
 	y.domain(d3.extent(allData,function(d) { return d.value; }));
 	
 	svg.selectAll('.line')
-		.data(data.series)
+		.data(graphData.series)
 		.enter()
 		.append('path')
 		.datum(function(d) { return d.data; })
-		.attr('class', 'line')
-		.attr('stroke', function(d, i) { return colors(i); })
+		.attr('class', function(d, i) { return 'line '+ SERIES_PREFIX +i; })
 		.attr('d',line);
 
 	svg.append('g')
@@ -126,4 +136,39 @@ function drawLineChart(data){
 		.attr('class','y axis')		
 		.call(yAxis);
 }
+
+function drawLegends(graphData){
+
+	var legend = d3.select(this);
+
+	legend.selectAll('.item')
+		.remove()
+	
+	var items = legend.selectAll('.item')
+		.data(graphData.series)
+		.enter()
+		.append('li')
+		.attr('class', function(d, i) { return 'item '+ SERIES_PREFIX+i; })
+		.attr('name', function(d, i) { return  SERIES_PREFIX + i; })
+		.on('click',legendItemClicked)
+
+	items.append('span')
+		.attr('class', 'color')
+
+	items.append('span')
+		.attr('class', 'label')
+		.text(function(d) { return d.series_name; })
+}
+
+function toggleClass(selector,classname,parent){	
+	var items = d3.select(parent).select(selector);	
+	items.classed(classname,!items.classed(classname));
+}
+
+function legendItemClicked(d,i){
+	var legendElement = this.parentNode.parentNode;
+	toggleClass('.item.'+SERIES_PREFIX+i,'hidden',legendElement);
+	toggleClass('.line.'+SERIES_PREFIX+i,'hidden',legendElement);
+}
+
 
