@@ -64,10 +64,13 @@ function getTitleDateString(timeStamp){
 function draw(data){
 	var globalContainer = d3.select(".globalContainer");
 
-	var columns = globalContainer.selectAll(".column")
+
+	var table = globalContainer.append('table').append('tr');
+
+	var columns = table.selectAll(".column")
 		.data(data)
 		.enter()
-		.append('div')
+		.append('td')		
 		.attr('class', 'column')
 
 	var titleContainer = columns.append('div')

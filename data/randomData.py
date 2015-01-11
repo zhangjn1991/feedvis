@@ -18,7 +18,7 @@ for i in range(0,4):
 	for j in range(0,5	):
 		graph = {'graph_name':'graph'+str(j)}
 		graph['series'] = []
-		for k in range(0,4):
+		for k in range(0,5):
 			serie = {'series_name':'series'+str(k)}
 			serie['data'] = []
 			for l in range(0,7):
