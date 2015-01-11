@@ -82,11 +82,14 @@ body{
 .line{
 	stroke-width: 1;
 	fill: none;
+
+	opacity: 1;
+	-webkit-transition: opacity 0.5s;
 }
 
 path.line.hidden{
 	/*more selector to force override*/
-	stroke: transparent;
+	opacity: 0;
 }
 
 
@@ -97,22 +100,34 @@ path.line.hidden{
 	left: 0;
 
 	list-style: none;
+
+	opacity: 0;
+
+	-webkit-transition: opacity 0.5s;
+}
+
+.graph:hover .legend{
+	opacity: 1;
 }
 
 .legend .item{
 	display: table;
 
 	margin: 1em;
+
+	cursor: pointer;
 }
 
 .legend .color{
 	display: inline-block;
 
-	width: 20px;
-	height: 20px;
+	width: 15px;
+	height: 15px;
 	margin-right: 0.5em;
 
-	border: 1px solid;
+	border: 3px solid;
+
+	-webkit-transition: background 0.5s;
 }
 
 .item.hidden .color{
