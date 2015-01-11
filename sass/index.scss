@@ -1,0 +1,251 @@
+$svg-width:300px;
+$svg-height:200px;
+$legend-color-size:15px;
+$primary-color:#333644;
+$primary-color-dark:#1e202b;
+$primary-color-highlight:$primary-color-dark;
+$text-color:#f2f2f2;
+$text-color-fade:#808080;
+$background-color:#ededed;
+$background-color-graph:#f7f7f7;
+$axis-color:darken($background-color-graph,20%);
+$axis-text-color:darken($axis-color,20%);
+
+
+*{
+	margin: 0;
+	padding: 0;
+	border: 0;
+}
+
+html,
+body{
+	width: 100%;
+	height: 100%;
+}
+
+body{
+	font-family:'Avenir Next',sans-serif;
+	background:$background-color;
+}
+
+
+/* body,
+.graph,
+.globalContainer,
+.titleContainer,
+.graphContainer,
+.column{
+	background: rgba(0,0,0,0.2);
+} */
+
+.globalContainer{	
+	width: 100%;
+	height: 100%;
+}
+
+table{	
+	height: 100%;
+}
+
+.column{
+
+	
+}
+
+.titleContainer{
+	flex: none;
+
+	padding: 2em 1em;
+
+	background:$primary-color;
+	color:$text-color;
+	border-right:1px solid $primary-color-dark;
+
+	h2{
+		text-transform:uppercase;
+		text-align:center;
+
+	}
+
+	h3{
+		text-transform:capitalize;
+
+		font-weight:200;
+
+		text-align:center;
+	}
+
+	
+}
+
+.graphContainer{
+	padding: 0.5em;
+
+	border-right:1px solid darken($background-color, 10%);
+}
+
+.graph{
+	flex: none;
+
+	position: relative;
+
+	margin: 1em 0.5em;
+
+	background:$background-color-graph;
+
+	box-shadow:0 3px 3px 0px rgba(0,0,0,0.2);
+
+	&:hover{
+		.legend{
+			opacity: 1;
+		}
+
+		.x.axis{
+			opacity:1;
+		}
+	}
+
+	svg{
+		width: $svg-width;
+		height: $svg-height;
+
+		.axis{
+			
+			&.x {
+				opacity:0;
+
+				-webkit-transition:opacity 0.5s;
+
+				text{
+					font-size:10pt;
+				}
+
+				path{
+					stroke: transparent;
+				}
+			}
+
+			&.y{
+				line{
+					stroke-dasharray: 3,3;
+				}
+			}
+			
+			text{
+				fill:$axis-text-color;
+			}
+
+			.tick line{
+				stroke: $axis-color;
+			}
+		}
+
+		.line{
+			opacity: 1;
+
+			stroke-width: 2;
+			fill: none;
+
+			-webkit-transition: opacity 0.5s;
+		}
+
+		path.line.hidden{
+			/*more selector to force override*/
+			opacity: 0;
+		}
+	}
+
+	path{
+		fill: none;
+	}
+	
+	.legend{
+		position: absolute;
+		top: 0;
+		left: $svg-width;
+
+		padding: 0.5em 0;		
+
+		z-index:1;
+
+		opacity: 0;
+
+		list-style: none;
+
+		background:$primary-color;
+		color:$text-color;
+
+		-webkit-transition: opacity 0.5s;
+
+		.item{
+			display: table;
+
+			padding: 0.5em 1em;
+
+			text-transform:capitalize;
+
+			cursor: pointer;
+
+			background:transparent;
+
+			-webkit-transition: background 0.5s;
+
+			&:hover{
+				background:$primary-color-highlight;
+			}
+
+			&.hidden .color{
+				background: transparent;
+			}
+
+			.color{
+				display: inline-block;
+
+				width: $legend-color-size;
+				height: $legend-color-size;
+				margin-right: 0.5em;
+
+				border-width:3px;
+				border-style:solid;
+
+				-webkit-transition: background 0.5s;
+			}
+
+			.label{
+				display: table-cell;
+
+				vertical-align: middle;
+			}
+		}
+		
+
+
+
+		
+	}
+
+	
+
+}
+
+
+$series-list: #69c3dd, 
+#f7ca2e, 
+#fc6c6e, 
+#4cb7ae,
+#7b69dd;
+
+@each $color in $series-list{
+	$i: index($series-list, $color);
+	.series#{$i - 1} {
+		.color, &.line{
+			background: $color;
+			stroke:  $color;
+			border-color:  $color;
+		}
+
+	}
+}
+
+

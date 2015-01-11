@@ -1,7 +1,7 @@
 var SERIES_PREFIX = 'series';
 var totalWidth = 300,
 	totalHeight = 200,
-	margin = { top: 10, right: 10, bottom: 20, left: 30 },
+	margin = { top: 20, right: 15, bottom: 20, left: 30 },
 	svgWidth = totalWidth - margin.left - margin.right,
 	svgHeight = totalHeight - margin.top - margin.bottom;
 
@@ -17,7 +17,7 @@ var xAxis = d3.svg.axis()
 	.scale(x)
 	.orient('bottom')	
 	.tickPadding(5)
-	.tickSize(-svgHeight)
+	.tickSize(-5)
 	.tickValues(function(d){
 		return _.map(d.series[0].data,function(d){ return d.date}) // construct tick values with the date of the first series
 	})
@@ -33,7 +33,9 @@ var y = d3.scale.linear()
 var yAxis = d3.svg.axis()
 	.scale(y)
 	.orient('left')
-	.ticks(2)
+	.ticks(5)
+	// .tickPadding(5)
+	.tickSize(-svgWidth)
 
 var colors = d3.scale.category10();
 
@@ -122,14 +124,6 @@ function drawLineChart(graphData){
 
 	y.domain(d3.extent(allData,function(d) { return d.value; }));
 	
-	svg.selectAll('.line')
-		.data(graphData.series)
-		.enter()
-		.append('path')
-		.datum(function(d) { return d.data; })
-		.attr('class', function(d, i) { return 'line '+ SERIES_PREFIX +i; })
-		.attr('d',line);
-
 	svg.append('g')
 		.attr('class','x axis')
 		.attr('transform', 'translate(' + 0 + ',' + svgHeight + ')')
@@ -138,6 +132,16 @@ function drawLineChart(graphData){
 	svg.append('g')
 		.attr('class','y axis')		
 		.call(yAxis);
+
+	svg.selectAll('.line')
+		.data(graphData.series)
+		.enter()
+		.append('path')
+		.datum(function(d) { return d.data; })
+		.attr('class', function(d, i) { return 'line '+ SERIES_PREFIX +i; })
+		.attr('d',line);
+
+	
 }
 
 function drawLegends(graphData){

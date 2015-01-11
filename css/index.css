@@ -53,16 +53,27 @@ table {
   box-shadow: 0 3px 3px 0px rgba(0, 0, 0, 0.2); }
   .graph:hover .legend {
     opacity: 1; }
+  .graph:hover .x.axis {
+    opacity: 1; }
   .graph svg {
     width: 300px;
     height: 200px; }
-    .graph svg .axis.x path {
-      stroke: #dedede; }
+    .graph svg .axis.x {
+      opacity: 0;
+      -webkit-transition: opacity 0.5s; }
+      .graph svg .axis.x text {
+        font-size: 10pt; }
+      .graph svg .axis.x path {
+        stroke: transparent; }
+    .graph svg .axis.y line {
+      stroke-dasharray: 3,3; }
+    .graph svg .axis text {
+      fill: #919191; }
     .graph svg .axis .tick line {
-      stroke: #dedede; }
+      stroke: #c4c4c4; }
     .graph svg .line {
       opacity: 1;
-      stroke-width: 1;
+      stroke-width: 2;
       fill: none;
       -webkit-transition: opacity 0.5s; }
     .graph svg path.line.hidden {
