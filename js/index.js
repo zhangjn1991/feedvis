@@ -81,7 +81,7 @@ function draw(data){
 		})
 
 	titleContainer.append('h3')
-		.text('Post Number')
+		.text('200 Posts')
 
 	var graphContainer = columns.append('div')
 		.attr('class', 'graphContainer')
