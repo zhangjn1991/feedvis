@@ -1,4 +1,4 @@
-var SERIES_PREFIX = 'series';
+var SERIES_PREFIX = 'series', TAB_NAMES=['Graph', 'Feed'];
 var totalWidth = 300,
 	totalHeight = 200,
 	margin = { top: 20, right: 15, bottom: 20, left: 30 },
@@ -87,6 +87,19 @@ function draw(data){
 
 	titleContainer.append('h3')
 		.text('200 Posts')
+
+	var tabContainer = columns.append('div')
+		.attr('class', 'tabContainer')
+
+	tabContainer.selectAll('.tab')
+		.data(TAB_NAMES)
+		.enter()
+		.append("div")
+		.attr('class', 'tab')
+		.text(function(d){return d;})
+	tabContainer.select(".tab")
+		.classed("active",true);
+
 
 	var graphContainer = columns.append('div')
 		.attr('class', 'graphContainer')

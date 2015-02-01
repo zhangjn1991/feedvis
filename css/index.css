@@ -29,7 +29,7 @@ table {
 
 .titleContainer {
   flex: none;
-  padding: 2em 1em;
+  padding: 2em 1em 0.5em 1em;
   background: #333644;
   color: #f2f2f2;
   border-right: 1px solid #1e202b; }
@@ -40,6 +40,21 @@ table {
     text-transform: capitalize;
     font-weight: 200;
     text-align: center; }
+
+.tabContainer {
+  color: #f2f2f2;
+  text-align: center; }
+  .tabContainer .tab {
+    display: inline-block;
+    width: 50%;
+    padding: 1em 0;
+    background: #333644;
+    text-transform: uppercase;
+    cursor: pointer; }
+    .tabContainer .tab:first-of-type {
+      float: left; }
+    .tabContainer .tab.active, .tabContainer .tab:hover {
+      background: #1e202b; }
 
 .graphContainer {
   padding: 0.5em;

@@ -56,7 +56,7 @@ table{
 .titleContainer{
 	flex: none;
 
-	padding: 2em 1em;
+	padding: 2em 1em 0.5em 1em;
 
 	background:$primary-color;
 	color:$text-color;
@@ -78,6 +78,38 @@ table{
 
 	
 }
+
+.tabContainer{
+
+	color:$text-color;
+	text-align:center;
+	.tab{
+		display:inline-block;		
+		width:50%;		
+		padding:1em 0;		
+
+		background:$primary-color;
+
+		text-transform:uppercase;		
+
+		cursor:pointer;
+
+		&:first-of-type{
+			float:left;
+		}		
+
+		&.active, &:hover{
+			background:$primary-color-highlight;
+		}
+
+
+		
+	}
+
+	
+	
+}
+
 
 .graphContainer{
 	padding: 0.5em;
