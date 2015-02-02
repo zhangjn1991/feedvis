@@ -6,9 +6,9 @@ var totalWidth = 300,
 	svgHeight = totalHeight - margin.top - margin.bottom;
 
 
-var titleDateFormat = d3.time.format("%b %e");
+var titleDateFormat = d3.time.format('%b %e');
 
-var axisDateFormat = d3.time.format("%e");
+var axisDateFormat = d3.time.format('%e');
 
 var x = d3.scale.linear()
   	.range([0, svgWidth])  	
@@ -46,7 +46,7 @@ var line = d3.svg.line()
 
 
 
-d3.json("data/test.json", function(json){
+d3.json('data/test.json', function(json){
 	
 	clearAll();
 	drawDateRange(getDateRanges(json));
@@ -58,14 +58,14 @@ d3.json("data/test.json", function(json){
 
 
 function clearAll(){
-	d3.selectAll(".globalContainer table *")
+	d3.selectAll('.globalContainer table *')
 		.remove();
-	d3.selectAll(".sidebar .graphTitle")
+	d3.selectAll('.sidebar .graphTitle')
 		.remove();
 }
 
 function getDateRanges(data){
-	return _.pluck(data,"date_range");
+	return _.pluck(data,'date_range');
 }
 
 function getGraphData(data){
@@ -80,7 +80,7 @@ function getGraphData(data){
 }
 
 function getTitleData(data){
-	return _.pluck(data[0].graphs,"graph_name");
+	return _.pluck(data[0].graphs,'graph_name');
 }
 
 function getTitleDateString(timeStamp){
@@ -88,33 +88,33 @@ function getTitleDateString(timeStamp){
 }
 
 function drawNotes(data){
-	d3.select(".sidebar table")
-		.append("tr")
-		.attr('class', "graphTitle noteTitle")
-		.append("td")
-		.append("div")
-		.text("Notes");
+	d3.select('.sidebar table')
+		.append('tr')
+		.attr('class', 'graphTitle noteTitle')
+		.append('td')
+		.append('div')
+		.text('Notes');
 
-	d3.select(".globalContainer table")
-		.append("tr")
+	d3.select('.globalContainer table')
+		.append('tr')
 		.attr('class', 'note-row')		
-		.selectAll("td")
+		.selectAll('td')
 		.data(data)
 		.enter()
-		.append("td")
-		.append("div")
-		.attr('class', "note");
+		.append('td')
+		.append('div')
+		.attr('class', 'note');
 
 }
 
 function drawDateRange(titleData){
-	var titleRow = d3.select(".globalContainer table")
-		.append("tr");
+	var titleRow = d3.select('.globalContainer table')
+		.append('tr');
 
-	var columns = titleRow.selectAll("td")
+	var columns = titleRow.selectAll('td')
 		.data(titleData)
 		.enter()
-		.append("td");
+		.append('td');
 
 	var titleContainer = columns.append('div')
 		.attr('class', 'titleContainer')
@@ -122,7 +122,7 @@ function drawDateRange(titleData){
 	titleContainer.append('h2')
 		.text(function(d) { 
 			return  getTitleDateString(d.start)
-			+ " - " 
+			+ ' - ' 
 			+ getTitleDateString(d.end);
 		})
 
@@ -135,27 +135,27 @@ function drawDateRange(titleData){
 	tabContainer.selectAll('.tab')
 		.data(TAB_NAMES)
 		.enter()
-		.append("div")
+		.append('div')
 		.attr('class', 'tab')
 		.text(function(d){return d;})
 
-	tabContainer.select(".tab")
-		.classed("active",true);
+	tabContainer.select('.tab')
+		.classed('active',true);
 }
 
 function drawGraphs(graphData){
-	var table = d3.select(".globalContainer table")
+	var table = d3.select('.globalContainer table')
 
-	var rows = table.selectAll(".graph-row")
+	var rows = table.selectAll('.graph-row')
 		.data(graphData)
 		.enter()
-		.append("tr")
-		.attr("class","graph-row")
+		.append('tr')
+		.attr('class','graph-row')
 
-	var graphs = rows.selectAll("td")
+	var graphs = rows.selectAll('td')
 		.data(function(d){return d})
 		.enter()
-		.append("td")
+		.append('td')
 		.append('div')
 		.attr('class', 'graph')
 
@@ -173,15 +173,15 @@ function drawGraphs(graphData){
 }
 
 function drawGraphTitle(titleData){
-	var table = d3.select(".sidebar table");
+	var table = d3.select('.sidebar table');
 
-	table.selectAll(".graphTitle")
+	table.selectAll('.graphTitle')
 		.data(titleData)
 		.enter()
-		.append("tr")
+		.append('tr')
 		.attr('class', 'graphTitle')
-		.append("td")
-		.append("div")
+		.append('td')
+		.append('div')
 		.text(function(d){return d});
 }
 
