@@ -49,14 +49,18 @@ var line = d3.svg.line()
 d3.json("data/test.json", function(json){
 	
 	clearAll();
-	drawTitles(getDateRanges(json));
+	drawDateRange(getDateRanges(json));
 	drawGraphs(getGraphData(json));
+	drawGraphTitle(getTitleData(json));
+	
 	// draw(json)
 })
 
 
 function clearAll(){
 	d3.selectAll(".globalContainer table *")
+		.remove();
+	d3.selectAll(".sidebar .graphTitle")
 		.remove();
 }
 
@@ -75,19 +79,22 @@ function getGraphData(data){
 	return newData;
 }
 
+function getTitleData(data){
+	return _.pluck(data[0].graphs,"graph_name");
+}
+
 function getTitleDateString(timeStamp){
 	return titleDateFormat(new Date(timeStamp * 1000));
 }
 
-function drawTitles(titleData){
+function drawDateRange(titleData){
 	var titleRow = d3.select(".globalContainer table")
 		.append("tr");
 
 	var columns = titleRow.selectAll("td")
 		.data(titleData)
 		.enter()
-		.append("td")
-		.attr('class',"column");
+		.append("td");
 
 	var titleContainer = columns.append('div')
 		.attr('class', 'titleContainer')
@@ -143,6 +150,19 @@ function drawGraphs(graphData){
 		.attr('class', 'legend')
 		.each(drawLegends)
 
+}
+
+function drawGraphTitle(titleData){
+	var table = d3.select(".sidebar table");
+
+	table.selectAll(".graphTitle")
+		.data(titleData)
+		.enter()
+		.append("tr")
+		.attr('class', 'graphTitle')
+		.append("td")
+		.append("div")
+		.text(function(d){return d});
 }
 
 

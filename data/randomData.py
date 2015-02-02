@@ -9,13 +9,13 @@ def getTimeStamp(date):
 	# return str(date)
 
 all_data=[];
-for i in range(0,4):
+for i in range(0,5):
 	start_date = datetime.now()+timedelta(days=i)
 	end_date = start_date+timedelta(days=7);
 
 	day = {'date_range':{'start':getTimeStamp(start_date), 'end': getTimeStamp(start_date+timedelta(days=7))}}
 	day['graphs']=[];
-	for j in range(0,5	):
+	for j in range(0,5):
 		graph = {'graph_name':'graph'+str(j)}
 		graph['series'] = []
 		for k in range(0,5):

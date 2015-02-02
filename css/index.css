@@ -3,6 +3,9 @@
   padding: 0;
   border: 0; }
 
+table {
+  border-collapse: collapse; }
+
 html,
 body {
   width: 100%;
@@ -12,42 +15,46 @@ body {
   font-family: 'Avenir Next',sans-serif;
   background: #ededed; }
 
-/* body,
-.graph,
-.globalContainer,
-.titleContainer,
-.graphContainer,
-.column{
-	background: rgba(0,0,0,0.2);
-} */
 .globalContainer {
   width: 100%;
   height: auto;
   overflow: scroll; }
   .globalContainer table {
     height: 100%;
-    margin-left: 200px; }
+    margin-left: 150px; }
 
 .sidebar {
   position: absolute;
   top: 0;
   left: 0;
-  z-index: 2; }
+  z-index: 2;
+  box-shadow: -10px 0px 60px 1px rgba(0, 0, 0, 0.5); }
   .sidebar td {
-    width: 200px;
+    width: 150px;
     vertical-align: middle; }
   .sidebar .menuButton {
     height: 152px;
     background: #333644;
-    padding-bottom: 10px; }
+    color: #f2f2f2;
+    text-align: center; }
     .sidebar .menuButton div {
-      margin-bottom: 10px;
-      color: white; }
+      background: url("../resources/menu-icon.png");
+      background-size: cover;
+      width: 30px;
+      height: 30px;
+      margin: 0 auto;
+      opacity: 0.6;
+      cursor: pointer;
+      -webkit-transition: opacity 0.5s; }
+      .sidebar .menuButton div:hover {
+        opacity: 1; }
   .sidebar .graphTitle {
     height: 240px;
-    background: steelblue; }
+    color: #808080;
+    text-transform: uppercase; }
+    .sidebar .graphTitle td {
+      background: #ededed; }
     .sidebar .graphTitle div {
-      margin-top: 20px;
       text-align: center; }
 
 .titleContainer {
@@ -83,6 +90,9 @@ body {
   height: 240px; }
   .globalContainer table tr:first-of-type {
     height: auto; }
+
+.graph-row td {
+  border-right: 1px solid #c4c4c4; }
 
 .graph {
   position: relative;
@@ -132,6 +142,7 @@ body {
     list-style: none;
     background: #333644;
     color: #f2f2f2;
+    border-collapse: separate;
     /* 		-webkit-transition: opacity 0.5s; */ }
     .graph .legend .item {
       display: table;

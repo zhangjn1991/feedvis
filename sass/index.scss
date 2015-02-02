@@ -2,17 +2,18 @@ $svg-width:300px;
 $svg-height:200px;
 $header-height:152px;
 $row-height:240px;
-$sidebar-width:200px;
+$sidebar-width:150px;
 
 $legend-color-size:15px;
 $primary-color:#333644;
 $primary-color-dark:#1e202b;
 $primary-color-highlight:$primary-color-dark;
 $text-color:#f2f2f2;
-$text-color-fade:#808080;
+$text-color-dark:#808080;
 $background-color:#ededed;
 $background-color-graph:#f7f7f7;
 $axis-color:darken($background-color-graph,20%);
+$column-border-color:$axis-color;
 $axis-text-color:darken($axis-color,20%);
 
 
@@ -20,6 +21,10 @@ $axis-text-color:darken($axis-color,20%);
 	margin: 0;
 	padding: 0;
 	border: 0;
+}
+
+table{
+	border-collapse:collapse;
 }
 
 html,
@@ -34,14 +39,6 @@ body{
 }
 
 
-/* body,
-.graph,
-.globalContainer,
-.titleContainer,
-.graphContainer,
-.column{
-	background: rgba(0,0,0,0.2);
-} */
 
 .globalContainer{	
 	width: 100%;
@@ -61,7 +58,10 @@ body{
 	top:0;
 	left:0;
 	z-index:2;	
-		
+	
+	
+	box-shadow:-10px 0px 60px 1px rgba(0,0,0,0.5);
+
 
 	td{						
 		width:$sidebar-width;
@@ -71,19 +71,37 @@ body{
 	.menuButton{
 		height:$header-height;
 		background:$primary-color;
-		padding-bottom:10px;
-			div{
+		color:$text-color;
+		text-align:center;		
 
-			
-			margin-bottom:10px;
-			color:white;
+		div{
+			background:url("../resources/menu-icon.png");
+			background-size:cover;
+
+			width:30px;
+			height:30px;
+
+			margin: 0 auto;
+
+			opacity:0.6;
+			cursor:pointer;
+
+			-webkit-transition:opacity 0.5s;
+
+			&:hover{
+				opacity:1;
+			}
 		}
+			
 	}
 	.graphTitle{			
 		height:$row-height;
-		background:steelblue;
-		div{
-			margin-top:20px;
+		color:$text-color-dark;
+		text-transform:uppercase;
+		td{
+			background:$background-color;	
+		}
+		div{			
 			text-align:center;
 		}
 	}
@@ -159,6 +177,11 @@ body{
 	}
 
 }
+
+.graph-row td{
+	border-right:1px solid $column-border-color;
+}
+
 .graph{	
 	position:relative;
 	z-index:0;
@@ -251,6 +274,8 @@ body{
 
 		background:$primary-color;
 		color:$text-color;
+
+		border-collapse:separate;
 
 /* 		-webkit-transition: opacity 0.5s; */
 
