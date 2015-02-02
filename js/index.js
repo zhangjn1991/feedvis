@@ -49,40 +49,54 @@ var line = d3.svg.line()
 d3.json("data/test.json", function(json){
 	
 	clearAll();
-	draw(json)
+	drawTitles(getDateRanges(json));
+	drawGraphs(getGraphData(json));
+	// draw(json)
 })
 
 
 function clearAll(){
-	d3.selectAll(".globalContainer *")
+	d3.selectAll(".globalContainer table *")
 		.remove();
+}
+
+function getDateRanges(data){
+	return _.pluck(data,"date_range");
+}
+
+function getGraphData(data){
+	var newData = [];
+	for(var i = 0; i < data[0].graphs.length; i ++){
+		var row = [];
+		for(var j = 0;j < data.length; j ++)
+			row.push(data[j].graphs[i]);
+		newData.push(row);
+	}
+	return newData;
 }
 
 function getTitleDateString(timeStamp){
 	return titleDateFormat(new Date(timeStamp * 1000));
 }
 
+function drawTitles(titleData){
+	var titleRow = d3.select(".globalContainer table")
+		.append("tr");
 
-function draw(data){
-	var globalContainer = d3.select(".globalContainer");
-
-
-	var table = globalContainer.append('table').append('tr');
-
-	var columns = table.selectAll(".column")
-		.data(data)
+	var columns = titleRow.selectAll("td")
+		.data(titleData)
 		.enter()
-		.append('td')		
-		.attr('class', 'column')
+		.append("td")
+		.attr('class',"column");
 
 	var titleContainer = columns.append('div')
 		.attr('class', 'titleContainer')
 
 	titleContainer.append('h2')
 		.text(function(d) { 
-			return  getTitleDateString(d.date_range.start)
+			return  getTitleDateString(d.start)
 			+ " - " 
-			+ getTitleDateString(d.date_range.end);
+			+ getTitleDateString(d.end);
 		})
 
 	titleContainer.append('h3')
@@ -97,17 +111,25 @@ function draw(data){
 		.append("div")
 		.attr('class', 'tab')
 		.text(function(d){return d;})
+
 	tabContainer.select(".tab")
 		.classed("active",true);
+}
 
+function drawGraphs(graphData){
+	var table = d3.select(".globalContainer table")
 
-	var graphContainer = columns.append('div')
-		.attr('class', 'graphContainer')
-
-	var graphs = graphContainer.selectAll('.graph')
-		.data(function(d) { return d.graphs; })
+	var rows = table.selectAll(".graph-row")
+		.data(graphData)
 		.enter()
-		.append('div')		
+		.append("tr")
+		.attr("class","graph-row")
+
+	var graphs = rows.selectAll("td")
+		.data(function(d){return d})
+		.enter()
+		.append("td")
+		.append('div')
 		.attr('class', 'graph')
 
 	graphs
@@ -123,10 +145,6 @@ function draw(data){
 
 }
 
-function drawGraph(graphData){
-	drawLineChart(graphData);
-	// drawLegends(graphData);
-}
 
 function drawLineChart(graphData){	
 	var svg = d3.select(this)	  

@@ -22,10 +22,33 @@ body {
 } */
 .globalContainer {
   width: 100%;
-  height: 100%; }
+  height: auto;
+  overflow: scroll; }
+  .globalContainer table {
+    height: 100%;
+    margin-left: 200px; }
 
-table {
-  height: 100%; }
+.sidebar {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 2; }
+  .sidebar td {
+    width: 200px;
+    vertical-align: middle; }
+  .sidebar .menuButton {
+    height: 152px;
+    background: #333644;
+    padding-bottom: 10px; }
+    .sidebar .menuButton div {
+      margin-bottom: 10px;
+      color: white; }
+  .sidebar .graphTitle {
+    height: 240px;
+    background: steelblue; }
+    .sidebar .graphTitle div {
+      margin-top: 20px;
+      text-align: center; }
 
 .titleContainer {
   flex: none;
@@ -56,20 +79,23 @@ table {
     .tabContainer .tab.active, .tabContainer .tab:hover {
       background: #1e202b; }
 
-.graphContainer {
-  padding: 0.5em;
-  border-right: 1px solid lightgray; }
+.globalContainer table tr {
+  height: 240px; }
+  .globalContainer table tr:first-of-type {
+    height: auto; }
 
 .graph {
-  flex: none;
   position: relative;
-  margin: 1em 0.5em;
+  z-index: 0;
+  margin: 0 1em;
   background: #f7f7f7;
   box-shadow: 0 3px 3px 0px rgba(0, 0, 0, 0.2); }
-  .graph:hover .legend {
-    opacity: 1; }
-  .graph:hover .x.axis {
-    opacity: 1; }
+  .graph:hover {
+    z-index: 1; }
+    .graph:hover .legend {
+      opacity: 1; }
+    .graph:hover .x.axis {
+      opacity: 1; }
   .graph svg {
     width: 300px;
     height: 200px; }
@@ -106,7 +132,7 @@ table {
     list-style: none;
     background: #333644;
     color: #f2f2f2;
-    -webkit-transition: opacity 0.5s; }
+    /* 		-webkit-transition: opacity 0.5s; */ }
     .graph .legend .item {
       display: table;
       padding: 0.5em 1em;
