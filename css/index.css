@@ -56,13 +56,15 @@ body {
       background: #ededed; }
     .sidebar .graphTitle div {
       text-align: center; }
+    .sidebar .graphTitle.noteTitle td {
+      border-top: 1px solid #c4c4c4;
+      background: #f7f7f7; }
 
 .titleContainer {
   flex: none;
   padding: 2em 1em 0.5em 1em;
   background: #333644;
-  color: #f2f2f2;
-  border-right: 1px solid #1e202b; }
+  color: #f2f2f2; }
   .titleContainer h2 {
     text-transform: uppercase;
     text-align: center; }
@@ -90,9 +92,16 @@ body {
   height: 240px; }
   .globalContainer table tr:first-of-type {
     height: auto; }
+    .globalContainer table tr:first-of-type td {
+      border-right: 1px solid #1e202b; }
 
 .graph-row td {
   border-right: 1px solid #c4c4c4; }
+
+.note-row td {
+  border-top: 1px solid #c4c4c4;
+  border-right: 1px solid #c4c4c4;
+  background: #f7f7f7; }
 
 .graph {
   position: relative;

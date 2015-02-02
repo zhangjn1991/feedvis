@@ -12,9 +12,16 @@ $text-color:#f2f2f2;
 $text-color-dark:#808080;
 $background-color:#ededed;
 $background-color-graph:#f7f7f7;
+$background-color-note:$background-color-graph;
+
 $axis-color:darken($background-color-graph,20%);
-$column-border-color:$axis-color;
+$border-color-column:$axis-color;
 $axis-text-color:darken($axis-color,20%);
+
+
+@mixin border-light($direction) {
+	border-#{$direction}:1px solid $border-color-column;
+}
 
 
 *{
@@ -66,6 +73,7 @@ body{
 	td{						
 		width:$sidebar-width;
 		vertical-align:middle;
+			
 	}	
 		
 	.menuButton{
@@ -104,7 +112,14 @@ body{
 		div{			
 			text-align:center;
 		}
+
+		&.noteTitle td{
+			@include border-light(top);
+			background:$background-color-note;
+		}
 	}
+
+
 
 }
 
@@ -118,7 +133,7 @@ body{
 
 	background:$primary-color;
 	color:$text-color;
-	border-right:1px solid $primary-color-dark;
+
 
 	h2{		
 		text-transform:uppercase;
@@ -173,13 +188,23 @@ body{
 		height:$row-height;
 		&:first-of-type{
 			height:auto;
+			td{
+				border-right:1px solid $primary-color-dark;
+			}
 		}
 	}
 
 }
 
-.graph-row td{
-	border-right:1px solid $column-border-color;
+.graph-row td{ 	
+	@include border-light(right);
+}
+
+
+.note-row td{
+	@include border-light(top);
+	@include border-light(right);
+	background:$background-color-note;
 }
 
 .graph{	
@@ -329,7 +354,6 @@ body{
 	
 
 }
-
 
 $series-list: #69c3dd, 
 #f7ca2e, 

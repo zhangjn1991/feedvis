@@ -52,7 +52,7 @@ d3.json("data/test.json", function(json){
 	drawDateRange(getDateRanges(json));
 	drawGraphs(getGraphData(json));
 	drawGraphTitle(getTitleData(json));
-	
+	drawNotes(json)
 	// draw(json)
 })
 
@@ -85,6 +85,26 @@ function getTitleData(data){
 
 function getTitleDateString(timeStamp){
 	return titleDateFormat(new Date(timeStamp * 1000));
+}
+
+function drawNotes(data){
+	d3.select(".sidebar table")
+		.append("tr")
+		.attr('class', "graphTitle noteTitle")
+		.append("td")
+		.append("div")
+		.text("Notes");
+
+	d3.select(".globalContainer table")
+		.append("tr")
+		.attr('class', 'note-row')		
+		.selectAll("td")
+		.data(data)
+		.enter()
+		.append("td")
+		.append("div")
+		.attr('class', "note");
+
 }
 
 function drawDateRange(titleData){
