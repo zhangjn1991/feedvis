@@ -1,0 +1,17 @@
+*{
+    margin:0;
+    padding:0;
+    border-width:0;
+    
+
+}
+
+table{
+    font-size:5em;
+}
+
+td:first-of-type{
+    position:fixed;
+    background:steelblue;
+}
+

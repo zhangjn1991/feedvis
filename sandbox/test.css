@@ -1,0 +1,89 @@
+*{
+	margin:0;
+	padding:0;
+	border-width:0;
+}
+.line{
+	fill:none;
+	stroke-width:2;
+}
+
+path.line.hidden{ 
+	/*more selector to force override*/
+	stroke:transparent;
+}
+
+svg{
+	background: lightgray;
+
+	width:300px;
+	height:200px;	
+}
+
+.graphContainer{
+	position:relative;
+	
+
+}
+
+.legend{
+	position:absolute;
+	top:0;
+	left:250px;
+	z-index:99;
+	background:steelblue;
+	list-style:none;	
+}
+
+.legend .item{
+	display:table;
+	margin:1em;
+}
+
+.legend .color{
+	display:inline-block;	
+	width:20px;
+	height:20px;
+	margin-right:0.5em;
+
+	border: 1px solid;
+}
+
+.item.hidden .color{
+	background: transparent;
+}
+
+.legend .label{
+	display:table-cell;
+	vertical-align:middle;
+}
+
+.series0 .color,
+.series0.line{
+	border-color: #1f77b4;
+	background: #1f77b4;
+	stroke:#1f77b4;
+}
+
+.series1 .color,
+.series1.line{
+	border-color: #ff7f0e;
+	background: #ff7f0e;
+	stroke:#ff7f0e;
+}
+
+.series2 .color,
+.series2.line{
+	border-color: #2ca02c;
+	background: #2ca02c;
+	stroke:#2ca02c;
+}
+
+.series3 .color,
+.series3.line{
+	border-color: #d62728;
+	background: #d62728;
+	stroke:#d62728;
+}
+
+
