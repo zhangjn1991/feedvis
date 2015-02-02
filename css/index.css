@@ -53,7 +53,7 @@ body {
     color: #808080;
     text-transform: uppercase; }
     .sidebar .graphTitle td {
-      background: #ededed; }
+      background: rgba(237, 237, 237, 0.95); }
     .sidebar .graphTitle div {
       text-align: center; }
     .sidebar .graphTitle.noteTitle td {
@@ -96,7 +96,8 @@ body {
       border-right: 1px solid #1e202b; }
 
 .graph-row td {
-  border-right: 1px solid #c4c4c4; }
+  border-right: 1px solid #c4c4c4;
+  /* 	padding:0 1em; */ }
 
 .note-row td {
   border-top: 1px solid #c4c4c4;
@@ -112,7 +113,8 @@ body {
   .graph:hover {
     z-index: 1; }
     .graph:hover .legend {
-      opacity: 1; }
+      /* 			opacity: 1; */
+      display: block; }
     .graph:hover .x.axis {
       opacity: 1; }
   .graph svg {
@@ -147,7 +149,8 @@ body {
     left: 300px;
     padding: 0.5em 0;
     z-index: 1;
-    opacity: 0;
+    /* 		opacity: 0; */
+    display: none;
     list-style: none;
     background: #333644;
     color: #f2f2f2;
