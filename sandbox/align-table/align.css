@@ -1,0 +1,29 @@
+*{
+	margin:0;
+	padding:0;
+	border:0px;
+}
+
+html,body{
+	height:100%;
+	width:100%;
+}
+
+table{
+	background:lightgray;
+	height:100%;
+}
+
+td{
+/* 	height:100%; */
+}
+
+.stretch{
+	background:steelblue;
+	height:100%;
+}
+
+.static{
+	background:crimson;
+	height:100px;
+}

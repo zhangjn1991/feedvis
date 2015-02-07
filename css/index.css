@@ -20,8 +20,9 @@ body {
     margin-left: 200px;
     margin-top: 110px;
     margin-bottom: 100px;
+    padding-right: 200px;
     border-spacing: 0px;
-    border-collapse: collapse;
+    /* 		border-collapse:collapse; */
     height: 100%; }
     .globalContainer table td {
       background: darkgray;
@@ -88,12 +89,16 @@ body {
   left: 0;
   z-index: 2;
   width: 100%;
-  overflow: scroll; }
+  overflow: scroll;
+  /* 	margin-right:$sidebar-width; */ }
   .h-bar .h-container {
     flex: none;
-    width: 320px; }
+    width: 320px;
+    height: 100%; }
     .h-bar .h-container:first-of-type {
       margin-left: 200px; }
+    .h-bar .h-container:last-of-type {
+      padding-right: 200px; }
 
 .headbar {
   top: 0; }
@@ -102,10 +107,13 @@ body {
 
 .noteBar {
   bottom: 0;
-  height: 100px;
-  background: steelblue; }
+  height: 100px; }
   .noteBar .noteContainer {
     border-left: 1px solid red; }
+    .noteBar .noteContainer div {
+      background: steelblue;
+      width: 100%;
+      height: 100%; }
 
 .titleContainer {
   display: table;
@@ -152,7 +160,7 @@ body {
 .graphContainer, .feedContainer {
   padding: 20px 0em;
   width: 320px;
-  border-left: 1px solid lightgray; }
+  border-left: 1px solid red; }
 
 .graph {
   flex: none;

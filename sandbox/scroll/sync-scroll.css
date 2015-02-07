@@ -1,0 +1,73 @@
+
+html,body{
+    width:100%;
+    height:100%;
+}
+
+div{
+
+    font-size:2em;
+}
+
+
+.left{
+    position:absolute;
+    top:0;
+    left:0;
+    background:rgba(0,0,0,0.2);
+    
+    width:20%;
+    height:100%;
+    overflow:scroll;    
+}
+
+.top{
+    position:absolute;
+    top:0;
+    left:0%;
+    background:rgba(0,0,0,0.2);
+    
+    width:100%;
+    height:20%;
+    overflow:scroll;
+}
+
+.content{
+    width:100%;
+    height:100%;
+
+    background:lightgray;
+    overflow:scroll;
+}
+
+.content div{
+    height:2000px;
+    width:2000px;
+    margin-top:400px;
+    margin-left:400px;
+
+    background:darkgray;
+
+    overflow:scroll;
+}
+
+.top table{
+    width:2000px;
+    margin-left:400px;    
+}
+
+
+.left table{
+    height:2000px;
+    margin-top:400px;
+}
+
+.top tr{
+    height:100px;
+}
+
+td{
+    width:600px;
+    background:steelblue;
+
+}

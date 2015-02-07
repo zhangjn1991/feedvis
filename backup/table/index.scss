@@ -1,0 +1,396 @@
+$svg-width:300px;
+$svg-height:200px;
+$header-height:152px;
+$row-height:240px;
+$sidebar-width:150px;
+
+$legend-color-size:15px;
+$primary-color:#333644;
+$primary-color-dark:#1e202b;
+$primary-color-highlight:$primary-color-dark;
+$text-color:#f2f2f2;
+$text-color-dark:#808080;
+$background-color:#ededed;
+$background-color-graph:#f7f7f7;
+$background-color-note:$background-color-graph;
+
+$axis-color:darken($background-color-graph,20%);
+$border-color-column:$axis-color;
+$axis-text-color:darken($axis-color,20%);
+
+
+@mixin border-light($direction) {
+	border-#{$direction}:1px solid $border-color-column;
+}
+
+
+*{
+	margin: 0;
+	padding: 0;
+	border: 0;
+}
+
+table{
+	border-collapse:collapse;
+}
+
+html,
+body{
+	width: 100%;
+	height: 100%;
+}
+
+body{
+	font-family:'Avenir Next',sans-serif;
+	background:$background-color;
+}
+
+
+
+.globalContainer{	
+	width: 100%;
+	height: auto;
+	overflow:scroll;
+
+	table{	
+		height: 100%;
+		margin-left:$sidebar-width;
+	}
+
+}
+
+
+.sidebar{
+	position:absolute;
+	top:0;
+	left:0;
+	z-index:2;	
+	
+	
+	box-shadow:-10px 0px 60px 1px rgba(0,0,0,0.5);
+
+
+	td{						
+		width:$sidebar-width;
+		vertical-align:middle;
+			
+	}	
+		
+	.menuButton{
+		height:$header-height;
+		background:$primary-color;
+		color:$text-color;
+		text-align:center;		
+
+		div{
+			background:url("../resources/menu-icon.png");
+			background-size:cover;
+
+			width:30px;
+			height:30px;
+
+			margin: 0 auto;
+
+			opacity:0.6;
+			cursor:pointer;
+
+			-webkit-transition:opacity 0.5s;
+
+			&:hover{
+				opacity:1;
+			}
+		}
+			
+	}
+	.graphTitle{			
+		height:$row-height;
+		color:$text-color-dark;
+		text-transform:uppercase;
+		td{
+			background:rgba($background-color,0.95);	
+		}
+		div{			
+			text-align:center;
+		}
+
+		&.noteTitle td{
+			@include border-light(top);
+			background:$background-color-note;
+		}
+	}
+
+
+
+}
+
+
+
+
+.titleContainer{
+	flex: none;
+
+	padding: 2em 1em 0.5em 1em;
+
+	background:$primary-color;
+	color:$text-color;
+
+
+	h2{		
+		text-transform:uppercase;
+		text-align:center;
+
+	}
+
+	h3{
+		text-transform:capitalize;
+
+		font-weight:200;
+
+		text-align:center;
+	}
+
+	
+}
+
+.tabContainer{
+
+	color:$text-color;
+	text-align:center;	
+	.tab{
+		display:inline-block;		
+		width:50%;		
+		padding:1em 0;		
+
+		background:$primary-color;
+
+		text-transform:uppercase;		
+
+		cursor:pointer;
+
+		&:first-of-type{
+			float:left;
+		}		
+
+		&.active, &:hover{
+			background:$primary-color-highlight;
+		}
+
+
+		
+	}
+
+	
+	
+}
+
+.globalContainer table{
+	tr{
+		height:$row-height;
+		
+		&:first-of-type{
+			height:auto;
+			td{
+				border-right:1px solid $primary-color-dark;
+			}
+		}
+	}
+
+}
+
+.feedContainer{
+	height:1450px;
+	overflow:scroll;
+}
+
+.feed{
+	width:$svg-width;
+	height:$svg-height;
+	background:$background-color-graph;
+	margin:3em 1em;	
+
+	box-shadow:0 3px 3px 0px rgba(0,0,0,0.2);
+
+}
+
+
+.graph-row td{ 	
+	@include border-light(right);
+/* 	padding:0 1em; */
+}
+
+
+.note-row td{
+	@include border-light(top);
+	@include border-light(right);
+	background:$background-color-note;
+}
+
+.graph{	
+	position:relative;
+	z-index:0;
+	margin:0 1em;
+
+	background:$background-color-graph;
+
+	box-shadow:0 3px 3px 0px rgba(0,0,0,0.2);
+		
+
+	&:hover{
+		z-index:1;
+		.legend{
+/* 			opacity: 1; */
+			display:block;
+		}
+
+		.x.axis{
+			opacity:1;
+		}
+	}
+
+	svg{
+		width: $svg-width;
+		height: $svg-height;
+
+		.axis{
+			
+			&.x {
+				opacity:0;
+
+				-webkit-transition:opacity 0.5s;
+
+				text{
+					font-size:10pt;
+				}
+
+				path{
+					stroke: transparent;
+				}
+			}
+
+			&.y{
+				line{
+					stroke-dasharray: 3,3;
+				}
+			}
+			
+			text{
+				fill:$axis-text-color;
+			}
+
+			.tick line{
+				stroke: $axis-color;
+			}
+		}
+
+		.line{
+			opacity: 1;
+
+			stroke-width: 2;
+			fill: none;
+
+			-webkit-transition: opacity 0.5s;
+		}
+
+		path.line.hidden{
+			/*more selector to force override*/
+			opacity: 0;
+		}
+	}
+
+	path{
+		fill: none;
+	}
+	
+
+
+	.legend{
+		position: absolute;
+		top: 0;
+		left: $svg-width;
+
+		padding: 0.5em 0;		
+
+		z-index:1;
+
+/* 		opacity: 0; */
+		display:none;
+
+		list-style: none;
+
+		background:$primary-color;
+		color:$text-color;
+
+		border-collapse:separate;
+
+/* 		-webkit-transition: opacity 0.5s; */
+
+		.item{
+			display: table;
+
+			padding: 0.5em 1em;
+
+			text-transform:capitalize;
+
+			cursor: pointer;
+
+			background:transparent;
+
+			-webkit-transition: background 0.5s;
+
+			&:hover{
+				background:$primary-color-highlight;
+			}
+
+			&.hidden .color{
+				background: transparent;
+			}
+
+			.color{
+				display: inline-block;
+
+				width: $legend-color-size;
+				height: $legend-color-size;
+				margin-right: 0.5em;
+
+				border-width:3px;
+				border-style:solid;
+
+				-webkit-transition: background 0.5s;
+			}
+
+			.label{
+				display: table-cell;
+
+				vertical-align: middle;
+			}
+		}
+		
+
+
+
+		
+	}
+
+	
+
+}
+
+$series-list: #69c3dd, 
+#f7ca2e, 
+#fc6c6e, 
+#4cb7ae,
+#7b69dd;
+
+@each $color in $series-list{
+	$i: index($series-list, $color);
+	.series#{$i - 1} {
+		.color, &.line{
+			background: $color;
+			stroke:  $color;
+			border-color:  $color;
+		}
+
+	}
+}
+
+

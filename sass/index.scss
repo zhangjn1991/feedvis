@@ -55,8 +55,9 @@ body{
 		margin-left:$sidebar-width;
 		margin-top:$header-height;
 		margin-bottom:$note-bar-height;
-			border-spacing:0px;
-		border-collapse:collapse;
+		padding-right:$sidebar-width;
+		border-spacing:0px;
+/* 		border-collapse:collapse; */
 		height:100%;
 
 		td{
@@ -158,11 +159,16 @@ body{
 	z-index:$z-side;
 	width:100%;
 	overflow:scroll;
+/* 	margin-right:$sidebar-width; */
 	.h-container{
 		flex:none;
-		width:$column-width;		
+		width:$column-width;	
+		height:100%;	
 		&:first-of-type{
 			margin-left:$sidebar-width;
+		}
+		&:last-of-type{
+			padding-right:$sidebar-width;
 		}
 	}
 }
@@ -177,9 +183,15 @@ body{
 .noteBar{
 	bottom:0;
 	height:$note-bar-height;
-	background:steelblue;
+	
 	.noteContainer{
-		border-left:1px solid red;
+		border-left:1px solid red;				
+
+		div{
+			background:steelblue;
+			width:100%;
+			height:100%;
+		}
 	}
 }
 
@@ -265,7 +277,7 @@ body{
 .graphContainer, .feedContainer{
 	padding: 20px 0em;
 	width:$column-width;
-	border-left:1px solid darken($background-color, 10%);
+	border-left:1px solid red; //darken($background-color, 10%);
 	
 }
 

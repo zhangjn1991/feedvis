@@ -1,0 +1,49 @@
+html,body{
+	width:100%;
+	height:100%;
+}
+
+.global{
+	background: darkgray;
+	width:100%;
+	height:100%;
+}
+
+.left{
+	position:absolute;
+	z-index:1;
+	background:linear-gradient(crimson,steelblue);
+	width:200px;
+	height:1500px;
+
+
+}
+.contentContainer{
+	position:absolute;
+	z-index:0;
+	width:100%;
+	height:auto;
+
+	overflow:scroll;
+}
+
+
+
+.insideContainer{
+	position:relative;
+}
+
+.bottom{
+	position:absolute;
+	width:2000px;
+	height:150px;
+	background:linear-gradient(to right, crimson, steelblue);
+}
+
+
+.content div{
+	border:1px solid gray;
+	width:200px;
+	height:300px;
+
+}
