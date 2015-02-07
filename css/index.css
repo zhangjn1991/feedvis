@@ -3,9 +3,6 @@
   padding: 0;
   border: 0; }
 
-table {
-  border-collapse: collapse; }
-
 html,
 body {
   width: 100%;
@@ -17,54 +14,108 @@ body {
 
 .globalContainer {
   width: 100%;
-  height: auto;
+  height: 100%;
   overflow: scroll; }
   .globalContainer table {
-    height: 100%;
-    margin-left: 150px; }
+    margin-left: 200px;
+    margin-top: 110px;
+    margin-bottom: 100px;
+    border-spacing: 0px;
+    border-collapse: collapse;
+    height: 100%; }
+    .globalContainer table td {
+      background: darkgray;
+      vertical-align: top; }
+
+.corner {
+  display: table;
+  position: absolute;
+  left: 0;
+  z-index: 3;
+  width: 200px; }
+  .corner > div {
+    display: table-cell;
+    vertical-align: middle;
+    text-align: center; }
+
+.menuButton {
+  top: 0;
+  height: 110px;
+  background: #1e202b;
+  color: #f2f2f2; }
+
+.noteLabel {
+  bottom: 0;
+  background: gray;
+  height: 100px; }
+
+.test {
+  width: 100px;
+  height: 100px;
+  position: absolute;
+  z-index: 1;
+  right: -100px;
+  top: 0;
+  background: steelblue; }
 
 .sidebar {
   position: absolute;
   top: 0;
   left: 0;
   z-index: 2;
-  box-shadow: -10px 0px 60px 1px rgba(0, 0, 0, 0.5); }
-  .sidebar td {
-    width: 150px;
-    vertical-align: middle; }
-  .sidebar .menuButton {
-    height: 152px;
-    background: #333644;
-    color: #f2f2f2;
-    text-align: center; }
-    .sidebar .menuButton div {
-      background: url("../resources/menu-icon.png");
-      background-size: cover;
-      width: 30px;
-      height: 30px;
-      margin: 0 auto;
-      opacity: 0.6;
-      cursor: pointer;
-      -webkit-transition: opacity 0.5s; }
-      .sidebar .menuButton div:hover {
-        opacity: 1; }
+  height: 100%;
+  overflow: scroll; }
   .sidebar .graphTitle {
-    height: 240px;
-    color: #808080;
-    text-transform: uppercase; }
-    .sidebar .graphTitle td {
-      background: rgba(237, 237, 237, 0.95); }
+    width: 200px;
+    display: table;
+    padding-top: 20px;
+    height: 200px;
+    background: darkgray; }
     .sidebar .graphTitle div {
-      text-align: center; }
-    .sidebar .graphTitle.noteTitle td {
-      border-top: 1px solid #c4c4c4;
-      background: #f7f7f7; }
+      display: table-cell;
+      vertical-align: middle;
+      text-align: center;
+      border: 1px solid; }
+    .sidebar .graphTitle:first-of-type {
+      margin-top: 110px; }
+    .sidebar .graphTitle:last-of-type {
+      padding-bottom: 20px;
+      margin-bottom: 100px; }
+
+.h-bar {
+  display: flex;
+  position: absolute;
+  left: 0;
+  z-index: 2;
+  width: 100%;
+  overflow: scroll; }
+  .h-bar .h-container {
+    flex: none;
+    width: 320px; }
+    .h-bar .h-container:first-of-type {
+      margin-left: 200px; }
+
+.headbar {
+  top: 0; }
+  .headbar .headerContainer {
+    border-left: 1px solid red; }
+
+.noteBar {
+  bottom: 0;
+  height: 100px;
+  background: steelblue; }
+  .noteBar .noteContainer {
+    border-left: 1px solid red; }
 
 .titleContainer {
-  flex: none;
-  padding: 2em 1em 0.5em 1em;
+  display: table;
+  width: 100%;
+  height: 70px;
   background: #333644;
   color: #f2f2f2; }
+  .titleContainer > div {
+    display: table-cell;
+    vertical-align: bottom; }
   .titleContainer h2 {
     text-transform: uppercase;
     text-align: center; }
@@ -74,49 +125,52 @@ body {
     text-align: center; }
 
 .tabContainer {
+  display: table;
+  width: 100%;
   color: #f2f2f2;
-  text-align: center; }
+  text-align: center;
+  height: 40px; }
   .tabContainer .tab {
-    display: inline-block;
+    display: table-cell;
     width: 50%;
-    padding: 1em 0;
+    height: 100%;
+    vertical-align: middle;
+    /* 		padding:1em 0;		 */
     background: #333644;
     text-transform: uppercase;
-    cursor: pointer; }
-    .tabContainer .tab:first-of-type {
-      float: left; }
+    cursor: pointer;
+    /* 		&:first-of-type{
+    			float:left;
+    		}		 */ }
     .tabContainer .tab.active, .tabContainer .tab:hover {
       background: #1e202b; }
 
-.globalContainer table tr {
-  height: 240px; }
-  .globalContainer table tr:first-of-type {
-    height: auto; }
-    .globalContainer table tr:first-of-type td {
-      border-right: 1px solid #1e202b; }
+.feedContainer {
+  background: crimson;
+  height: 100%; }
 
-.graph-row td {
-  border-right: 1px solid #c4c4c4;
-  /* 	padding:0 1em; */ }
-
-.note-row td {
-  border-top: 1px solid #c4c4c4;
-  border-right: 1px solid #c4c4c4;
-  background: #f7f7f7; }
+.graphContainer, .feedContainer {
+  padding: 20px 0em;
+  width: 320px;
+  border-left: 1px solid lightgray; }
 
 .graph {
+  flex: none;
   position: relative;
-  z-index: 0;
-  margin: 0 1em;
+  height: 200px;
+  margin: 20px 10px;
   background: #f7f7f7;
-  box-shadow: 0 3px 3px 0px rgba(0, 0, 0, 0.2); }
-  .graph:hover {
-    z-index: 1; }
-    .graph:hover .legend {
-      /* 			opacity: 1; */
-      display: block; }
-    .graph:hover .x.axis {
-      opacity: 1; }
+  box-shadow: 0 3px 3px 0px rgba(0, 0, 0, 0.2);
+  border-spacing: 0px;
+  border-collapse: collapse; }
+  .graph:first-of-type {
+    margin-top: 0px; }
+  .graph:last-of-type {
+    margin-bottom: 0px; }
+  .graph:hover .legend {
+    opacity: 1; }
+  .graph:hover .x.axis {
+    opacity: 1; }
   .graph svg {
     width: 300px;
     height: 200px; }
@@ -149,13 +203,11 @@ body {
     left: 300px;
     padding: 0.5em 0;
     z-index: 1;
-    /* 		opacity: 0; */
-    display: none;
+    opacity: 0;
     list-style: none;
     background: #333644;
     color: #f2f2f2;
-    border-collapse: separate;
-    /* 		-webkit-transition: opacity 0.5s; */ }
+    -webkit-transition: opacity 0.5s; }
     .graph .legend .item {
       display: table;
       padding: 0.5em 1em;

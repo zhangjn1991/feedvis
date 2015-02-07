@@ -25,6 +25,10 @@ for i in range(0,5):
 				serie['data'].append({'value':random.randint(1,10), 'date':getTimeStamp(start_date+timedelta(days=l))})
 			graph['series'].append(serie)
 		day['graphs'].append(graph)
+	day['feeds']=[];
+	for j in range(0,7):
+		feed = {'time':getTimeStamp(start_date+timedelta(hours=j)), 'author':'author'+str(j), 'content':'content'+str(j), 'icon':'resources/user-icon.png'}
+		day['feeds'].append(feed)
 	all_data.append(day)
 f=open('test.json','w')
 json.dump(all_data, f)

@@ -1,37 +1,36 @@
 $svg-width:300px;
 $svg-height:200px;
-$header-height:152px;
-$row-height:240px;
-$sidebar-width:150px;
-
+$title-height:70px;
+$tab-height:40px;
+$header-height:$tab-height+$title-height;
+$note-bar-height:100px;
+$graph-height:300px;
+$sidebar-width:200px;
 $legend-color-size:15px;
+
+$z-legend:1;
+$z-side:2;
+$z-corner:3;
+
+$graph-margin-h:10px;
+$column-width:$svg-width+2*$graph-margin-h;
+
+
 $primary-color:#333644;
 $primary-color-dark:#1e202b;
 $primary-color-highlight:$primary-color-dark;
 $text-color:#f2f2f2;
-$text-color-dark:#808080;
+$text-color-fade:#808080;
 $background-color:#ededed;
 $background-color-graph:#f7f7f7;
-$background-color-note:$background-color-graph;
-
 $axis-color:darken($background-color-graph,20%);
-$border-color-column:$axis-color;
 $axis-text-color:darken($axis-color,20%);
-
-
-@mixin border-light($direction) {
-	border-#{$direction}:1px solid $border-color-column;
-}
 
 
 *{
 	margin: 0;
 	padding: 0;
 	border: 0;
-}
-
-table{
-	border-collapse:collapse;
 }
 
 html,
@@ -46,17 +45,71 @@ body{
 }
 
 
-
 .globalContainer{	
 	width: 100%;
-	height: auto;
+	height: 100%;
 	overflow:scroll;
 
 	table{	
-		height: 100%;
+		
 		margin-left:$sidebar-width;
+		margin-top:$header-height;
+		margin-bottom:$note-bar-height;
+			border-spacing:0px;
+		border-collapse:collapse;
+		height:100%;
+
+		td{
+			background:darkgray;
+			vertical-align:top;
+		}
+
 	}
 
+}
+
+.corner{
+	display:table;
+
+	position:absolute;
+	left:0;
+	
+	z-index:$z-corner;
+	
+	width:$sidebar-width;
+	
+	
+	
+
+	& > div{
+		display:table-cell;
+		vertical-align:middle;
+		text-align:center;
+	}
+
+}
+
+.menuButton{
+	top:0;
+	height:$header-height;
+	background:$primary-color-dark;
+	color:$text-color;
+}
+
+.noteLabel{
+	bottom:0;
+	background:gray;
+	height:$note-bar-height;
+}
+
+.test{
+	width:100px;
+	height:100px;
+	position:absolute;
+	z-index:$z-legend;
+	right:-100px;
+	top:0;
+	background:steelblue;
 }
 
 
@@ -64,76 +117,87 @@ body{
 	position:absolute;
 	top:0;
 	left:0;
-	z-index:2;	
-	
-	
-	box-shadow:-10px 0px 60px 1px rgba(0,0,0,0.5);
+	z-index:$z-side;	
 
+	height:100%;
+	overflow:scroll;
+	
 
-	td{						
+	
+	.graphTitle{
 		width:$sidebar-width;
-		vertical-align:middle;
-			
-	}	
-		
-	.menuButton{
-		height:$header-height;
-		background:$primary-color;
-		color:$text-color;
-		text-align:center;		
-
+		display:table;
+		padding-top:20px;
+		height: $svg-height;
+		background:darkgray;
 		div{
-			background:url("../resources/menu-icon.png");
-			background-size:cover;
-
-			width:30px;
-			height:30px;
-
-			margin: 0 auto;
-
-			opacity:0.6;
-			cursor:pointer;
-
-			-webkit-transition:opacity 0.5s;
-
-			&:hover{
-				opacity:1;
-			}
-		}
-			
-	}
-	.graphTitle{			
-		height:$row-height;
-		color:$text-color-dark;
-		text-transform:uppercase;
-		td{
-			background:rgba($background-color,0.95);	
-		}
-		div{			
+			display:table-cell;
+			vertical-align:middle;
 			text-align:center;
+			border:1px solid;
 		}
 
-		&.noteTitle td{
-			@include border-light(top);
-			background:$background-color-note;
+		&:first-of-type{
+			margin-top:$header-height;
+		}
+
+		&:last-of-type{
+			padding-bottom:20px;
+			margin-bottom:$note-bar-height;
 		}
 	}
+		
+}
 
 
 
+.h-bar{
+	display:flex;
+	position:absolute;
+	left:0;	
+	z-index:$z-side;
+	width:100%;
+	overflow:scroll;
+	.h-container{
+		flex:none;
+		width:$column-width;		
+		&:first-of-type{
+			margin-left:$sidebar-width;
+		}
+	}
+}
+
+.headbar{
+	top:0;
+	.headerContainer{
+		border-left:1px solid red;
+	}
+}
+
+.noteBar{
+	bottom:0;
+	height:$note-bar-height;
+	background:steelblue;
+	.noteContainer{
+		border-left:1px solid red;
+	}
 }
 
 
 
 
 .titleContainer{
-	flex: none;
+	display:table;
+	width:100%;
 
-	padding: 2em 1em 0.5em 1em;
+	& > div{
+		display:table-cell;
+		vertical-align:bottom;
+	}	height:$title-height;	
 
 	background:$primary-color;
 	color:$text-color;
-
+	
 
 	h2{		
 		text-transform:uppercase;
@@ -153,13 +217,23 @@ body{
 }
 
 .tabContainer{
+	display:table;	
+	width:100%;
 
 	color:$text-color;
-	text-align:center;	
+	text-align:center;
+	height:$tab-height;
+
+	
+	
+		
 	.tab{
-		display:inline-block;		
-		width:50%;		
-		padding:1em 0;		
+		display:table-cell;		
+		width:50%;	
+		height:100%;
+		vertical-align:middle;
+/* 		padding:1em 0;		 */
+
 
 		background:$primary-color;
 
@@ -167,9 +241,9 @@ body{
 
 		cursor:pointer;
 
-		&:first-of-type{
+/* 		&:first-of-type{
 			float:left;
-		}		
+		}		 */
 
 		&.active, &:hover{
 			background:$primary-color-highlight;
@@ -183,46 +257,49 @@ body{
 	
 }
 
-.globalContainer table{
-	tr{
-		height:$row-height;
-		&:first-of-type{
-			height:auto;
-			td{
-				border-right:1px solid $primary-color-dark;
-			}
-		}
-	}
-
+.feedContainer{
+	background:crimson;
+	height:100%;	
 }
 
-.graph-row td{ 	
-	@include border-light(right);
-/* 	padding:0 1em; */
+.graphContainer, .feedContainer{
+	padding: 20px 0em;
+	width:$column-width;
+	border-left:1px solid darken($background-color, 10%);
+	
 }
 
 
-.note-row td{
-	@include border-light(top);
-	@include border-light(right);
-	background:$background-color-note;
-}
+.graph{
+	flex: none;
 
-.graph{	
-	position:relative;
-	z-index:0;
-	margin:0 1em;
+	position: relative;
+
+	height:$svg-height;//why have to force the height?
+	
+	margin: 20px 10px;
+
 
 	background:$background-color-graph;
 
 	box-shadow:0 3px 3px 0px rgba(0,0,0,0.2);
-		
+
+
+	border-spacing:0px;
+	border-collapse:collapse;
+
+	&:first-of-type{
+		margin-top:0px;
+	}
+
+	&:last-of-type{
+		margin-bottom:0px;
+	}
+	
 
 	&:hover{
-		z-index:1;
 		.legend{
-/* 			opacity: 1; */
-			display:block;
+			opacity: 1;
 		}
 
 		.x.axis{
@@ -284,8 +361,6 @@ body{
 		fill: none;
 	}
 	
-
-
 	.legend{
 		position: absolute;
 		top: 0;
@@ -295,17 +370,14 @@ body{
 
 		z-index:1;
 
-/* 		opacity: 0; */
-		display:none;
+		opacity: 0;
 
 		list-style: none;
 
 		background:$primary-color;
 		color:$text-color;
 
-		border-collapse:separate;
-
-/* 		-webkit-transition: opacity 0.5s; */
+		-webkit-transition: opacity 0.5s;
 
 		.item{
 			display: table;
@@ -357,6 +429,7 @@ body{
 	
 
 }
+
 
 $series-list: #69c3dd, 
 #f7ca2e, 
