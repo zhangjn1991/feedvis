@@ -130,13 +130,13 @@ function drawGraphs(data){
 		.enter()
 		.append('td')
 		.append('div')
-		.attr('class', 'graph-container')
+		.attr('class', 'card-container')
 
 	var graphs = graphContainer.selectAll('.graph')
 		.data(function(d){return d.graphs})
 		.enter()
 		.append('div')
-		.attr('class', 'graph');
+		.attr('class', 'graph card');
 
 	graphs
 		.append('svg')

@@ -192,16 +192,20 @@ td:last-of-type .test{
 
 .feed-container {
   background: crimson;
-  height: 100%; }
-
-.graph-container, .feed-container {
+  height: 100%;
   padding: 20px 0em;
   width: 320px;
   border-left: 1px solid #cccccc; }
-  .graph-container:first-of-type, .feed-container:first-of-type {
-    border-left: 1px solid #ededed; }
 
-.graph {
+.card-container {
+  padding: 20px 0em;
+  width: 320px;
+  border-left: 1px solid #cccccc; }
+
+td:first-of-type .card-container {
+  border-left: 1px solid #ededed; }
+
+.card {
   position: relative;
   height: 200px;
   margin: 20px 10px;
@@ -209,40 +213,41 @@ td:last-of-type .test{
   box-shadow: 0 3px 3px 0px rgba(0, 0, 0, 0.2);
   border-spacing: 0px;
   border-collapse: collapse; }
-  .graph:first-of-type {
+  .card:first-of-type {
     margin-top: 0px; }
-  .graph:last-of-type {
+  .card:last-of-type {
     margin-bottom: 0px; }
-  .graph:hover .legend {
-    opacity: 1; }
-  .graph:hover .x.axis {
-    opacity: 1; }
-  .graph svg {
-    width: 300px;
-    height: 200px; }
-    .graph svg .axis.x {
-      opacity: 0;
-      -webkit-transition: opacity 0.5s; }
-      .graph svg .axis.x text {
-        font-size: 10pt; }
-      .graph svg .axis.x path {
-        stroke: transparent; }
-    .graph svg .axis.y line {
-      stroke-dasharray: 3,3; }
-    .graph svg .axis text {
-      fill: #999999; }
-    .graph svg .axis .tick line {
-      stroke: #cccccc; }
-    .graph svg .line {
-      opacity: 1;
-      stroke-width: 2;
-      fill: none;
-      -webkit-transition: opacity 0.5s; }
-    .graph svg path.line.hidden {
-      /*more selector to force override*/
-      opacity: 0; }
-  .graph path {
-    fill: none; }
+
+.graph:hover .legend {
+  opacity: 1; }
+.graph:hover .x.axis {
+  opacity: 1; }
+.graph svg {
+  width: 300px;
+  height: 200px; }
+  .graph svg .axis.x {
+    opacity: 0;
+    -webkit-transition: opacity 0.5s; }
+    .graph svg .axis.x text {
+      font-size: 10pt; }
+    .graph svg .axis.x path {
+      stroke: transparent; }
+  .graph svg .axis.y line {
+    stroke-dasharray: 3,3; }
+  .graph svg .axis text {
+    fill: #999999; }
+  .graph svg .axis .tick line {
+    stroke: #cccccc; }
+  .graph svg .line {
+    opacity: 1;
+    stroke-width: 2;
+    fill: none;
+    -webkit-transition: opacity 0.5s; }
+  .graph svg path.line.hidden {
+    /*more selector to force override*/
+    opacity: 0; }
+.graph path {
+  fill: none; }
 
 .legend {
   position: absolute;

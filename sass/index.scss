@@ -339,20 +339,26 @@ td:last-of-type .test{
 .feed-container{
 	background:crimson;
 	height:100%;	
-}
-
-.graph-container, .feed-container{
 	padding: 20px 0em;
 	width:$column-width;
-	@include border(left);
-	&:first-of-type{
+	@include border(left);	
+}
+
+
+
+.card-container{
+	padding: 20px 0em;
+	width:$column-width;
+	@include border(left);	
+}
+
+td:first-of-type{
+	.card-container{
 		@include border(left, $background-color);
 	}
 }
 
-
-.graph{
-
+.card{
 	position: relative;
 
 	height:$svg-height;//why have to force the height?
@@ -376,6 +382,12 @@ td:last-of-type .test{
 		margin-bottom:0px;
 	}
 	
+
+}	
+
+
+.graph{
+
 
 	&:hover{
 		.legend{
