@@ -5,7 +5,7 @@ $tab-height:40px;
 $header-height:$tab-height+$title-height;
 $note-bar-height:100px;
 $graph-height:300px;
-$sidebar-width:$header-height;
+$side-bar-width:$header-height;
 $legend-color-size:15px;
 
 $z-legend:1;
@@ -57,17 +57,17 @@ body{
 }
 
 
-.globalContainer{	
+.global-container{	
 	width: 100%;
 	height: 100%;
 	overflow:scroll;
 
 	table{	
 		
-		margin-left:$sidebar-width;
+		margin-left:$side-bar-width;
 		margin-top:$header-height;
 		margin-bottom:$note-bar-height;
-/* 		padding-right:$sidebar-width; */
+/* 		padding-right:$side-bar-width; */
 		border-spacing:0px;
 /* 		border-collapse:collapse; */
 		height:100%;
@@ -88,7 +88,7 @@ body{
 	
 	z-index:$z-corner;
 	
-	width:$sidebar-width;
+	width:$side-bar-width;
 		
 	& > div{
 		display:table-cell;
@@ -98,7 +98,7 @@ body{
 
 }
 
-.menuButtonContainer{
+.menu-label{
 	top:0;
 	height:$header-height;
 	background:$primary-color;
@@ -106,7 +106,7 @@ body{
 
 	@include shadow(-10px, -10px);
 
-	.menuButton{
+	.menu-button{
 		width:20px;
 		height:20px;
 		margin: auto;
@@ -118,7 +118,7 @@ body{
 	}
 }
 
-.noteLabel{
+.note-label{
 	bottom:0;
 	background:$background-color-note;
 	height:$note-bar-height;
@@ -153,7 +153,7 @@ td:last-of-type .test{
 
 }
 
-.sidebar{
+.side-bar{
 	position:absolute;
 	top:0;
 	left:0;
@@ -168,8 +168,8 @@ td:last-of-type .test{
 		display:none;
 	}
 
-	.graphTitle{
-		width:$sidebar-width;
+	.graph-title{
+		width:$side-bar-width;
 		display:table;
 		padding-top:20px;
 		height: $svg-height;
@@ -205,21 +205,21 @@ td:last-of-type .test{
 	z-index:$z-side;
 	width:100%;
 	overflow:scroll;
-/* 	margin-right:$sidebar-width; */
+/* 	margin-right:$side-bar-width; */
 	.h-container{
 		flex:none;
 		width:$column-width;	
 		height:100%;	
 		&:first-of-type{
-			margin-left:$sidebar-width;
+			margin-left:$side-bar-width;
 		}
 		&:last-of-type{
-/* 			padding-right:$sidebar-width; */
+/* 			padding-right:$side-bar-width; */
 		}
 	}
 }
 
-.headbar{
+.head-bar{
 	top:0;
 	@include shadow(0px, -10px);
 
@@ -227,7 +227,7 @@ td:last-of-type .test{
 		display:none;		
 	}
 
-	.headerContainer{
+	.header-container{
 		@include border(left,$primary-color-dark);
 		&:first-of-type{
 			@include border(left,$primary-color);
@@ -235,7 +235,7 @@ td:last-of-type .test{
 	}
 }
 
-.noteBar{
+.note-bar{
 	bottom:0;
 	height:$note-bar-height;
 	
@@ -245,7 +245,7 @@ td:last-of-type .test{
 		display:none;
 	}
 
-	.noteContainer{
+	.note-container{
 		@include border(left);
 
 		&:first-of-type{
@@ -267,7 +267,7 @@ td:last-of-type .test{
 
 
 
-.titleContainer{
+.title-container{
 	display:table;
 	width:100%;
 
@@ -297,7 +297,7 @@ td:last-of-type .test{
 	
 }
 
-.tabContainer{
+.tab-container{
 	display:table;	
 	width:100%;
 
@@ -336,12 +336,12 @@ td:last-of-type .test{
 	
 }
 
-.feedContainer{
+.feed-container{
 	background:crimson;
 	height:100%;	
 }
 
-.graphContainer, .feedContainer{
+.graph-container, .feed-container{
 	padding: 20px 0em;
 	width:$column-width;
 	@include border(left);

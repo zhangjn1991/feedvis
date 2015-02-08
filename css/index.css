@@ -12,19 +12,19 @@ body {
   font-family: 'Avenir Next',sans-serif;
   background: #ededed; }
 
-.globalContainer {
+.global-container {
   width: 100%;
   height: 100%;
   overflow: scroll; }
-  .globalContainer table {
+  .global-container table {
     margin-left: 110px;
     margin-top: 110px;
     margin-bottom: 100px;
-    /* 		padding-right:$sidebar-width; */
+    /* 		padding-right:$side-bar-width; */
     border-spacing: 0px;
     /* 		border-collapse:collapse; */
     height: 100%; }
-    .globalContainer table td {
+    .global-container table td {
       vertical-align: top; }
 
 .corner {
@@ -38,13 +38,13 @@ body {
     vertical-align: middle;
     text-align: center; }
 
-.menuButtonContainer {
+.menu-label {
   top: 0;
   height: 110px;
   background: #333644;
   color: #f2f2f2;
   box-shadow: -10px -10px 50px 5px rgba(0, 0, 0, 0.5); }
-  .menuButtonContainer .menuButton {
+  .menu-label .menu-button {
     width: 20px;
     height: 20px;
     margin: auto;
@@ -52,7 +52,7 @@ body {
     background-size: cover;
     opacity: 0.5; }
 
-.noteLabel {
+.note-label {
   bottom: 0;
   background: #f7f7f7;
   height: 100px;
@@ -80,7 +80,7 @@ td:last-of-type .test {
   opacity: 1;
   pointer-events: auto; }
 
-.sidebar {
+.side-bar {
   position: absolute;
   top: 0;
   left: 0;
@@ -88,9 +88,9 @@ td:last-of-type .test {
   height: 100%;
   overflow: scroll;
   box-shadow: -10px 0px 50px 5px rgba(0, 0, 0, 0.5); }
-  .sidebar::-webkit-scrollbar {
+  .side-bar::-webkit-scrollbar {
     display: none; }
-  .sidebar .graphTitle {
+  .side-bar .graph-title {
     width: 110px;
     display: table;
     padding-top: 20px;
@@ -98,13 +98,13 @@ td:last-of-type .test {
     background: #ededed;
     color: #999999;
     text-transform: uppercase; }
-    .sidebar .graphTitle div {
+    .side-bar .graph-title div {
       display: table-cell;
       vertical-align: middle;
       text-align: center; }
-    .sidebar .graphTitle:first-of-type {
+    .side-bar .graph-title:first-of-type {
       margin-top: 110px; }
-    .sidebar .graphTitle:last-of-type {
+    .side-bar .graph-title:last-of-type {
       padding-bottom: 20px;
       margin-bottom: 100px; }
 
@@ -115,7 +115,7 @@ td:last-of-type .test {
   z-index: 2;
   width: 100%;
   overflow: scroll;
-  /* 	margin-right:$sidebar-width; */ }
+  /* 	margin-right:$side-bar-width; */ }
   .h-bar .h-container {
     flex: none;
     width: 320px;
@@ -123,57 +123,57 @@ td:last-of-type .test {
     .h-bar .h-container:first-of-type {
       margin-left: 110px; }
     .h-bar .h-container:last-of-type {
-      /* 			padding-right:$sidebar-width; */ }
+      /* 			padding-right:$side-bar-width; */ }
 
-.headbar {
+.head-bar {
   top: 0;
   box-shadow: 0px -10px 50px 5px rgba(0, 0, 0, 0.5); }
-  .headbar::-webkit-scrollbar {
+  .head-bar::-webkit-scrollbar {
     display: none; }
-  .headbar .headerContainer {
+  .head-bar .header-container {
     border-left: 1px solid #1e202b; }
-    .headbar .headerContainer:first-of-type {
+    .head-bar .header-container:first-of-type {
       border-left: 1px solid #333644; }
 
-.noteBar {
+.note-bar {
   bottom: 0;
   height: 100px;
   box-shadow: 0px 10px 50px 5px rgba(0, 0, 0, 0.5); }
-  .noteBar::-webkit-scrollbar {
+  .note-bar::-webkit-scrollbar {
     display: none; }
-  .noteBar .noteContainer {
+  .note-bar .note-container {
     border-left: 1px solid #cccccc; }
-    .noteBar .noteContainer:first-of-type {
+    .note-bar .note-container:first-of-type {
       border-left: 1px solid #f7f7f7; }
-    .noteBar .noteContainer div {
+    .note-bar .note-container div {
       background: #f7f7f7;
       width: 100%;
       height: 100%; }
 
-.titleContainer {
+.title-container {
   display: table;
   width: 100%;
   height: 70px;
   background: #333644;
   color: #f2f2f2; }
-  .titleContainer > div {
+  .title-container > div {
     display: table-cell;
     vertical-align: bottom; }
-  .titleContainer h2 {
+  .title-container h2 {
     text-transform: uppercase;
     text-align: center; }
-  .titleContainer h3 {
+  .title-container h3 {
     text-transform: capitalize;
     font-weight: 200;
     text-align: center; }
 
-.tabContainer {
+.tab-container {
   display: table;
   width: 100%;
   color: #f2f2f2;
   text-align: center;
   height: 40px; }
-  .tabContainer .tab {
+  .tab-container .tab {
     display: table-cell;
     width: 50%;
     height: 100%;
@@ -183,18 +183,18 @@ td:last-of-type .test {
     text-transform: uppercase;
     font-size: 0.8em;
     cursor: pointer; }
-    .tabContainer .tab.active, .tabContainer .tab:hover {
+    .tab-container .tab.active, .tab-container .tab:hover {
       background: #1e202b; }
 
-.feedContainer {
+.feed-container {
   background: crimson;
   height: 100%; }
 
-.graphContainer, .feedContainer {
+.graph-container, .feed-container {
   padding: 20px 0em;
   width: 320px;
   border-left: 1px solid #cccccc; }
-  .graphContainer:first-of-type, .feedContainer:first-of-type {
+  .graph-container:first-of-type, .feed-container:first-of-type {
     border-left: 1px solid #ededed; }
 
 .graph {

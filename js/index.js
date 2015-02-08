@@ -58,10 +58,18 @@ d3.json('data/test.json', function(json){
 
 
 function clearAll(){
-	d3.selectAll('.globalContainer table *')
+	// d3.selectAll('.globalContainer table *')
+	// 	.remove();
+	// d3.selectAll('.sidebar .graphTitle')
+	// 	.remove();
+
+	d3.selectAll('.sidebar *')
 		.remove();
-	d3.selectAll('.sidebar .graphTitle')
+
+	d3.selectAll('.headbar *')
 		.remove();
+
+
 }
 
 function getDateRanges(data){
