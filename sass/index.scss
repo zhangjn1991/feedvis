@@ -128,7 +128,7 @@ body{
 	@include shadow(-10px,10px);
 }
 
-.test{
+/* .test{
 	width:100px;
 	height:100px;
 	position:absolute;
@@ -136,12 +136,12 @@ body{
 	right:-100px;
 	top:0;
 	background:steelblue;
-/* 	display:none; */
+// 	display:none;
 	opacity:0;
 	pointer-events:none;
 	-webkit-transition:opacity 0.5s;
 }
-
+ 
 td:last-of-type .test{
 	left:-100px;
 }
@@ -151,7 +151,7 @@ td:last-of-type .test{
 	opacity:1;
 	pointer-events:auto;
 
-}
+}*/
 
 .side-bar{
 	position:absolute;
@@ -219,7 +219,7 @@ td:last-of-type .test{
 	}
 }
 
-.head-bar{
+.header-bar{
 	top:0;
 	@include shadow(0px, -10px);
 
@@ -440,73 +440,82 @@ td:last-of-type .test{
 	path{
 		fill: none;
 	}
-	
-	.legend{
-		position: absolute;
-		top: 0;
-		left: $svg-width;
+}
 
-		padding: 0.5em 0;		
 
-		z-index:$z-legend;
+.legend{
+	position: absolute;
+	top: 0;
+	left: $svg-width;
 
-		opacity: 0;
+	padding: 0.5em 0;		
 
-		list-style: none;
+	z-index:$z-legend;
 
-		background:$primary-color;
-		color:$text-color;
+	opacity: 0;
+	pointer-events:none;
 
-		-webkit-transition: opacity 0.5s;
+	border-collapse:separate;
 
-		.item{
-			display: table;
+	list-style: none;
 
-			padding: 0.5em 1em;
+	background:$primary-color;
+	color:$text-color;
 
-			text-transform:capitalize;
+	-webkit-transition: opacity 0.5s;
 
-			cursor: pointer;
 
-			background:transparent;
+
+	.item{
+		display: table;
+
+		padding: 0.5em 1em;
+
+		text-transform:capitalize;
+
+		cursor: pointer;
+
+		background:transparent;
+
+		-webkit-transition: background 0.5s;
+
+		&:hover{
+			background:$primary-color-highlight;
+		}
+
+		&.hidden .color{
+			background: transparent;
+		}
+
+		.color{
+			display: inline-block;
+
+			width: $legend-color-size;
+			height: $legend-color-size;
+			margin-right: 0.5em;
+
+			border-width:3px;
+			border-style:solid;
 
 			-webkit-transition: background 0.5s;
-
-			&:hover{
-				background:$primary-color-highlight;
-			}
-
-			&.hidden .color{
-				background: transparent;
-			}
-
-			.color{
-				display: inline-block;
-
-				width: $legend-color-size;
-				height: $legend-color-size;
-				margin-right: 0.5em;
-
-				border-width:3px;
-				border-style:solid;
-
-				-webkit-transition: background 0.5s;
-			}
-
-			.label{
-				display: table-cell;
-
-				vertical-align: middle;
-			}
 		}
-		
 
+		.label{
+			display: table-cell;
 
-
-		
+			vertical-align: middle;
+		}
 	}
+}
 
-	
+td:last-of-type .legend{
+	left:auto;
+	right:$svg-width;
+}
+
+.graph:hover .legend{
+	opacity:1;
+	pointer-events:auto;
 
 }
 

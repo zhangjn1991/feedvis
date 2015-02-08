@@ -30,8 +30,7 @@
 			<div>Graph 5</div>
 		</div>
 	</div>
-	<div class="head-bar h-bar" >
-		
+	<div class="header-bar h-bar">		
 		<div class="header-container h-container">
 			<div class="title-container">
 				<div>
@@ -117,12 +116,12 @@
 		<table>
 			<tr>
 				
-				<!-- <td class="column">					
+				<!-- <td>					
 						<div class="feed-container">
 								
 						</div>
 				</td> -->
-				<td class="column">
+				<td>
 					<div class="graph-container">
 						<div class="graph">
 							<svg></svg>
@@ -146,7 +145,7 @@
 						</div>
 					</div>
 				</td>
-				<td class="column">
+				<td>
 					<div class="graph-container">
 						<div class="graph">
 							<svg></svg>
@@ -170,7 +169,7 @@
 						</div>
 					</div>
 				</td>
-				<td class="column">
+				<td>
 					<div class="graph-container">
 						<div class="graph">
 							<svg></svg>
@@ -194,7 +193,7 @@
 						</div>
 					</div>
 				</td>
-				<td class="column">
+				<td>
 					<div class="graph-container">
 						<div class="graph">
 							<svg></svg>
@@ -218,7 +217,7 @@
 						</div>
 					</div>
 				</td>
-				<td class="column">
+				<td>
 					<div class="graph-container">
 						<div class="graph">
 							<svg></svg>
@@ -246,11 +245,6 @@
 		</table>
 	</div>
 
-
-	<!-- <svg>
-		<g>
-		</g>
-	</svg> -->
 	<script src="js/d3.v3.min.js"></script>
 	<script src="js/underscore-min.js"></script>
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
@@ -260,20 +254,20 @@
 		    $('.global-container').scrollTop($(this).scrollTop());
 		});
 		
-		$('.head-bar,.note-bar').on('scroll', function () {    
+		$('.header-bar,.note-bar').on('scroll', function () {    
 		    $('.global-container').scrollLeft($(this).scrollLeft());
 		});
 
 
 
-		$('.global-container').on('scroll', function () {    
+		$('.global-container').on('scroll', function (e) {   	
 		    $('.side-bar').scrollTop($(this).scrollTop());
-		    $('.head-bar').scrollLeft($(this).scrollLeft());
+		    $('.header-bar').scrollLeft($(this).scrollLeft());
 		    $('.note-bar').scrollLeft($(this).scrollLeft());
 		});
 	</script>
 	
-	<!--<script src="js/index.js"></script>-->
+	<script src="js/index.js"></script>
 
 </body>
 </html>
