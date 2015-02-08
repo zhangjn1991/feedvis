@@ -5,7 +5,7 @@ $tab-height:40px;
 $header-height:$tab-height+$title-height;
 $note-bar-height:100px;
 $graph-height:300px;
-$sidebar-width:200px;
+$sidebar-width:$header-height;
 $legend-color-size:15px;
 
 $z-legend:1;
@@ -21,11 +21,23 @@ $primary-color-dark:#1e202b;
 $primary-color-highlight:$primary-color-dark;
 $text-color:#f2f2f2;
 $text-color-fade:#808080;
+$text-color-side:#999999;
+$text-color-axis:$text-color-side;
 $background-color:#ededed;
 $background-color-graph:#f7f7f7;
-$axis-color:darken($background-color-graph,20%);
-$axis-text-color:darken($axis-color,20%);
+$background-color-note:$background-color-graph;
+$border-color-column:#cccccc;
+$axis-color:$border-color-column;
 
+
+
+@mixin border($direction,$color:$border-color-column) {
+	border-#{$direction}:1px solid $color;
+}
+
+@mixin shadow($xoff, $yoff){
+	box-shadow:$xoff $yoff 50px 5px rgba(0,0,0,0.5);
+}
 
 *{
 	margin: 0;
@@ -55,13 +67,12 @@ body{
 		margin-left:$sidebar-width;
 		margin-top:$header-height;
 		margin-bottom:$note-bar-height;
-		padding-right:$sidebar-width;
+/* 		padding-right:$sidebar-width; */
 		border-spacing:0px;
 /* 		border-collapse:collapse; */
 		height:100%;
 
-		td{
-			background:darkgray;
+		td{			
 			vertical-align:top;
 		}
 
@@ -78,10 +89,7 @@ body{
 	z-index:$z-corner;
 	
 	width:$sidebar-width;
-	
-	
-	
-
+		
 	& > div{
 		display:table-cell;
 		vertical-align:middle;
@@ -90,17 +98,34 @@ body{
 
 }
 
-.menuButton{
+.menuButtonContainer{
 	top:0;
 	height:$header-height;
-	background:$primary-color-dark;
+	background:$primary-color;
 	color:$text-color;
+
+	@include shadow(-10px, -10px);
+
+	.menuButton{
+		width:20px;
+		height:20px;
+		margin: auto;
+		
+		background:url("../resources/menu-icon.png");
+		background-size:cover;
+
+		opacity:0.5;
+	}
 }
 
 .noteLabel{
 	bottom:0;
-	background:gray;
+	background:$background-color-note;
 	height:$note-bar-height;
+	color:$text-color-side;
+	text-transform:uppercase;
+
+	@include shadow(-10px,10px);
 }
 
 .test{
@@ -111,8 +136,22 @@ body{
 	right:-100px;
 	top:0;
 	background:steelblue;
+/* 	display:none; */
+	opacity:0;
+	pointer-events:none;
+	-webkit-transition:opacity 0.5s;
 }
 
+td:last-of-type .test{
+	left:-100px;
+}
+
+
+.graph:hover .test{
+	opacity:1;
+	pointer-events:auto;
+
+}
 
 .sidebar{
 	position:absolute;
@@ -123,19 +162,26 @@ body{
 	height:100%;
 	overflow:scroll;
 	
+	@include shadow(-10px, 0px);
 
-	
+	&::-webkit-scrollbar{
+		display:none;
+	}
+
 	.graphTitle{
 		width:$sidebar-width;
 		display:table;
 		padding-top:20px;
 		height: $svg-height;
-		background:darkgray;
+
+		background:$background-color;
+		color:$text-color-side;
+		text-transform:uppercase;
+		
 		div{
 			display:table-cell;
 			vertical-align:middle;
-			text-align:center;
-			border:1px solid;
+			text-align:center;			
 		}
 
 		&:first-of-type{
@@ -168,15 +214,24 @@ body{
 			margin-left:$sidebar-width;
 		}
 		&:last-of-type{
-			padding-right:$sidebar-width;
+/* 			padding-right:$sidebar-width; */
 		}
 	}
 }
 
 .headbar{
 	top:0;
+	@include shadow(0px, -10px);
+
+	&::-webkit-scrollbar{
+		display:none;		
+	}
+
 	.headerContainer{
-		border-left:1px solid red;
+		@include border(left,$primary-color-dark);
+		&:first-of-type{
+			@include border(left,$primary-color);
+		}
 	}
 }
 
@@ -184,15 +239,29 @@ body{
 	bottom:0;
 	height:$note-bar-height;
 	
+	@include shadow(0px, 10px);	
+
+	&::-webkit-scrollbar{
+		display:none;
+	}
+
 	.noteContainer{
-		border-left:1px solid red;				
+		@include border(left);
+
+		&:first-of-type{
+			@include border(left, $background-color-note);
+		}
 
 		div{
-			background:steelblue;
+			background:$background-color-note;
 			width:100%;
 			height:100%;
 		}
+
+
 	}
+
+
 }
 
 
@@ -249,13 +318,11 @@ body{
 
 		background:$primary-color;
 
-		text-transform:uppercase;		
+		text-transform:uppercase;	
+		font-size:0.8em;	
 
 		cursor:pointer;
 
-/* 		&:first-of-type{
-			float:left;
-		}		 */
 
 		&.active, &:hover{
 			background:$primary-color-highlight;
@@ -277,13 +344,14 @@ body{
 .graphContainer, .feedContainer{
 	padding: 20px 0em;
 	width:$column-width;
-	border-left:1px solid red; //darken($background-color, 10%);
-	
+	@include border(left);
+	&:first-of-type{
+		@include border(left, $background-color);
+	}
 }
 
 
 .graph{
-	flex: none;
 
 	position: relative;
 
@@ -346,7 +414,7 @@ body{
 			}
 			
 			text{
-				fill:$axis-text-color;
+				fill:$text-color-axis;
 			}
 
 			.tick line{
@@ -380,7 +448,7 @@ body{
 
 		padding: 0.5em 0;		
 
-		z-index:1;
+		z-index:$z-legend;
 
 		opacity: 0;
 

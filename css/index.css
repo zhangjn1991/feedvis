@@ -17,15 +17,14 @@ body {
   height: 100%;
   overflow: scroll; }
   .globalContainer table {
-    margin-left: 200px;
+    margin-left: 110px;
     margin-top: 110px;
     margin-bottom: 100px;
-    padding-right: 200px;
+    /* 		padding-right:$sidebar-width; */
     border-spacing: 0px;
     /* 		border-collapse:collapse; */
     height: 100%; }
     .globalContainer table td {
-      background: darkgray;
       vertical-align: top; }
 
 .corner {
@@ -33,22 +32,33 @@ body {
   position: absolute;
   left: 0;
   z-index: 3;
-  width: 200px; }
+  width: 110px; }
   .corner > div {
     display: table-cell;
     vertical-align: middle;
     text-align: center; }
 
-.menuButton {
+.menuButtonContainer {
   top: 0;
   height: 110px;
-  background: #1e202b;
-  color: #f2f2f2; }
+  background: #333644;
+  color: #f2f2f2;
+  box-shadow: -10px -10px 50px 5px rgba(0, 0, 0, 0.5); }
+  .menuButtonContainer .menuButton {
+    width: 20px;
+    height: 20px;
+    margin: auto;
+    background: url("../resources/menu-icon.png");
+    background-size: cover;
+    opacity: 0.5; }
 
 .noteLabel {
   bottom: 0;
-  background: gray;
-  height: 100px; }
+  background: #f7f7f7;
+  height: 100px;
+  color: #999999;
+  text-transform: uppercase;
+  box-shadow: -10px 10px 50px 5px rgba(0, 0, 0, 0.5); }
 
 .test {
   width: 100px;
@@ -57,7 +67,18 @@ body {
   z-index: 1;
   right: -100px;
   top: 0;
-  background: steelblue; }
+  background: steelblue;
+  /* 	display:none; */
+  opacity: 0;
+  pointer-events: none;
+  -webkit-transition: opacity 0.5s; }
+
+td:last-of-type .test {
+  left: -100px; }
+
+.graph:hover .test {
+  opacity: 1;
+  pointer-events: auto; }
 
 .sidebar {
   position: absolute;
@@ -65,18 +86,22 @@ body {
   left: 0;
   z-index: 2;
   height: 100%;
-  overflow: scroll; }
+  overflow: scroll;
+  box-shadow: -10px 0px 50px 5px rgba(0, 0, 0, 0.5); }
+  .sidebar::-webkit-scrollbar {
+    display: none; }
   .sidebar .graphTitle {
-    width: 200px;
+    width: 110px;
     display: table;
     padding-top: 20px;
     height: 200px;
-    background: darkgray; }
+    background: #ededed;
+    color: #999999;
+    text-transform: uppercase; }
     .sidebar .graphTitle div {
       display: table-cell;
       vertical-align: middle;
-      text-align: center;
-      border: 1px solid; }
+      text-align: center; }
     .sidebar .graphTitle:first-of-type {
       margin-top: 110px; }
     .sidebar .graphTitle:last-of-type {
@@ -96,22 +121,32 @@ body {
     width: 320px;
     height: 100%; }
     .h-bar .h-container:first-of-type {
-      margin-left: 200px; }
+      margin-left: 110px; }
     .h-bar .h-container:last-of-type {
-      padding-right: 200px; }
+      /* 			padding-right:$sidebar-width; */ }
 
 .headbar {
-  top: 0; }
+  top: 0;
+  box-shadow: 0px -10px 50px 5px rgba(0, 0, 0, 0.5); }
+  .headbar::-webkit-scrollbar {
+    display: none; }
   .headbar .headerContainer {
-    border-left: 1px solid red; }
+    border-left: 1px solid #1e202b; }
+    .headbar .headerContainer:first-of-type {
+      border-left: 1px solid #333644; }
 
 .noteBar {
   bottom: 0;
-  height: 100px; }
+  height: 100px;
+  box-shadow: 0px 10px 50px 5px rgba(0, 0, 0, 0.5); }
+  .noteBar::-webkit-scrollbar {
+    display: none; }
   .noteBar .noteContainer {
-    border-left: 1px solid red; }
+    border-left: 1px solid #cccccc; }
+    .noteBar .noteContainer:first-of-type {
+      border-left: 1px solid #f7f7f7; }
     .noteBar .noteContainer div {
-      background: steelblue;
+      background: #f7f7f7;
       width: 100%;
       height: 100%; }
 
@@ -146,10 +181,8 @@ body {
     /* 		padding:1em 0;		 */
     background: #333644;
     text-transform: uppercase;
-    cursor: pointer;
-    /* 		&:first-of-type{
-    			float:left;
-    		}		 */ }
+    font-size: 0.8em;
+    cursor: pointer; }
     .tabContainer .tab.active, .tabContainer .tab:hover {
       background: #1e202b; }
 
@@ -160,10 +193,11 @@ body {
 .graphContainer, .feedContainer {
   padding: 20px 0em;
   width: 320px;
-  border-left: 1px solid red; }
+  border-left: 1px solid #cccccc; }
+  .graphContainer:first-of-type, .feedContainer:first-of-type {
+    border-left: 1px solid #ededed; }
 
 .graph {
-  flex: none;
   position: relative;
   height: 200px;
   margin: 20px 10px;
@@ -192,9 +226,9 @@ body {
     .graph svg .axis.y line {
       stroke-dasharray: 3,3; }
     .graph svg .axis text {
-      fill: #919191; }
+      fill: #999999; }
     .graph svg .axis .tick line {
-      stroke: #c4c4c4; }
+      stroke: #cccccc; }
     .graph svg .line {
       opacity: 1;
       stroke-width: 2;
