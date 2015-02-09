@@ -112,6 +112,16 @@ app.controller('GraphCtrl', function($scope, $element){
 	}	
 })
 
+// app.controller('SideBarCtrl', function($scope){
+// 	$scope.$watch('data',function(newVal){
+// 		if(newVal.length > 0)
+// 			$scope.graphTitles = _.pluck(newVal[0].graphs, "graph_name");
+// 		else
+// 			$scope.graphTitles = [];	
+// 	})
+	
+// })
+
 
 app.directive('lineChart', function(){
 	return {
