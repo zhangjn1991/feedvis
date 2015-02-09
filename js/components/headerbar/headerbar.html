@@ -1,0 +1,14 @@
+<div class="header-bar h-bar">		
+	<div class="header-container h-container" ng-repeat="columnData in data">
+		<div class="title-container">
+			<div>
+				<h2>{{columnData.date_range | dateRangeFilter}}</h2>
+				<h3>200 Posts</h3>
+			</div>
+		</div>
+		<div class="tab-container">						
+			<div class="tab">Activity Graph</div>
+			<div class="tab">Feed</div>
+		</div>
+	</div>		
+</div>

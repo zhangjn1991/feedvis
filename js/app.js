@@ -6,8 +6,6 @@ var totalWidth = 300,
 	svgHeight = totalHeight - margin.top - margin.bottom;
 
 
-var titleDateFormat = d3.time.format('%b %e');
-
 var axisDateFormat = d3.time.format('%e');
 
 var x = d3.scale.linear()
@@ -112,15 +110,10 @@ app.controller('GraphCtrl', function($scope, $element){
 	}	
 })
 
-// app.controller('SideBarCtrl', function($scope){
-// 	$scope.$watch('data',function(newVal){
-// 		if(newVal.length > 0)
-// 			$scope.graphTitles = _.pluck(newVal[0].graphs, "graph_name");
-// 		else
-// 			$scope.graphTitles = [];	
-// 	})
-	
-// })
+
+
+
+
 
 
 app.directive('lineChart', function(){
