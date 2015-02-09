@@ -1,0 +1,29 @@
+<!Doctype html>
+<html ng-app="testApp">
+<head>
+	<style>
+	.table, .column{
+		background: rgba(0,0,0,0.5);
+	}
+
+	.column{
+		margin: 3em;
+	}
+	</style>
+</head>
+<body>
+	<script src="angular.min.js"></script>
+	<script src="http://d3js.org/d3.v3.min.js" charset="utf-8"></script>
+	<script src="an.js"></script>
+	
+	<div>Test</div>
+	<div class="table" ng-controller="TableCtrl">
+		<button ng-click="fetch()">Update</button>		
+		<div class="column" ng-repeat="col_data in data">
+			<div ng-repeat="number in col_data">
+				<circle-graph val="number"></circle-graph>
+			</div>
+		</div>
+	</div>
+</body>
+</html>

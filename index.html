@@ -1,9 +1,15 @@
 <!Doctype html> 
-<html>
+<html ng-app="feedVisApp">
 <head>
 	<link rel="stylesheet" href="css/index.css">
+	<script src="js/d3.v3.min.js"></script>
+	<script src="js/underscore-min.js"></script>
+	<script src="js/angular.min.js"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+	<script src="js/index.js"></script>
+
 </head>
-<body>
+<body ng-controller="GraphTableCtrl">
 	<div class="menu-label corner">
 		<div>
 			<div class="menu-button"></div>
@@ -14,114 +20,48 @@
 	</div>
 
 	<div class="side-bar" >		
-		<div class="graph-title">
-			<div>Graph 1</div>
-		</div>
-		<div class="graph-title">
-			<div>Graph 2</div>
-		</div>
-		<div class="graph-title">
-			<div>Graph 3</div>
-		</div>
-		<div class="graph-title">
-			<div>Graph 4</div>
-		</div>
-		<div class="graph-title">
-			<div>Graph 5</div>
-		</div>
+		<div class="graph-title" ng-repeat="graphData in data[0].graphs">
+			<div>{{graphData.graph_name}}</div>
+		</div>		
 	</div>
 	<div class="header-bar h-bar">		
-		<div class="header-container h-container">
+		<div class="header-container h-container" ng-repeat="columnData in data">
 			<div class="title-container">
 				<div>
-					<h2>Title</h2>
-					<h3>Subtitle</h3>
+					<h2>{{columnData.date_range.start}}</h2>
+					<h3>200 Posts</h3>
 				</div>
 			</div>
 			<div class="tab-container">						
 				<div class="tab">Activity Graph</div>
 				<div class="tab">Feed</div>
 			</div>
-		</div>
-		<div class="header-container h-container">
-			<div class="title-container">
-				<div>
-					<h2>Title</h2>
-					<h3>Subtitle</h3>
-				</div>
-			</div>
-			<div class="tab-container">						
-				<div class="tab">Activity Graph</div>
-				<div class="tab">Feed</div>
-			</div>
-		</div>
-		<div class="header-container h-container">
-			<div class="title-container">
-				<div>
-					<h2>Title</h2>
-					<h3>Subtitle</h3>
-				</div>
-			</div>
-			<div class="tab-container">						
-				<div class="tab">Activity Graph</div>
-				<div class="tab">Feed</div>
-			</div>
-		</div>
-		<div class="header-container h-container">
-			<div class="title-container">
-				<div>
-					<h2>Title</h2>
-					<h3>Subtitle</h3>
-				</div>
-			</div>
-			<div class="tab-container">						
-				<div class="tab">Activity Graph</div>
-				<div class="tab">Feed</div>
-			</div>
-		</div>
-		<div class="header-container h-container">
-			<div class="title-container">
-				<div>
-					<h2>Title</h2>
-					<h3>Subtitle</h3>
-				</div>
-			</div>
-			<div class="tab-container">						
-				<div class="tab">Activity Graph</div>
-				<div class="tab">Feed</div>
-			</div>
-		</div>
+		</div>		
 	</div>
 	<div class="note-bar h-bar" >
-		<div class="note-container h-container">
+		<div class="note-container h-container" ng-repeat="columnData in data">
 			<div></div>
-		</div>
-		<div class="note-container h-container">
-			<div></div>
-		</div>
-		<div class="note-container h-container">
-			<div></div>
-		</div>
-		<div class="note-container h-container">
-			<div></div>
-		</div>
-		<div class="note-container h-container">	
-			<div></div>
-		</div>
+		</div>		
 		
 	</div>
 
-	<div class="global-container">
-		
+	<div class="global-container">		
 		<table>
-			<tr>
-				
-				<!-- <td>					
-					<div class="feed-container">						
+			<tr>				
+				<td ng-repeat="columnData in data">
+					<div class="card-container">
+						<div class="graph card" ng-repeat="graphData in columnData.graphs" ng-controller="GraphCtrl">
+							<!-- <svg></svg>							 -->
+							<line-chart val="graphData"></line-chart>
+							<ul class="legend">
+								<li class="item series{{$index}}" ng-class="{hidden: isHidden($index)}" ng-repeat="series in graphData.series" ng-click="toggleVisible($index)">
+									<span class="color"></span>
+									<span class="label">{{series.series_name}}</span>
+								</li>
+							</ul>
+						</div>
 					</div>
-				</td> -->
-				<td>
-					<div class="card-container feed-container" style="display:none">	
+					<!-- <div class="card-container feed-container" >	
 						<div class="feed card">
 							<img class="icon" src="resources/user-icon.png" alt="">
 							<h2>Lorem Ipsum</h2>
@@ -149,133 +89,14 @@
 							<h3>February 8, 2015</h3>
 							<p>Pro dicat fierent cu. Modus dolore interesset nam ut. Vis temporibus persequeris definitionem te, paulo probatus eam ei, te eos liber paulo accumsan. Repudiare dissentiunt ad vis.</p>
 						</div>
-					</div>
-					<div class="card-container" >
-						<div class="graph card">
-							<svg></svg>
-							<div class="test"></div>
-						</div>
-						<div class="graph card">
-							<svg></svg>
-							<div class="test"></div>
-						</div>
-						<div class="graph card">
-							<svg></svg>
-							<div class="test"></div>
-						</div>
-						<div class="graph card">
-							<svg></svg>
-							<div class="test"></div>
-						</div>
-						<div class="graph card">
-							<svg></svg>
-							<div class="test"></div>
-						</div>						
-					</div>
+					</div> -->
 				</td>
-				<td>
-					<div class="card-container">
-						<div class="graph card">
-							<svg></svg>
-							<div class="test"></div>
-						</div>
-						<div class="graph card">
-							<svg></svg>
-							<div class="test"></div>
-						</div>
-						<div class="graph card">
-							<svg></svg>
-							<div class="test"></div>
-						</div>
-						<div class="graph card">
-							<svg></svg>
-							<div class="test"></div>
-						</div>
-						<div class="graph card">
-							<svg></svg>
-							<div class="test"></div>
-						</div>
-					</div>
-				</td>
-				<td>
-					<div class="card-container">
-						<div class="graph card">
-							<svg></svg>
-							<div class="test"></div>
-						</div>
-						<div class="graph card">
-							<svg></svg>
-							<div class="test"></div>
-						</div>
-						<div class="graph card">
-							<svg></svg>
-							<div class="test"></div>
-						</div>
-						<div class="graph card">
-							<svg></svg>
-							<div class="test"></div>
-						</div>
-						<div class="graph card">
-							<svg></svg>
-							<div class="test"></div>
-						</div>
-					</div>
-				</td>
-				<td>
-					<div class="card-container">
-						<div class="graph card">
-							<svg></svg>
-							<div class="test"></div>
-						</div>
-						<div class="graph card">
-							<svg></svg>
-							<div class="test"></div>
-						</div>
-						<div class="graph card">
-							<svg></svg>
-							<div class="test"></div>
-						</div>
-						<div class="graph card">
-							<svg></svg>
-							<div class="test"></div>
-						</div>
-						<div class="graph card">
-							<svg></svg>
-							<div class="test"></div>
-						</div>
-					</div>
-				</td>
-				<td>
-					<div class="card-container">
-						<div class="graph card">
-							<svg></svg>
-							<div class="test"></div>
-						</div>
-						<div class="graph card">
-							<svg></svg>
-							<div class="test"></div>
-						</div>
-						<div class="graph card">
-							<svg></svg>
-							<div class="test"></div>
-						</div>
-						<div class="graph card">
-							<svg></svg>
-							<div class="test"></div>
-						</div>
-						<div class="graph card">
-							<svg></svg>
-							<div class="test"></div>
-						</div>
-					</div>
-				</td>
+				
 			</tr>
 		</table>
 	</div>
 
-	<script src="js/d3.v3.min.js"></script>
-	<script src="js/underscore-min.js"></script>
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+	
 
 	<script>
 		$('.side-bar').on('scroll', function () {    
@@ -294,9 +115,9 @@
 			$('.note-bar').scrollLeft($(this).scrollLeft());
 		});
 	</script>
-	<script src="js/index.js"></script>	
+		
 
-	<!--<script src="js/index.js"></script>-->
+	
 
 </body>
 </html>
