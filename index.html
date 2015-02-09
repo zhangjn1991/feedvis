@@ -10,7 +10,10 @@
 	<script src="js/components/sidebar/sidebarDirective.js"></script>
 	<script src="js/components/headerbar/dateRangeFilter.js"></script>
 	<script src="js/components/headerbar/headerbarDirective.js"></script>
-	<script src="js/components/notebar/notebarDirective.js"></script>
+	<script src="js/components/notebar/notebarDirective.js"></script>	
+	<script src="js/components/graph/graphController.js"></script>
+	<script src="js/components/graph/graphDirective.js"></script>
+	<script src="js/components/graphTable/graphTableController.js"></script>
 
 </head>
 <body ng-controller="GraphTableCtrl">
@@ -35,17 +38,9 @@
 			<tr>				
 				<td ng-repeat="columnData in data">
 					<div class="card-container">
-						<div class="graph card" ng-repeat="graphData in columnData.graphs" ng-controller="GraphCtrl">
-							<!-- <svg></svg>							 -->
-							<line-chart val="graphData"></line-chart>
-							<ul class="legend">
-								<li class="item series{{$index}}" ng-class="{hidden: isHidden($index)}" ng-repeat="series in graphData.series" ng-click="toggleVisible($index)">
-									<span class="color"></span>
-									<span class="label">{{series.series_name}}</span>
-								</li>
-							</ul>
-						</div>
+						<div graph class="graph card" data="graphData" ng-repeat="graphData in columnData.graphs"></div>
 					</div>
+
 					<!-- <div class="card-container feed-container" >	
 						<div class="feed card">
 							<img class="icon" src="resources/user-icon.png" alt="">

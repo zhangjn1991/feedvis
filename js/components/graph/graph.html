@@ -1,0 +1,8 @@
+	<svg></svg>							
+	<!-- <line-chart val="graphData"></line-chart> -->
+	<ul class="legend">
+		<li class="item series{{$index}}" ng-class="{hidden: graphCtrl.isHidden($index)}" ng-repeat="series in data.series" ng-click="graphCtrl.toggleVisible($index)">
+			<span class="color"></span>
+			<span class="label">{{series.series_name}}</span>
+		</li>
+	</ul>
