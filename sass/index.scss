@@ -23,6 +23,9 @@ $text-color:#f2f2f2;
 $text-color-fade:#808080;
 $text-color-side:#999999;
 $text-color-axis:$text-color-side;
+$text-color-feed:$text-color-side;
+$text-color-feed-fade:#cccccc;
+$text-color-feed-highlight:$primary-color-dark;
 $background-color:#ededed;
 $background-color-graph:#f7f7f7;
 $background-color-note:$background-color-graph;
@@ -336,13 +339,6 @@ td:last-of-type .test{
 	
 }
 
-.feed-container{
-	background:crimson;
-	height:100%;	
-	padding: 20px 0em;
-	width:$column-width;
-	@include border(left);	
-}
 
 
 
@@ -351,6 +347,12 @@ td:last-of-type .test{
 	width:$column-width;
 	@include border(left);	
 }
+
+.feed-container{
+	height:100%;	
+	overflow:scroll;
+}
+
 
 td:first-of-type{
 	.card-container{
@@ -361,8 +363,6 @@ td:first-of-type{
 .card{
 	position: relative;
 
-	height:$svg-height;//why have to force the height?
-	
 	margin: 20px 10px;
 
 
@@ -386,9 +386,33 @@ td:first-of-type{
 }	
 
 
+.feed{
+	padding:1em;
+	h2{
+		font-size:1.5em;
+		font-weight:200;
+		color:$text-color-feed-highlight;
+	}
+	h3{
+		font-size:0.8em;
+		font-weight:400;
+		color:$text-color-feed-fade;		
+	}
+	p{
+		color:$text-color-feed;		
+		clear:both;
+
+	}
+	.icon{
+		height:$column-width / 4;
+		float:left;
+		margin: 0 1em 1em 0;
+	}
+}
+
 .graph{
 
-
+	height:$svg-height;//why have to force the height?
 	&:hover{
 		.legend{
 			opacity: 1;
