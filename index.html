@@ -5,10 +5,16 @@
 
 </head>
 <body ng-controller="GraphTableCtrl as graphTableCtrl">
-	<div class="menu-label corner">
+	<div class="menu-label corner" ng-class="{active: menuCtrl.isMenuVisible}" ng-controller="MenuCtrl as menuCtrl">
 		<div>
-			<div class="menu-button"></div>
+			<div class="menu-button" ng-click="menuCtrl.toggleMenuVisible()"></div>
 		</div>
+
+		<ul class="menu">
+			<li>Graph</li>
+			<li>Goal</li>
+			<li>Log out</li>
+		</ul>
 	</div>
 
 	<div class="note-label corner" >
@@ -54,6 +60,7 @@
 	<script src="js/components/column/columnController.js"></script>
 	<script src="js/components/feed/feedDirective.js"></script>
 	<script src="js/components/feed/feedTimeFilter.js"></script>
+	<script src="js/components/menu/menuController.js"></script>
 
 	<script>		
 		

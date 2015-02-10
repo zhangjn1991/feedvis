@@ -118,6 +118,51 @@ body{
 		background-size:cover;
 
 		opacity:0.5;
+
+		cursor: pointer;
+
+		-webkit-transition:opacity 0.5s;
+	}
+
+	.menu{
+		position:absolute;
+		top:$header-height;
+		left:0;
+
+		width:$side-bar-width;		
+
+		background:$primary-color;		
+		list-style:none;
+
+		@include border(top, $primary-color-dark);
+
+		text-align:center;
+
+		li{
+			padding:1em 0; 
+			text-transform:uppercase;
+
+			cursor:pointer;
+
+			&:hover{
+				background:$primary-color-dark;
+			}
+		}
+
+		opacity:0;
+		pointer-events:none;
+		-webkit-transition:opacity 0.5s;
+	}
+
+	&.active{
+		.menu-button{
+			opacity:1;
+		}
+
+		.menu{
+			opacity:1;
+			pointer-events:auto;
+		}
 	}
 }
 

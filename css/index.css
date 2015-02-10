@@ -50,7 +50,32 @@ body {
     margin: auto;
     background: url("../resources/menu-icon.png");
     background-size: cover;
-    opacity: 0.5; }
+    opacity: 0.5;
+    cursor: pointer;
+    -webkit-transition: opacity 0.5s; }
+  .menu-label .menu {
+    position: absolute;
+    top: 110px;
+    left: 0;
+    width: 110px;
+    background: #333644;
+    list-style: none;
+    border-top: 1px solid #1e202b;
+    text-align: center;
+    opacity: 0;
+    pointer-events: none;
+    -webkit-transition: opacity 0.5s; }
+    .menu-label .menu li {
+      padding: 1em 0;
+      text-transform: uppercase;
+      cursor: pointer; }
+      .menu-label .menu li:hover {
+        background: #1e202b; }
+  .menu-label.active .menu-button {
+    opacity: 1; }
+  .menu-label.active .menu {
+    opacity: 1;
+    pointer-events: auto; }
 
 .note-label {
   bottom: 0;
