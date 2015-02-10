@@ -2,10 +2,12 @@ angular.module('feedVisApp')
 .directive('headerbar', function(){
 	return {
 		restrict:'E',
-		scope:{
-			data:'='
-			
-		},
+		scope:true,
+		// scope:{
+		// 	data:'=',
+		// 	dict: '=columnDict'
+		// },
+
 		templateUrl:'js/components/headerbar/headerbar.html',
 		link:function(scope, element, attr){
 			
