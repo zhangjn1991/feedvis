@@ -30,33 +30,7 @@
 					</div>
 
 					<div class="card-container feed-container" ng-show="!columnCtrl.isGraphVisible()">	
-						<!-- <div class="feed card">
-							<img class="icon" src="resources/user-icon.png" alt="">
-							<h2>Lorem Ipsum</h2>
-							<h3>February 8, 2015</h3>
-							<p>Lorem ipsum dolor sit amet, dicat quaestio est et, pro in laudem animal, eos diam perfecto neglegentur et. Cu nibh integre quo. Et mel sumo definiebas. Mea primis graecis eu, eu alia sensibus cum. Ne quo discere expetenda, vim quis liber ei.</p>
-						</div>
-
-						<div class="feed card">
-							<img class="icon" src="resources/user-icon.png" alt="">
-							<h2>Lorem Ipsum</h2>
-							<h3>February 8, 2015</h3>
-							<p>Vidit viris intellegebat ius ne. Molestiae laboramus ius ei, in vim unum soleat pertinax. Latine fabulas vivendum ne nam. Est enim commodo an. Ut cum justo qualisque, an est utinam vocibus, vis essent recteque cu.</p>
-						</div>
-
-						<div class="feed card">
-							<img class="icon" src="resources/user-icon.png" alt="">
-							<h2>Lorem Ipsum</h2>
-							<h3>February 8, 2015</h3>
-							<p>Mucius assueverit in per. Cum lobortis tincidunt eu, ad mea nullam laoreet volumus, pri te quot suscipit. Pro delectus invidunt aliquando cu, ne sit solet invidunt, per utroque graecis ea. Usu simul volumus an. Ad dicta accusata corrumpit vix, cibo admodum fierent at vel. Prima appareat maluisset no qui.</p>
-						</div>
-
-						<div class="feed card">
-							<img class="icon" src="resources/user-icon.png" alt="">
-							<h2>Lorem Ipsum</h2>
-							<h3>February 8, 2015</h3>
-							<p>Pro dicat fierent cu. Modus dolore interesset nam ut. Vis temporibus persequeris definitionem te, paulo probatus eam ei, te eos liber paulo accumsan. Repudiare dissentiunt ad vis.</p>
-						</div> -->
+						<div feed class="feed card" data="feedData" ng-repeat="feedData in columnCtrl.feedsData"></div>
 					</div>
 				</td>
 				
@@ -78,7 +52,7 @@
 	<script src="js/components/graph/graphDirective.js"></script>
 	<script src="js/components/graphTable/graphTableController.js"></script>
 	<script src="js/components/column/columnController.js"></script>
-
+	<script src="js/components/feed/feedDirective.js"></script>
 
 	<script>		
 		
