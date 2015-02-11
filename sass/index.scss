@@ -26,10 +26,15 @@ $text-color-axis:$text-color-side;
 $text-color-feed:$text-color-side;
 $text-color-feed-fade:#cccccc;
 $text-color-feed-highlight:$primary-color-dark;
+$text-color-note-title:$text-color-fade;
 $background-color:#ededed;
 $background-color-graph:#f7f7f7;
 $background-color-note:$background-color-graph;
+
+$background-color-note-button:#e6e6e6;
+$background-color-note-button-highlight:darken($background-color-note-button,5%);
 $border-color-column:#cccccc;
+$border-color-note:#e6e6e6;
 $axis-color:$border-color-column;
 
 
@@ -55,7 +60,7 @@ body{
 }
 
 body{
-	font-family:'Avenir Next',sans-serif;
+	font-family:'Helvetica Neue',sans-serif;
 	background:$background-color;
 }
 
@@ -176,30 +181,7 @@ body{
 	@include shadow(-10px,10px);
 }
 
-/* .test{
-	width:100px;
-	height:100px;
-	position:absolute;
-	z-index:$z-legend;
-	right:-100px;
-	top:0;
-	background:steelblue;
-// 	display:none;
-	opacity:0;
-	pointer-events:none;
-	-webkit-transition:opacity 0.5s;
-}
- 
-td:last-of-type .test{
-	left:-100px;
-}
 
-
-.graph:hover .test{
-	opacity:1;
-	pointer-events:auto;
-
-}*/
 
 .side-bar{
 	position:absolute;
@@ -296,16 +278,13 @@ td:last-of-type .test{
 	.note-container{
 		@include border(left);
 
+		overflow:scroll;
+
+		background:$background-color-note;
+
 		&:first-of-type{
 			@include border(left, $background-color-note);
 		}
-
-		div{
-			background:$background-color-note;
-			width:100%;
-			height:100%;
-		}
-
 
 	}
 
@@ -313,7 +292,127 @@ td:last-of-type .test{
 }
 
 
+.note{	
+	@include border(bottom, $border-color-note);
 
+	.note-content{
+		position:relative;
+
+		font-size:1em;
+		font-weight:300;		
+
+		color:$text-color-note-title;
+
+		&:hover .button-container{
+			opacity:1;
+			pointer-events:auto;
+		}
+	}
+
+	.short{
+		display:flex;
+		width:100%;		
+		
+		.date{
+			flex:none;
+			padding:0.5em 0.25em;	
+		}
+
+		.title{
+			flex:1;		
+			
+			padding:0.5em 0.25em;	
+
+			text-overflow:ellipsis;
+			overflow:hidden;
+			white-space: nowrap;	
+		}
+	}
+
+	.long{		
+		.button-container{
+			height:2em;
+		}
+
+		form{
+			width:100%;
+			height:100%;	
+		}
+
+		input,textarea{
+			display:block;
+			padding:0.25em;
+			font-size:1em;		
+			font-family:"Helvetica Neue";
+			font-weight:300;
+			background:transparent;
+
+			width:100%;
+
+			color:inherit;
+
+			&:focus{
+				outline:0;
+				background:$background-color-note-button-highlight;
+			}
+
+		}
+		input[type=date]{
+			width:auto;
+		}
+		textarea{			
+			resize:none;
+		}
+	}
+
+	.button-container{	
+		display:flex;	
+		position:absolute;
+		top:0;
+		right:0;
+		background:rgba($background-color-note-button,0.7);
+		height:100%;
+		
+		opacity:0;
+		pointer-events:none;
+
+		-webkit-transition:opacity 0.3s;
+					
+		.button{
+			display:flex;
+			width:2em;
+			height:100%;						
+			justify-content:center;
+			cursor:pointer;
+
+			-webkit-transition:background 0.3s;
+
+			&:hover{
+				background:$background-color-note-button-highlight;
+			}
+
+			& > div{
+				height:100%;
+				width:50%;	
+				background-repeat: no-repeat;
+				background-position:center;
+				background-size:contain;	
+			}
+
+			&.expand > div{
+				background-image:url('../resources/note-expand-icon.png');
+			}
+			&.delete > div{
+				background-image:url('../resources/note-delete-icon.png');
+			}
+			&.tick > div{
+				background-image:url('../resources/note-tick-icon.png');
+			}
+			
+		}
+	}
+	
+}
 
 .title-container{
 	display:table;

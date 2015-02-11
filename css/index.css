@@ -9,7 +9,7 @@ body {
   height: 100%; }
 
 body {
-  font-family: 'Avenir Next',sans-serif;
+  font-family: 'Helvetica Neue',sans-serif;
   background: #ededed; }
 
 .global-container {
@@ -85,30 +85,6 @@ body {
   text-transform: uppercase;
   box-shadow: -10px 10px 50px 5px rgba(0, 0, 0, 0.5); }
 
-/* .test{
-	width:100px;
-	height:100px;
-	position:absolute;
-	z-index:$z-legend;
-	right:-100px;
-	top:0;
-	background:steelblue;
-// 	display:none;
-	opacity:0;
-	pointer-events:none;
-	-webkit-transition:opacity 0.5s;
-}
- 
-td:last-of-type .test{
-	left:-100px;
-}
-
-
-.graph:hover .test{
-	opacity:1;
-	pointer-events:auto;
-
-}*/
 .side-bar {
   position: absolute;
   top: 0;
@@ -171,13 +147,86 @@ td:last-of-type .test{
   .note-bar::-webkit-scrollbar {
     display: none; }
   .note-bar .note-container {
-    border-left: 1px solid #cccccc; }
+    border-left: 1px solid #cccccc;
+    overflow: scroll;
+    background: #f7f7f7; }
     .note-bar .note-container:first-of-type {
       border-left: 1px solid #f7f7f7; }
-    .note-bar .note-container div {
-      background: #f7f7f7;
-      width: 100%;
-      height: 100%; }
+
+.note {
+  border-bottom: 1px solid #e6e6e6; }
+  .note .note-content {
+    position: relative;
+    font-size: 1em;
+    font-weight: 300;
+    color: #808080; }
+    .note .note-content:hover .button-container {
+      opacity: 1;
+      pointer-events: auto; }
+  .note .short {
+    display: flex;
+    width: 100%; }
+    .note .short .date {
+      flex: none;
+      padding: 0.5em 0.25em; }
+    .note .short .title {
+      flex: 1;
+      padding: 0.5em 0.25em;
+      text-overflow: ellipsis;
+      overflow: hidden;
+      white-space: nowrap; }
+  .note .long .button-container {
+    height: 2em; }
+  .note .long form {
+    width: 100%;
+    height: 100%; }
+  .note .long input, .note .long textarea {
+    display: block;
+    padding: 0.25em;
+    font-size: 1em;
+    font-family: "Helvetica Neue";
+    font-weight: 300;
+    background: transparent;
+    width: 100%;
+    color: inherit; }
+    .note .long input:focus, .note .long textarea:focus {
+      outline: 0;
+      background: #d9d9d9; }
+  .note .long input[type=date] {
+    width: auto; }
+  .note .long textarea {
+    resize: none; }
+  .note .button-container {
+    display: flex;
+    position: absolute;
+    top: 0;
+    right: 0;
+    background: rgba(230, 230, 230, 0.7);
+    height: 100%;
+    opacity: 0;
+    pointer-events: none;
+    -webkit-transition: opacity 0.3s; }
+    .note .button-container .button {
+      display: flex;
+      width: 2em;
+      height: 100%;
+      justify-content: center;
+      cursor: pointer;
+      -webkit-transition: background 0.3s; }
+      .note .button-container .button:hover {
+        background: #d9d9d9; }
+      .note .button-container .button > div {
+        height: 100%;
+        width: 50%;
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: contain; }
+      .note .button-container .button.expand > div {
+        background-image: url("../resources/note-expand-icon.png"); }
+      .note .button-container .button.delete > div {
+        background-image: url("../resources/note-delete-icon.png"); }
+      .note .button-container .button.tick > div {
+        background-image: url("../resources/note-tick-icon.png"); }
 
 .title-container {
   display: table;
