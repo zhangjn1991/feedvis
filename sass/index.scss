@@ -330,6 +330,7 @@ body{
 	}
 
 	.long{		
+		padding:0 0.25em;
 		.button-container{
 			height:2em;
 		}
@@ -359,11 +360,13 @@ body{
 		}
 		input[type=date]{
 			width:auto;
+			padding:0.25em 0;
 		}
 		textarea{			
 			resize:none;
 		}
 	}
+	
 
 	.button-container{	
 		display:flex;	
@@ -372,7 +375,7 @@ body{
 		right:0;
 		background:rgba($background-color-note-button,0.7);
 		height:100%;
-		
+
 		opacity:0;
 		pointer-events:none;
 
@@ -412,6 +415,36 @@ body{
 		}
 	}
 	
+}
+
+.add-note{
+	position:relative;
+	
+	font-weight:300;		
+	color:$text-color-note-title;	
+	padding:0.25em;	
+
+	margin-bottom:1em;
+	
+	-webkit-transition:background 0.3s;
+	cursor:pointer;
+
+	&:hover{
+		background:$background-color-note-button-highlight;
+	}
+
+	.add-button{
+		float:left;
+		height:1em;
+		width:1em;
+		margin-right:1em;
+		background-image:url('../resources/note-add-icon.png');
+		background-repeat: no-repeat;
+		background-position:center;
+		background-size:contain;	
+	}
+
+
 }
 
 .title-container{

@@ -1,50 +1,38 @@
 <div class="note-bar h-bar" >
-	<div class="note-container h-container" ng-repeat="columnData in data">
-		<div class="note">
-			<div class="short note-content">
-				<div class="date">1422921600</div>
-				<div class="title">Lorem ipsum dolor sit amet,</div>
+	<div class="note-container h-container" ng-repeat="columnData in data" ng-controller="NoteListCtrl as noteListCtrl">
+		<div class="note" ng-controller="NoteCtrl as noteCtrl" ng-repeat="noteData in noteListCtrl.allNoteData">
+			<div class="short note-content" ng-hide="noteCtrl.isExpanded">
+			<!-- <div class="short note-content" > -->
+				<div class="date">{{noteData.date | date:'MM/dd/yyyy'}}</div>
+				<div class="title">{{noteData.goal}}</div>
 				<div class="button-container">					
-					<div class="button expand">
+					<div class="button expand" ng-click="noteCtrl.expand()">
 						<div></div>
 					</div>
-					<div class="button delete">
+					<div class="button delete" ng-click="noteListCtrl.deleteNote($index)">
 						<div></div>
 					</div>
 				</div>
-			</div>
-		</div>
-		<div class="note">
-			<div class="short note-content">
-				<div class="date">1422921600</div>
-				<div class="title">Lorem ipsum dolor sit amet,</div>
-				<div class="button-container">					
-					<div class="button expand">
-						<div></div>
-					</div>
-					<div class="button delete">
-						<div></div>
-					</div>
-				</div>
-			</div>
-		</div>		
-		<div class="note">			
-			<div class="long note-content">				
+			</div>		
+			<div class="long note-content" ng-show="noteCtrl.isExpanded">				
 				<form action="">
+					<input type="date" name="date" ng-model="noteData.date">
+					<input type="text" name="title" ng-model="noteData.goal" placeholder="Which goal are you completing?">
 					
-					<input type="date" class="date">
-					<input type="text" name="title" class="title" value="Lorem ipsum dolor sit amet, ius dicat">
-					
-					<textarea name="note" rows="3">Lorem ipsum dolor sit amet, ius dicat sapientem rationibus at, nam at vide nullam petentium. Te pro eirmod eligendi, mea eu tritani fabellas antiopam, no minim propriae invidunt cum.</textarea>
-					<input type="text" name="result"  value="Lorem ipsum dolor sit amet, ius dicat">
+					<textarea name="activity" rows="3" ng-model="noteData.activity" placeholder="Describe your activity"></textarea>
+					<input type="text" ng-model="noteData.result" placeholder="What is the outcome?">
 				</form>
 				<div class="button-container">					
-					<div class="button tick">
+					<div class="button tick" ng-click="noteCtrl.fold()">
 						<div></div>
 					</div>
 				</div>
 			</div>
 		</div>		
-
+		<div class="add-note" ng-click="noteListCtrl.addNewNote()">
+			<div class="add-button"></div>
+			<div>New Note</div>
+		</div>			
 	</div>		
+
 </div>

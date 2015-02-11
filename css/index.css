@@ -175,27 +175,30 @@ body {
       text-overflow: ellipsis;
       overflow: hidden;
       white-space: nowrap; }
-  .note .long .button-container {
-    height: 2em; }
-  .note .long form {
-    width: 100%;
-    height: 100%; }
-  .note .long input, .note .long textarea {
-    display: block;
-    padding: 0.25em;
-    font-size: 1em;
-    font-family: "Helvetica Neue";
-    font-weight: 300;
-    background: transparent;
-    width: 100%;
-    color: inherit; }
-    .note .long input:focus, .note .long textarea:focus {
-      outline: 0;
-      background: #d9d9d9; }
-  .note .long input[type=date] {
-    width: auto; }
-  .note .long textarea {
-    resize: none; }
+  .note .long {
+    padding: 0 0.25em; }
+    .note .long .button-container {
+      height: 2em; }
+    .note .long form {
+      width: 100%;
+      height: 100%; }
+    .note .long input, .note .long textarea {
+      display: block;
+      padding: 0.25em;
+      font-size: 1em;
+      font-family: "Helvetica Neue";
+      font-weight: 300;
+      background: transparent;
+      width: 100%;
+      color: inherit; }
+      .note .long input:focus, .note .long textarea:focus {
+        outline: 0;
+        background: #d9d9d9; }
+    .note .long input[type=date] {
+      width: auto;
+      padding: 0.25em 0; }
+    .note .long textarea {
+      resize: none; }
   .note .button-container {
     display: flex;
     position: absolute;
@@ -227,6 +230,26 @@ body {
         background-image: url("../resources/note-delete-icon.png"); }
       .note .button-container .button.tick > div {
         background-image: url("../resources/note-tick-icon.png"); }
+
+.add-note {
+  position: relative;
+  font-weight: 300;
+  color: #808080;
+  padding: 0.25em;
+  margin-bottom: 1em;
+  -webkit-transition: background 0.3s;
+  cursor: pointer; }
+  .add-note:hover {
+    background: #d9d9d9; }
+  .add-note .add-button {
+    float: left;
+    height: 1em;
+    width: 1em;
+    margin-right: 1em;
+    background-image: url("../resources/note-add-icon.png");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain; }
 
 .title-container {
   display: table;
