@@ -69,11 +69,14 @@ body {
     opacity: 0;
     pointer-events: none;
     -webkit-transition: opacity 0.5s; }
-    .menu-label .menu li {
+    .menu-label .menu a {
+      display: block;
       padding: 1em 0;
+      color: #f2f2f2;
+      text-decoration: none;
       text-transform: uppercase;
       cursor: pointer; }
-      .menu-label .menu li:hover {
+      .menu-label .menu a:hover {
         background: #1e202b; }
   .menu-label.active .menu-button {
     opacity: 1; }
