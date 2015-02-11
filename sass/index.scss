@@ -246,6 +246,12 @@ body{
 			@include border(left, $background-color-note);
 		}
 
+		&:hover .add-note{
+			opacity: 1;
+			pointer-events:auto;
+
+		}
+
 	}
 
 
@@ -388,8 +394,12 @@ body{
 
 	margin-bottom:1em;
 	
-	-webkit-transition:background 0.3s;
 	cursor:pointer;
+
+	opacity: 0;
+	pointer-events:none;
+
+	-webkit-transition:opacity 0.3s, background 0.3s;
 
 	&:hover{
 		background:$background-color-note-button-highlight;

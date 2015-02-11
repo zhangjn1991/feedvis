@@ -159,6 +159,9 @@ body {
     background: #f7f7f7; }
     .note-bar .note-container:first-of-type {
       border-left: 1px solid #f7f7f7; }
+    .note-bar .note-container:hover .add-note {
+      opacity: 1;
+      pointer-events: auto; }
 
 .note {
   border-bottom: 1px solid #e6e6e6; }
@@ -246,8 +249,10 @@ body {
   color: #808080;
   padding: 0.5em;
   margin-bottom: 1em;
-  -webkit-transition: background 0.3s;
-  cursor: pointer; }
+  cursor: pointer;
+  opacity: 0;
+  pointer-events: none;
+  -webkit-transition: opacity 0.3s, background 0.3s; }
   .add-note:hover {
     background: #d9d9d9; }
   .add-note .add-button {

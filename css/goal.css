@@ -22,12 +22,14 @@
   .goal-view-container .goal-item {
     display: flex;
     border-bottom: 1px solid #cccccc; }
-    .goal-view-container .goal-item.editable input, .goal-view-container .goal-item.editable textarea {
+    .goal-view-container .goal-item.editable input:hover, .goal-view-container .goal-item.editable textarea:hover {
+      background: #e6e6e6; }
+    .goal-view-container .goal-item.editable input:focus, .goal-view-container .goal-item.editable textarea:focus {
+      background: #d9d9d9; }
+    .goal-view-container .goal-item.editable input {
+      border-bottom: 1px solid #cdcdcd; }
+    .goal-view-container .goal-item.editable textarea {
       border: 1px solid #cdcdcd; }
-      .goal-view-container .goal-item.editable input:hover, .goal-view-container .goal-item.editable textarea:hover {
-        background: #e6e6e6; }
-      .goal-view-container .goal-item.editable input:focus, .goal-view-container .goal-item.editable textarea:focus {
-        background: #d9d9d9; }
     .goal-view-container .goal-item:hover .button-container {
       opacity: 1;
       pointer-events: auto; }
@@ -36,10 +38,12 @@
       display: flex;
       align-items: center;
       justify-content: flex-end;
-      font-size: 4em;
       width: 110px;
       text-align: right;
-      color: rgba(51, 54, 68, 0.5); }
+      color: #333644; }
+      .goal-view-container .goal-item .goal-index h2 {
+        font-size: 5em;
+        font-weight: 100; }
     .goal-view-container .goal-item .content-container {
       flex: 1;
       position: relative;
@@ -52,7 +56,7 @@
       float: right;
       width: 50%; }
     .goal-view-container .goal-item h3 {
-      color: #333644;
+      color: rgba(51, 54, 68, 0.4);
       font-size: 1em;
       font-weight: 600;
       margin: 0.5em 0; }
@@ -68,7 +72,8 @@
       margin-left: 10%;
       border: 1px solid transparent;
       color: #808080;
-      outline: 0; }
+      outline: 0;
+      -webkit-transition: border 0.3s; }
     .goal-view-container .goal-item input {
       font-size: 1.5em;
       width: 80%; }

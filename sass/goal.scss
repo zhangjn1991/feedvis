@@ -36,13 +36,20 @@
 
         &.editable{
             input,textarea{
-                border:1px solid $border-color-form;
                &:hover{
 				    background:$background-color-note-form-hover;
                 }
                 &:focus{
                     background:$background-color-note-form-focus;
                 }
+            }
+
+            input{
+                border-bottom:1px solid $border-color-form;
+            }
+
+            textarea{
+                border:1px solid $border-color-form;
             }
         }
 
@@ -57,12 +64,16 @@
             display:flex;
             align-items:center;
             justify-content:flex-end;
-            font-size:4em;
+            
             width:$side-bar-width;
             
             text-align:right;
-            color:rgba($primary-color,0.5);
-
+            color:rgba($primary-color,1);
+            
+            h2{
+                font-size:5em;
+                font-weight:100;
+            }
 
         }
 
@@ -84,7 +95,7 @@
         }
 
         h3{
-            color:$primary-color;
+            color:rgba($primary-color,0.4);
             font-size:1em;
             font-weight:600;
             margin:0.5em 0;
@@ -106,6 +117,8 @@
             border:1px solid transparent;
             color:$text-color-note-title;
             outline:0;
+
+            -webkit-transition:border 0.3s;
 
         }
 
