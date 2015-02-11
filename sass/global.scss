@@ -38,6 +38,7 @@ $background-color-note-form-hover:$background-color-note-button;
 $background-color-note-form-focus:$background-color-note-button-highlight;
 $border-color-column:#cccccc;
 $border-color-note:#e6e6e6;
+$border-color-form:darken($border-color-note, 10%);
 $axis-color:$border-color-column;
 
 

@@ -4,33 +4,40 @@
 		<h1 class="title">Goals</h1>
 		
 	</div>
-	<div class="goal-list">
-		<div class="goal-item" ng-repeat="num in [1,2,3]">
+	<div class="goal-list" ng-controller="GoalListCtrl as goalListCtrl">
+		<div class="goal-item" ng-repeat="goalData in goalListCtrl.allGoalData" ng-controller="GoalItemCtrl as goalItemCtrl" ng-class="{editable: goalItemCtrl.isEditing}" >
 			<div class="goal-index">
-				<h2>1</h2>
+				<h2>{{$index + 1}}</h2>
 			</div>
 			<div class="content-container">
 				<form>
 					<div class="goal-title-container">
 						<h3 class="label">Title</h3>
-						<input type="text" value="Lorem ipsum dolor sit amet, ">
+						<input type="text" ng-model="goalData.title" ng-readonly="!goalItemCtrl.isEditing">
 					</div>
 					<div class="date-container">
-						<h3 class="label">Date</h3>
-						<input type="date" value="2013-02-13"></input>
+						<h3 class="label">Create Date</h3>
+						<input type="date" ng-model="goalData.date" ng-readonly="!goalItemCtrl.isEditing"></input>
 					</div>
 					<div class="desc-container">
 						<h3 class="label">Description</h3>
-						<textarea row="8">Lorem ipsum dolor sit amet, qui id homero sanctus, pro ne veritus ponderum. Ubique cetero concludaturque pri et. Cum liber decore tincidunt id, ius cu ridens labores urbanitas. Soleat temporibus consequuntur est id. Postea numquam maiorum est et, te his saepe diceret detraxit.</textarea>
+						<textarea row="8" ng-model="goalData.desc" ng-readonly="!goalItemCtrl.isEditing"></textarea>
 					</div>
 				</form>
 				<div class="button-container">
-					<div class="button"></div>
-					<div class="button"></div>
+					<div class="button" ng-class="{edit:!goalItemCtrl.isEditing, tick:goalItemCtrl.isEditing}" ng-click="goalItemCtrl.toggleEditing()">
+						<div></div>
+					</div>
+					<div class="button delete" ng-click="goalListCtrl.deleteGoal($index)">
+						<div></div>
+					</div>
 				</div>
 			</div>
 		</div>
-		
+		<div class="add-goal" ng-click="goalListCtrl.addNewGoal()">
+			<div class="add-button"></div>
+			<div>New Goal</div>
+		</div>
 		
 	</div>
 	

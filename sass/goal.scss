@@ -8,6 +8,7 @@
         position:fixed;
         top:0;
         left:0;
+        z-index:$z-side;
         display:flex;
         width:100%;
         height:$header-height;        
@@ -32,6 +33,24 @@
     .goal-item{
         display:flex;
         @include border(bottom);
+
+        &.editable{
+            input,textarea{
+                border:1px solid $border-color-form;
+               &:hover{
+				    background:$background-color-note-form-hover;
+                }
+                &:focus{
+                    background:$background-color-note-form-focus;
+                }
+            }
+        }
+
+        &:hover .button-container{
+            opacity:1;
+            pointer-events:auto;
+        }
+
         .goal-index{
             flex:none;
 
@@ -49,8 +68,9 @@
 
         .content-container{            
             flex:1;
-
+            position:relative;
             padding:1em;
+            margin-left:2em;
         }
 
 
@@ -83,6 +103,10 @@
             height:auto;
             padding:10px;
             margin-left:10%;
+            border:1px solid transparent;
+            color:$text-color-note-title;
+            outline:0;
+
         }
 
         input{
@@ -101,6 +125,76 @@
             height:5em;
             resize:none;
         }
+        
+        
+
+        .button-container{
+            
+            position:absolute;
+            top:0;
+            right:1em;
+            display:flex;
+        
+            opacity:0;
+            pointer-events:none;
+
+            -webkit-transition:opacity 0.5s;
+
+            .button{
+                padding:1em;
+                -webkit-transition:background 0.5s;
+                cursor:pointer;
+                &:hover{
+                    background:$background-color-note-button-highlight;
+                }
+                div{
+                    width:1em;
+                    height:1em;                    
+                    background-size:contain;
+                }   
+
+                &.edit > div{
+                    background-image:url("../resources/edit-icon.png");
+                }
+
+                &.delete > div{
+                    background-image:url("../resources/delete-icon.png");
+                }
+
+                &.tick > div{
+                    background-image:url("../resources/tick-icon.png");
+                }
+            }
+        }
+
+    }
+    .add-goal{
+        position:relative;
+
+        font-size:2em;
+        font-weight:300;		
+        color:$text-color-note-title;	
+        padding:0.5em;	
+        
+
+        -webkit-transition:background 0.3s;
+        cursor:pointer;
+
+        &:hover{
+            background:$background-color-note-button-highlight;
+        }
+
+        .add-button{
+            float:left;
+            height:1em;
+            width:$side-bar-width;
+            margin-right:1em;
+            background-image:url('../resources/add-icon.png');
+            background-repeat: no-repeat;
+            background-position:center;
+            background-size:contain;	
+        }
+
 
     }
 }

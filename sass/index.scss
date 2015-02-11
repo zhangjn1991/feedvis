@@ -365,13 +365,13 @@ body{
 			}
 
 			&.expand > div{
-				background-image:url('../resources/note-expand-icon.png');
+				background-image:url('../resources/expand-icon.png');
 			}
 			&.delete > div{
-				background-image:url('../resources/note-delete-icon.png');
+				background-image:url('../resources/delete-icon.png');
 			}
 			&.tick > div{
-				background-image:url('../resources/note-tick-icon.png');
+				background-image:url('../resources/tick-icon.png');
 			}
 			
 		}
@@ -400,7 +400,7 @@ body{
 		height:1em;
 		width:1em;
 		margin-right:1em;
-		background-image:url('../resources/note-add-icon.png');
+		background-image:url('../resources/add-icon.png');
 		background-repeat: no-repeat;
 		background-position:center;
 		background-size:contain;	

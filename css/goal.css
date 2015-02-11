@@ -5,6 +5,7 @@
     position: fixed;
     top: 0;
     left: 0;
+    z-index: 2;
     display: flex;
     width: 100%;
     height: 110px;
@@ -21,6 +22,15 @@
   .goal-view-container .goal-item {
     display: flex;
     border-bottom: 1px solid #cccccc; }
+    .goal-view-container .goal-item.editable input, .goal-view-container .goal-item.editable textarea {
+      border: 1px solid #cdcdcd; }
+      .goal-view-container .goal-item.editable input:hover, .goal-view-container .goal-item.editable textarea:hover {
+        background: #e6e6e6; }
+      .goal-view-container .goal-item.editable input:focus, .goal-view-container .goal-item.editable textarea:focus {
+        background: #d9d9d9; }
+    .goal-view-container .goal-item:hover .button-container {
+      opacity: 1;
+      pointer-events: auto; }
     .goal-view-container .goal-item .goal-index {
       flex: none;
       display: flex;
@@ -32,7 +42,9 @@
       color: rgba(51, 54, 68, 0.5); }
     .goal-view-container .goal-item .content-container {
       flex: 1;
-      padding: 1em; }
+      position: relative;
+      padding: 1em;
+      margin-left: 2em; }
     .goal-view-container .goal-item .goal-title-container {
       float: left;
       width: 50%; }
@@ -53,7 +65,10 @@
       background: transparent;
       height: auto;
       padding: 10px;
-      margin-left: 10%; }
+      margin-left: 10%;
+      border: 1px solid transparent;
+      color: #808080;
+      outline: 0; }
     .goal-view-container .goal-item input {
       font-size: 1.5em;
       width: 80%; }
@@ -65,5 +80,48 @@
       margin: 0 5%;
       height: 5em;
       resize: none; }
+    .goal-view-container .goal-item .button-container {
+      position: absolute;
+      top: 0;
+      right: 1em;
+      display: flex;
+      opacity: 0;
+      pointer-events: none;
+      -webkit-transition: opacity 0.5s; }
+      .goal-view-container .goal-item .button-container .button {
+        padding: 1em;
+        -webkit-transition: background 0.5s;
+        cursor: pointer; }
+        .goal-view-container .goal-item .button-container .button:hover {
+          background: #d9d9d9; }
+        .goal-view-container .goal-item .button-container .button div {
+          width: 1em;
+          height: 1em;
+          background-size: contain; }
+        .goal-view-container .goal-item .button-container .button.edit > div {
+          background-image: url("../resources/edit-icon.png"); }
+        .goal-view-container .goal-item .button-container .button.delete > div {
+          background-image: url("../resources/delete-icon.png"); }
+        .goal-view-container .goal-item .button-container .button.tick > div {
+          background-image: url("../resources/tick-icon.png"); }
+  .goal-view-container .add-goal {
+    position: relative;
+    font-size: 2em;
+    font-weight: 300;
+    color: #808080;
+    padding: 0.5em;
+    -webkit-transition: background 0.3s;
+    cursor: pointer; }
+    .goal-view-container .add-goal:hover {
+      background: #d9d9d9; }
+    .goal-view-container .add-goal .add-button {
+      float: left;
+      height: 1em;
+      width: 110px;
+      margin-right: 1em;
+      background-image: url("../resources/add-icon.png");
+      background-repeat: no-repeat;
+      background-position: center;
+      background-size: contain; }
 
 /*# sourceMappingURL=goal.css.map */
