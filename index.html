@@ -15,33 +15,36 @@
 			<li>Goal</li>
 			<li>Log out</li>
 		</ul>
-	</div>
+	</div>	
 
-	<div class="note-label corner" >
-		<div>Notes</div>
-	</div>
-	
-	<sidebar data="data"></sidebar>	
-	
-	<headerbar></headerbar>
+	<div class="global-view-container">
 
-	<notebar data="data"></notebar>
+		<div class="note-label corner" >
+			<div>Notes</div>
+		</div>
+		
+		<sidebar data="data"></sidebar>	
+		
+		<headerbar></headerbar>
 
-	<div class="global-container">		
-		<table>
-			<tr>				
-				<td ng-repeat="columnData in data" ng-controller="ColumnCtrl as columnCtrl">
-					<div class="card-container" ng-show="columnCtrl.isGraphVisible()">
-						<div graph class="graph card" data="graphData" ng-repeat="graphData in columnData.graphs"></div>
-					</div>
+		<notebar data="data"></notebar>
 
-					<div class="card-container feed-container" ng-show="!columnCtrl.isGraphVisible()">	
-						<div feed class="feed card" data="feedData" ng-repeat="feedData in columnCtrl.feedsData"></div>
-					</div>
-				</td>
-				
-			</tr>
-		</table>
+		<div class="graph-view-container">		
+			<table>
+				<tr>				
+					<td ng-repeat="columnData in data" ng-controller="ColumnCtrl as columnCtrl">
+						<div class="card-container" ng-show="columnCtrl.isGraphVisible()">
+							<div graph class="graph card" data="graphData" ng-repeat="graphData in columnData.graphs"></div>
+						</div>
+
+						<div class="card-container feed-container" ng-show="!columnCtrl.isGraphVisible()">	
+							<div feed class="feed card" data="feedData" ng-repeat="feedData in columnCtrl.feedsData"></div>
+						</div>
+					</td>
+					
+				</tr>
+			</table>
+		</div>
 	</div>
 
 	<script src="js/lib/d3.v3.min.js"></script>
@@ -68,7 +71,7 @@
 
 	<script>		
 		
-		$('.global-container').on('scroll', function (e) {   	
+		$('.graph-view-container').on('scroll', function (e) {   	
 			$('.side-bar').scrollTop($(this).scrollTop());
 			$('.header-bar').scrollLeft($(this).scrollLeft());
 			$('.note-bar').scrollLeft($(this).scrollLeft());

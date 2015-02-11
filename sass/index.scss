@@ -31,8 +31,11 @@ $background-color:#ededed;
 $background-color-graph:#f7f7f7;
 $background-color-note:$background-color-graph;
 
+
 $background-color-note-button:#e6e6e6;
 $background-color-note-button-highlight:darken($background-color-note-button,5%);
+$background-color-note-form-hover:$background-color-note-button;
+$background-color-note-form-focus:$background-color-note-button-highlight;
 $border-color-column:#cccccc;
 $border-color-note:#e6e6e6;
 $axis-color:$border-color-column;
@@ -64,8 +67,12 @@ body{
 	background:$background-color;
 }
 
+.global-view-container{
+	height:100%;
+	width:100%;
+}
 
-.global-container{	
+.graph-view-container{	
 	width: 100%;
 	height: 100%;
 	overflow:scroll;
@@ -315,13 +322,13 @@ body{
 		
 		.date{
 			flex:none;
-			padding:0.5em 0.25em;	
+			padding:0.5em;	
 		}
 
 		.title{
 			flex:1;		
 			
-			padding:0.5em 0.25em;	
+			padding:0.5em;	
 
 			text-overflow:ellipsis;
 			overflow:hidden;
@@ -351,16 +358,18 @@ body{
 			width:100%;
 
 			color:inherit;
-
+			&:hover{
+				background:$background-color-note-form-hover;
+			}
 			&:focus{
 				outline:0;
-				background:$background-color-note-button-highlight;
+				background:$background-color-note-form-focus;
 			}
 
 		}
 		input[type=date]{
 			width:auto;
-			padding:0.25em 0;
+			padding:0.25em;
 		}
 		textarea{			
 			resize:none;
@@ -422,7 +431,7 @@ body{
 	
 	font-weight:300;		
 	color:$text-color-note-title;	
-	padding:0.25em;	
+	padding:0.5em;	
 
 	margin-bottom:1em;
 	

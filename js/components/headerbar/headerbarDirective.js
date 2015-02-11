@@ -12,10 +12,10 @@ angular.module('feedVisApp')
 		link:function(scope, element, attr){
 			
 			$('.header-bar').on('scroll', function () {    
-				$('.global-container').scrollLeft($(this).scrollLeft());
+				$('.graph-view-container').scrollLeft($(this).scrollLeft());
 			});
 			
-			//This may break when .global-container is another directive. Because the .global-container may not exist when this line is run.
+			//This may break when .graph-view-container is another directive. Because the .graph-view-container may not exist when this line is run.
 		}
 	}
 })

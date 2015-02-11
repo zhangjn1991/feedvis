@@ -64,7 +64,7 @@ function clearAll(){
 
 	d3.selectAll('.note-bar *').remove();
 
-	d3.selectAll('.global-container td').remove();
+	d3.selectAll('.graph-view-container td').remove();
 }
 
 
@@ -122,7 +122,7 @@ function drawHeaderBar(data){
 }
 
 function drawGraphs(data){
-	var tableRow = d3.select('.global-container tr')
+	var tableRow = d3.select('.graph-view-container tr')
 
 
 	var graphContainer = tableRow.selectAll('td')

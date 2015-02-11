@@ -111,7 +111,7 @@
 		
 	</div>
 
-	<div class="global-container">
+	<div class="graph-view-container">
 		
 		<table>
 			<tr>
@@ -279,16 +279,16 @@
 
 	<script>
 		$('.side-bar').on('scroll', function () {    
-			$('.global-container').scrollTop($(this).scrollTop());
+			$('.graph-view-container').scrollTop($(this).scrollTop());
 		});
 		
 		$('.header-bar,.note-bar').on('scroll', function () {    
-			$('.global-container').scrollLeft($(this).scrollLeft());
+			$('.graph-view-container').scrollLeft($(this).scrollLeft());
 		});
 
 
 
-		$('.global-container').on('scroll', function (e) {   	
+		$('.graph-view-container').on('scroll', function (e) {   	
 			$('.side-bar').scrollTop($(this).scrollTop());
 			$('.header-bar').scrollLeft($(this).scrollLeft());
 			$('.note-bar').scrollLeft($(this).scrollLeft());
