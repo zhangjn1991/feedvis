@@ -1,0 +1,106 @@
+@import 'global.scss';
+
+.goal-view-container{
+    height:100%;
+    width:100%;
+
+    .page-title-container{
+        position:fixed;
+        top:0;
+        left:0;
+        display:flex;
+        width:100%;
+        height:$header-height;        
+
+        background:$primary-color;
+
+        justify-content:center;
+        align-items:center;
+        
+        h1{
+            color:$text-color;
+            text-transform:uppercase;
+            font-weight:200;
+        }
+    }
+
+    .goal-list{
+        margin-top:$header-height;
+        width:100%;
+    }
+
+    .goal-item{
+        display:flex;
+        @include border(bottom);
+        .goal-index{
+            flex:none;
+
+            display:flex;
+            align-items:center;
+            justify-content:flex-end;
+            font-size:4em;
+            width:$side-bar-width;
+            
+            text-align:right;
+            color:rgba($primary-color,0.5);
+
+
+        }
+
+        .content-container{            
+            flex:1;
+
+            padding:1em;
+        }
+
+
+        .goal-title-container{
+            float:left;
+            width:50%;
+        }
+        .date-container{
+            float:right;
+            width:50%;
+        }
+
+        h3{
+            color:$primary-color;
+            font-size:1em;
+            font-weight:600;
+            margin:0.5em 0;
+
+        }
+
+        .desc-container{
+            clear:both;
+            padding-top:1em;            
+        }
+
+        input,textarea{
+            font-family:"Helvetica";
+            font-weight:300;
+            background:transparent;
+            height:auto;
+            padding:10px;
+            margin-left:10%;
+        }
+
+        input{
+            font-size:1.5em;
+            width:80%;
+        }
+
+        input[type=date]{
+            padding:5px;
+        }
+
+        textarea{
+            font-size:1em;
+            width:90%;
+            margin:0 5%;
+            height:5em;
+            resize:none;
+        }
+
+    }
+}

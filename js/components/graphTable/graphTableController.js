@@ -14,5 +14,11 @@ angular.module('feedVisApp')
 
 	$scope.fetchData();
 
+	$('.graph-view-container').on('scroll', function (e) {   	
+		$('.side-bar').scrollTop($(this).scrollTop());
+		$('.header-bar').scrollLeft($(this).scrollLeft());
+		$('.note-bar').scrollLeft($(this).scrollLeft());
+	});
+
 });
 

@@ -1,0 +1,51 @@
+$svg-width:300px;
+$svg-height:200px;
+$title-height:70px;
+$tab-height:40px;
+$header-height:$tab-height+$title-height;
+$note-bar-height:150px;
+$graph-height:300px;
+$side-bar-width:$header-height;
+$legend-color-size:15px;
+
+$z-legend:1;
+$z-side:2;
+$z-corner:3;
+
+$graph-margin-h:10px;
+$column-width:$svg-width+2*$graph-margin-h;
+
+
+$primary-color:#333644;
+$primary-color-dark:#1e202b;
+$primary-color-highlight:$primary-color-dark;
+$text-color:#f2f2f2;
+$text-color-fade:#808080;
+$text-color-side:#999999;
+$text-color-axis:$text-color-side;
+$text-color-feed:$text-color-side;
+$text-color-feed-fade:#cccccc;
+$text-color-feed-highlight:$primary-color-dark;
+$text-color-note-title:$text-color-fade;
+$background-color:#ededed;
+$background-color-graph:#f7f7f7;
+$background-color-note:$background-color-graph;
+
+
+$background-color-note-button:#e6e6e6;
+$background-color-note-button-highlight:darken($background-color-note-button,5%);
+$background-color-note-form-hover:$background-color-note-button;
+$background-color-note-form-focus:$background-color-note-button-highlight;
+$border-color-column:#cccccc;
+$border-color-note:#e6e6e6;
+$axis-color:$border-color-column;
+
+
+
+@mixin border($direction,$color:$border-color-column) {
+	border-#{$direction}:1px solid $color;
+}
+
+@mixin shadow($xoff, $yoff){
+	box-shadow:$xoff $yoff 50px 5px rgba(0,0,0,0.5);
+}

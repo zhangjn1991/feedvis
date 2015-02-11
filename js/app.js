@@ -5,7 +5,8 @@ angular.module('feedVisApp',['ngRoute'])
 			redirectTo:'/graph'
 		}).
 		when('/graph', {
-			templateUrl:'partials/graph-view.html'
+			templateUrl:'partials/graph-view.html',
+			controller:'GraphTableCtrl'
 		}).
 		when('/goal', {
 			templateUrl:'partials/goal-view.html'
