@@ -4,7 +4,7 @@
 			<div class="short note-content" ng-hide="noteCtrl.isExpanded">
 			<!-- <div class="short note-content" > -->
 				<div class="date">{{noteData.date | date:'MM/dd/yyyy'}}</div>
-				<div class="title">{{noteData.goal}}</div>
+				<div class="title">{{noteData.goal}}</div>				
 				<div class="button-container">					
 					<div class="button expand" ng-click="noteCtrl.expand()">
 						<div></div>
@@ -15,9 +15,16 @@
 				</div>
 			</div>		
 			<div class="long note-content" ng-show="noteCtrl.isExpanded">				
-				<form action="">
+				<form action="" id="note-form">
 					<input type="date" name="date" ng-model="noteData.date">
-					<input type="text" name="title" ng-model="noteData.goal" placeholder="Which goal are you completing?">
+					<!-- <input type="text" name="title" ng-model="noteData.goal" placeholder="Which goal are you completing?"> -->
+					<select form="note-form" ng-model="noteData.goalId">
+						<option value="-1" disabled selected>Select the goal you want to achieve</option>
+						<option value="{{goal.id}}" ng-repeat="goal in globalCtrl.allGoalData">{{goal.title}}</option>
+						<!-- <option value="goal_id1">Goal 1</option>
+						<option value="goal_id2">Goal 2</option>
+						<option value="goal_id3">Goal 3</option> -->
+					</select>
 					
 					<textarea name="activity" rows="3" ng-model="noteData.activity" placeholder="Describe your activity"></textarea>
 					<input type="text" ng-model="noteData.result" placeholder="What is the outcome?">

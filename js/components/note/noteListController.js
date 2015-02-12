@@ -3,13 +3,13 @@ angular.module('feedVisApp')
 	var newDate = new Date(1422921600*1000);
 	this.allNoteData = [
 		{
-			goal:"Test Title",
+			goalId:-1,
 			date: newDate,
 			activity:"Test Activity 2",
 			result:"Test Result"
 		},
 		{
-			goal:"Test Title",
+			goalId:-1,
 			date: newDate,
 			activity:"Test Activity",
 			result:"Test Result"

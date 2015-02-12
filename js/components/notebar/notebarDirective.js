@@ -2,10 +2,11 @@ angular.module('feedVisApp')
 .directive('notebar', function(){
 	return {
 		restrict:'E',
-		scope:{
-			data:'='
+		scope:true,
+		// scope:{
+		// 	data:'='
 			
-		},
+		// },
 		templateUrl:'js/components/notebar/notebar.html',
 		link:function(scope, element, attr){
 			

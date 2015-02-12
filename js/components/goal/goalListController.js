@@ -1,36 +1,12 @@
 angular.module('feedVisApp')
-.controller('GoalListCtrl', function(){
-	var newDate = new Date(1422921600*1000);
-	this.allGoalData = [
-		{
-			title:"Test Title",
-			date: newDate,
-			desc:"Test Activity 2",
-		},
-		{
-			title:"Test Title",
-			date: newDate,
-			desc:"Test Activity 2",
-		},
-		{
-			title:"Test Title",
-			date: newDate,
-			desc:"Test Activity 2",
-		},
-		{
-			title:"Test Title",
-			date: newDate,
-			desc:"Test Activity 2",
-		}
-
-	]
+.controller('GoalListCtrl', function($scope){	
 	this.addNewGoal = function(){		
-		this.allGoalData.push({
+		$scope.globalCtrl.allGoalData.push({
 			date: new Date()
 		});
 	}
 	this.deleteGoal = function(index){
-		this.allGoalData.splice(index,1);
+		$scope.globalCtrl.allGoalData.splice(index,1);
 	}
 });
 

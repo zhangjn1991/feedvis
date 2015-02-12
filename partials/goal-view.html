@@ -5,7 +5,7 @@
 		
 	</div>
 	<div class="goal-list" ng-controller="GoalListCtrl as goalListCtrl">
-		<div class="goal-item" ng-repeat="goalData in goalListCtrl.allGoalData" ng-controller="GoalItemCtrl as goalItemCtrl" ng-class="{editable: goalItemCtrl.isEditing}" >
+		<div class="goal-item" ng-repeat="goalData in globalCtrl.allGoalData" ng-controller="GoalItemCtrl as goalItemCtrl" ng-class="{editable: goalItemCtrl.isEditing}" >
 			<div class="goal-index">
 				<h2>{{$index + 1}}</h2>
 			</div>
