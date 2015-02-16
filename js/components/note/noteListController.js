@@ -1,15 +1,15 @@
 angular.module('feedVisApp')
-.controller('NoteListCtrl', function(){
+.controller('NoteListCtrl', function($scope){
 	var newDate = new Date(1422921600*1000);
 	this.allNoteData = [
 		{
-			goalId:-1,
+			goalId:2,
 			date: newDate,
 			activity:"Test Activity 2",
 			result:"Test Result"
 		},
 		{
-			goalId:-1,
+			goalId:3,
 			date: newDate,
 			activity:"Test Activity",
 			result:"Test Result"
@@ -18,11 +18,12 @@ angular.module('feedVisApp')
 	]
 	this.addNewNote = function(){		
 		this.allNoteData.push({
-			date: new Date()
+			date: new Date()			
 		});
 	}
 	this.deleteNote = function(index){
 		this.allNoteData.splice(index,1);
 	}
+
 });
 

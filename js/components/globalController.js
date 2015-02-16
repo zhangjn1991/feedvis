@@ -7,25 +7,25 @@ angular.module('feedVisApp')
 			title:"Test Title 1",
 			date: newDate,
 			desc:"Test Activity 2",
-			id:"1"
+			id:1
 		},
 		{
 			title:"Test Title 2",
 			date: newDate,
 			desc:"Test Activity 2",
-			id:"2"
+			id:2
 		},
 		{
 			title:"Test Title 3",
 			date: newDate,
 			desc:"Test Activity 2",
-			id:"3"
+			id:3
 		},
 		{
 			title:"Test Title 4",
 			date: newDate,
 			desc:"Test Activity 2",
-			id:"4"
+			id:4
 		}
 
 	]
