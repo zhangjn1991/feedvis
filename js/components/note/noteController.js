@@ -1,9 +1,9 @@
 angular.module('feedVisApp')
 .controller('NoteCtrl', function($scope){
 	
-	this.isExpanded = $scope.noteData.goalId?false:true;	
+	// this.isExpanded = $scope.noteData.goalId?false:true;	
 	//If the object is empty expand the form.
-	// this.isExpanded = false;
+	this.isExpanded = true;
 
 	this.test = $scope.globalCtrl.test;
 
@@ -26,5 +26,17 @@ angular.module('feedVisApp')
 	this.isDefaultOptionSelected = function(){
 		return $scope.noteData.goalId < 0 || $scope.noteData.goalId == undefined
 	}
+	
+
+	this.getResultTypeClass = function(){
+		if($scope.noteData.resultType > 0)
+			return "up";
+		else if ($scope.noteData.resultType == 0)
+			return "flat";
+		else
+			return "down";
+	}
+
+
 });
 

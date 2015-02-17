@@ -4,7 +4,10 @@
 			<div class="short note-content" ng-hide="noteCtrl.isExpanded">
 			<!-- <div class="short note-content" > -->
 				<div class="date">{{noteData.date | date:'MM/dd/yyyy'}}</div>
-				<div class="title">{{noteCtrl.getNoteGoal()}}</div>				
+				<div class="title">{{noteCtrl.getNoteGoal()}}</div>	
+				<div class="result-indicator" ng-class="noteCtrl.getResultTypeClass()">
+					<div></div>
+				</div>			
 				<div class="button-container">					
 					<div class="button expand" ng-click="noteCtrl.expand()">
 						<div></div>

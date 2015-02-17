@@ -6,14 +6,24 @@ angular.module('feedVisApp')
 			goalId:2,
 			date: newDate,
 			activity:"Test Activity 2",
-			result:"Test Result"
+			result:"Test Result",
+			resultType:0
 		},
 		{
 			goalId:3,
 			date: newDate,
 			activity:"Test Activity",
-			result:"Test Result"
+			result:"Test Result",
+			resultType:-1
+		},
+		{
+			goalId:1,
+			date: newDate,
+			activity:"Test Activity",
+			result:"Test Result",
+			resultType:1
 		}
+
 
 	]
 	this.addNewNote = function(){		

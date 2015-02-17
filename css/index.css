@@ -185,6 +185,22 @@ body {
       text-overflow: ellipsis;
       overflow: hidden;
       white-space: nowrap; }
+    .note .short .result-indicator {
+      flex: none;
+      width: 10%;
+      display: flex;
+      justify-content: center; }
+      .note .short .result-indicator > div {
+        width: 70%;
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: contain; }
+      .note .short .result-indicator.up > div {
+        background-image: url("../resources/up-icon.png"); }
+      .note .short .result-indicator.down > div {
+        background-image: url("../resources/down-icon.png"); }
+      .note .short .result-indicator.flat > div {
+        background-image: url("../resources/flat-icon.png"); }
   .note .long {
     padding: 0 0.25em; }
     .note .long .button-container {
