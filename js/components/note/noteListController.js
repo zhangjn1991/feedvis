@@ -28,7 +28,8 @@ angular.module('feedVisApp')
 	]
 	this.addNewNote = function(){		
 		this.allNoteData.push({
-			date: new Date()			
+			date: new Date(),
+			resultType:0		
 		});
 	}
 	this.deleteNote = function(index){

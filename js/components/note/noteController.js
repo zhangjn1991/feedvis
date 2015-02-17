@@ -1,11 +1,9 @@
 angular.module('feedVisApp')
 .controller('NoteCtrl', function($scope){
 	
-	// this.isExpanded = $scope.noteData.goalId?false:true;	
+	this.isExpanded = $scope.noteData.goalId?false:true;	
 	//If the object is empty expand the form.
-	this.isExpanded = true;
-
-	this.test = $scope.globalCtrl.test;
+	// this.isExpanded = true;
 
 	this.expand = function(){
 		this.isExpanded = true;		
@@ -35,6 +33,10 @@ angular.module('feedVisApp')
 			return "flat";
 		else
 			return "down";
+	}
+
+	this.switchResultType = function(){
+		$scope.noteData.resultType = ($scope.noteData.resultType + 2) % 3 - 1;
 	}
 
 

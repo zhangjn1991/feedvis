@@ -185,22 +185,22 @@ body {
       text-overflow: ellipsis;
       overflow: hidden;
       white-space: nowrap; }
-    .note .short .result-indicator {
-      flex: none;
-      width: 10%;
-      display: flex;
-      justify-content: center; }
-      .note .short .result-indicator > div {
-        width: 70%;
-        background-repeat: no-repeat;
-        background-position: center;
-        background-size: contain; }
-      .note .short .result-indicator.up > div {
-        background-image: url("../resources/up-icon.png"); }
-      .note .short .result-indicator.down > div {
-        background-image: url("../resources/down-icon.png"); }
-      .note .short .result-indicator.flat > div {
-        background-image: url("../resources/flat-icon.png"); }
+  .note .result-indicator {
+    flex: none;
+    width: 10%;
+    display: flex;
+    justify-content: center; }
+    .note .result-indicator > div {
+      width: 70%;
+      background-repeat: no-repeat;
+      background-position: center;
+      background-size: contain; }
+    .note .result-indicator.up > div {
+      background-image: url("../resources/up-icon.png"); }
+    .note .result-indicator.down > div {
+      background-image: url("../resources/down-icon.png"); }
+    .note .result-indicator.flat > div {
+      background-image: url("../resources/flat-icon.png"); }
   .note .long {
     padding: 0 0.25em; }
     .note .long .button-container {
@@ -215,18 +215,26 @@ body {
       font-family: "Helvetica Neue";
       font-weight: 300;
       background: transparent;
-      width: 100%;
       color: inherit; }
       .note .long input:hover, .note .long textarea:hover, .note .long select:hover {
         background: #e6e6e6; }
       .note .long input:focus, .note .long textarea:focus, .note .long select:focus {
         outline: 0;
         background: #d9d9d9; }
+    .note .long textarea, .note .long select {
+      width: 100%; }
     .note .long input[type=date] {
       width: auto;
       padding: 0.25em; }
     .note .long textarea {
       resize: none; }
+    .note .long .result-container {
+      display: flex;
+      width: 100%; }
+      .note .long .result-container input {
+        flex: 1; }
+      .note .long .result-container .result-indicator:hover {
+        background: #e6e6e6; }
   .note .button-container {
     display: flex;
     position: absolute;

@@ -292,33 +292,33 @@ body{
 			text-overflow:ellipsis;
 			overflow:hidden;
 			white-space: nowrap;	
+		}		
+	}
+
+	.result-indicator{
+		flex:none;
+		width:10%;			
+
+		display:flex;
+		justify-content:center;
+
+		& > div{
+			width:70%;				
+			background-repeat:no-repeat;
+			background-position:center;
+			background-size:contain;	
 		}
 
-		.result-indicator{
-			flex:none;
-			width:10%;			
-
-			display:flex;
-			justify-content:center;
-
-			& > div{
-				width:70%;				
-				background-repeat:no-repeat;
-				background-position:center;
-				background-size:contain;	
-			}
-
-			&.up > div{
-				background-image:url('../resources/up-icon.png');
-			}
-			&.down > div{
-				background-image:url('../resources/down-icon.png');
-			}
-			&.flat > div{
-				background-image:url('../resources/flat-icon.png');
-			}
-			
+		&.up > div{
+			background-image:url('../resources/up-icon.png');
 		}
+		&.down > div{
+			background-image:url('../resources/down-icon.png');
+		}
+		&.flat > div{
+			background-image:url('../resources/flat-icon.png');
+		}
+
 	}
 
 	.long{		
@@ -338,9 +338,7 @@ body{
 			font-size:1em;		
 			font-family:"Helvetica Neue";
 			font-weight:300;
-			background:transparent;
-
-			width:100%;
+			background:transparent;			
 
 			color:inherit;
 			&:hover{
@@ -352,6 +350,9 @@ body{
 			}
 
 		}
+		textarea, select{
+			width:100%;
+		}
 		input[type=date]{
 			width:auto;
 			padding:0.25em;
@@ -359,6 +360,20 @@ body{
 		textarea{			
 			resize:none;
 		}		
+
+		.result-container{
+			display:flex;
+			width:100%;
+
+			input{				
+				flex:1;
+			}
+
+			.result-indicator:hover{
+				background:$background-color-note-form-hover;
+			}
+		}
+
 	}
 	
 
