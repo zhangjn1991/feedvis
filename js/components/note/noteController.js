@@ -1,9 +1,9 @@
 angular.module('feedVisApp')
 .controller('NoteCtrl', function($scope){
-	
-	this.isExpanded = $scope.noteData.goalId?false:true;	
-	//If the object is empty expand the form.
-	// this.isExpanded = true;
+		
+	this.isNewlyCreatedNote = function(){
+		return $scope.noteData.goalId == -1;
+	}
 
 	this.expand = function(){
 		this.isExpanded = true;		
@@ -38,6 +38,31 @@ angular.module('feedVisApp')
 	this.switchResultType = function(){
 		$scope.noteData.resultType = ($scope.noteData.resultType + 2) % 3 - 1;
 	}
+
+	this.startEditing = function(){
+		this.expand();
+		this.backupNoteData = _.clone($scope.noteData);
+	}
+	this.saveEditing = function(){
+		this.fold();
+		this.backupNoteData = null;
+	}
+	this.cancelEditing = function(){		
+		if(this.isNewlyCreatedNote()){
+			if(confirm("Are you sure to cancel adding this note?"))
+				$scope.noteListCtrl.deleteNote($scope.$index);
+		}
+		else if(confirm("Are you sure to cancel editing? All your changes will be lost.")){
+				$scope.noteData = this.backupNoteData;
+				this.saveEditing();	
+		}
+	}
+
+	if(this.isNewlyCreatedNote())
+		this.startEditing();
+	//If the object is empty expand the form.
+	// this.isExpanded = true;
+	this.backupNoteData = null;
 
 
 });

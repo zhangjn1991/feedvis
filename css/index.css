@@ -261,7 +261,7 @@ body {
         background-position: center;
         background-size: contain; }
       .note .button-container .button.expand > div {
-        background-image: url("../resources/expand-icon.png"); }
+        background-image: url("../resources/edit-icon.png"); }
       .note .button-container .button.delete > div {
         background-image: url("../resources/delete-icon.png"); }
       .note .button-container .button.tick > div {

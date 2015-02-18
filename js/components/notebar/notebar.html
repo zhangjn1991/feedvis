@@ -9,10 +9,10 @@
 					<div></div>
 				</div>			
 				<div class="button-container">					
-					<div class="button expand" ng-click="noteCtrl.expand()">
+					<div class="button expand" ng-click="noteCtrl.startEditing()">
 						<div></div>
 					</div>
-					<div class="button delete" ng-click="noteListCtrl.deleteNote($index)">
+					<div class="button delete" ng-click="noteListCtrl.tryDeleteNote($index)">
 						<div></div>
 					</div>
 				</div>
@@ -34,7 +34,10 @@
 					</div>
 				</form>
 				<div class="button-container">					
-					<div class="button tick" ng-click="noteCtrl.fold()">
+					<div class="button tick" ng-click="noteCtrl.saveEditing()">
+						<div></div>
+					</div>
+					<div class="button delete" ng-click="noteCtrl.cancelEditing()">
 						<div></div>
 					</div>
 				</div>
