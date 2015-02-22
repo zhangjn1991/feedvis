@@ -2,6 +2,7 @@ angular.module('feedVisApp')
 .controller('GraphTableCtrl', function($scope, $http){
 	var self = this;
 	$scope.data = [];
+	$scope.globalCtrl.graphTableCtrl = this; //temp way to put show all column button
 
 	this.columnDict = [];
 
@@ -26,6 +27,10 @@ angular.module('feedVisApp')
 
 	this.setColumnVisible = function(isVisible,index){
 		this.columnDict[index].isColumnVisible = isVisible;	
+	}
+
+	this.showAllColumn = function(){
+		this.columnDict.forEach(function(item){item.isColumnVisible = true;});
 	}
 
 	$scope.fetchData();
