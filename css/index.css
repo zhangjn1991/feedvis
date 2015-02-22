@@ -125,17 +125,21 @@ body {
   position: absolute;
   left: 0;
   z-index: 2;
-  width: 100%;
+  max-width: 100%;
   overflow: scroll;
   /* 	margin-right:$side-bar-width; */ }
   .h-bar .h-container {
     flex: none;
     width: 320px;
     height: 100%; }
-    .h-bar .h-container:first-of-type {
-      margin-left: 110px; }
-    .h-bar .h-container:last-of-type {
-      /* 			padding-right:$side-bar-width; */ }
+    .h-bar .h-container:first-of-type::before {
+      /* 			margin-left:$side-bar-width; */
+      /* 			flex:none;
+      			width:$side-bar-width;
+      			height:100%; */ }
+  .h-bar .place-holder {
+    flex: none;
+    width: 110px; }
 
 .header-bar {
   top: 0;
@@ -143,9 +147,28 @@ body {
   .header-bar::-webkit-scrollbar {
     display: none; }
   .header-bar .header-container {
+    position: relative;
     border-left: 1px solid #1e202b; }
     .header-bar .header-container:first-of-type {
       border-left: 1px solid #333644; }
+    .header-bar .header-container:hover .button-container {
+      opacity: 1;
+      pointer-events: auto; }
+    .header-bar .header-container .button-container {
+      flex-direction: column;
+      height: auto; }
+      .header-bar .header-container .button-container .button {
+        width: 2em;
+        height: 2em; }
+        .header-bar .header-container .button-container .button:hover {
+          background: #1e202b; }
+  .header-bar .hide-button {
+    position: absolute;
+    right: 0;
+    top: 0;
+    background: crimson;
+    width: 50px;
+    height: 50px; }
 
 .note-bar {
   bottom: 0;
@@ -173,6 +196,14 @@ body {
     .note .note-content:hover .button-container {
       opacity: 1;
       pointer-events: auto; }
+    .note .note-content .button-container {
+      background: rgba(230, 230, 230, 0.7);
+      height: 100%; }
+      .note .note-content .button-container .button {
+        width: 2em;
+        height: 100%; }
+        .note .note-content .button-container .button:hover {
+          background: #d9d9d9; }
   .note .short {
     display: flex;
     width: 100%; }
@@ -235,37 +266,34 @@ body {
         flex: 1; }
       .note .long .result-container .result-indicator:hover {
         background: #e6e6e6; }
-  .note .button-container {
+
+.button-container {
+  display: flex;
+  position: absolute;
+  top: 0;
+  right: 0;
+  opacity: 0;
+  pointer-events: none;
+  -webkit-transition: opacity 0.3s; }
+  .button-container .button {
     display: flex;
-    position: absolute;
-    top: 0;
-    right: 0;
-    background: rgba(230, 230, 230, 0.7);
-    height: 100%;
-    opacity: 0;
-    pointer-events: none;
-    -webkit-transition: opacity 0.3s; }
-    .note .button-container .button {
-      display: flex;
-      width: 2em;
+    justify-content: center;
+    cursor: pointer;
+    -webkit-transition: background 0.3s; }
+    .button-container .button > div {
       height: 100%;
-      justify-content: center;
-      cursor: pointer;
-      -webkit-transition: background 0.3s; }
-      .note .button-container .button:hover {
-        background: #d9d9d9; }
-      .note .button-container .button > div {
-        height: 100%;
-        width: 50%;
-        background-repeat: no-repeat;
-        background-position: center;
-        background-size: contain; }
-      .note .button-container .button.expand > div {
-        background-image: url("../resources/edit-icon.png"); }
-      .note .button-container .button.delete > div {
-        background-image: url("../resources/delete-icon.png"); }
-      .note .button-container .button.tick > div {
-        background-image: url("../resources/tick-icon.png"); }
+      width: 50%;
+      background-repeat: no-repeat;
+      background-position: center;
+      background-size: contain; }
+    .button-container .button.edit > div {
+      background-image: url("../resources/edit-icon.png"); }
+    .button-container .button.delete > div {
+      background-image: url("../resources/delete-icon.png"); }
+    .button-container .button.tick > div {
+      background-image: url("../resources/tick-icon.png"); }
+    .button-container .button.hide > div {
+      background-image: url("../resources/hide-icon.png"); }
 
 .add-note {
   position: relative;

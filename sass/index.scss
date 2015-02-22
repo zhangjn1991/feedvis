@@ -193,19 +193,24 @@ body{
 	position:absolute;
 	left:0;	
 	z-index:$z-side;
-	width:100%;
-	overflow:scroll;
+	max-width:100%;
+	overflow:scroll;	
 /* 	margin-right:$side-bar-width; */
 	.h-container{
 		flex:none;
 		width:$column-width;	
 		height:100%;	
-		&:first-of-type{
-			margin-left:$side-bar-width;
-		}
-		&:last-of-type{
-/* 			padding-right:$side-bar-width; */
-		}
+
+		&:first-of-type::before{
+/* 			margin-left:$side-bar-width; */
+/* 			flex:none;
+			width:$side-bar-width;
+			height:100%; */
+		}		
+	}
+	.place-holder{
+		flex:none;
+		width:$side-bar-width;
 	}
 }
 
@@ -218,11 +223,41 @@ body{
 	}
 
 	.header-container{
+		position:relative;
 		@include border(left,$primary-color-dark);
 		&:first-of-type{
 			@include border(left,$primary-color);
 		}
+
+		&:hover .button-container{
+			opacity:1;
+			pointer-events:auto;
+		}
+
+		.button-container{
+			flex-direction:column;
+			height:auto;
+			.button{
+				width:2em;
+				height:2em;
+
+				&:hover{
+					background:$primary-color-dark;
+				}
+			}
+		}
 	}
+
+	.hide-button{
+		position:absolute;
+		right:0;
+		top:0;
+		background:crimson;
+		width:50px;
+		height:50px;
+	}
+
+	
 }
 
 .note-bar{
@@ -272,6 +307,19 @@ body{
 		&:hover .button-container{
 			opacity:1;
 			pointer-events:auto;
+		}
+
+		.button-container{
+			background:rgba($background-color-note-button,0.7);
+			height:100%;
+			.button{
+				width:2em;
+				height:100%;
+
+				&:hover{
+					background:$background-color-note-button-highlight;
+				}
+			}
 		}
 	}
 
@@ -377,53 +425,63 @@ body{
 	}
 	
 
-	.button-container{	
-		display:flex;	
-		position:absolute;
-		top:0;
-		right:0;
-		background:rgba($background-color-note-button,0.7);
-		height:100%;
-
-		opacity:0;
-		pointer-events:none;
-
-		-webkit-transition:opacity 0.3s;
-					
-		.button{
-			display:flex;
-			width:2em;
-			height:100%;						
-			justify-content:center;
-			cursor:pointer;
-
-			-webkit-transition:background 0.3s;
-
-			&:hover{
-				background:$background-color-note-button-highlight;
-			}
-
-			& > div{
-				height:100%;
-				width:50%;	
-				background-repeat: no-repeat;
-				background-position:center;
-				background-size:contain;	
-			}
-
-			&.expand > div{
-				background-image:url('../resources/edit-icon.png');
-			}
-			&.delete > div{
-				background-image:url('../resources/delete-icon.png');
-			}
-			&.tick > div{
-				background-image:url('../resources/tick-icon.png');
-			}
-			
-		}
-	}
 	
+	
+}
+
+.button-container{	
+	display:flex;	
+	position:absolute;
+	top:0;
+	right:0;
+	
+
+	opacity:0;
+	pointer-events:none;
+
+	-webkit-transition:opacity 0.3s;
+
+	.button{
+		display:flex;
+								
+		justify-content:center;
+		cursor:pointer;
+
+		-webkit-transition:background 0.3s;
+
+		
+
+		& > div{
+			height:100%;
+			width:50%;	
+			background-repeat: no-repeat;
+			background-position:center;
+			background-size:contain;	
+		}
+
+
+		$icon-list: 'edit','delete','tick','hide';
+
+		@each $icon in $icon-list{
+			&.#{$icon} > div{
+				background-image:url('../resources/#{$icon}-icon.png');	
+			}
+		}
+
+		// &.expand > div{
+		// 	background-image:url('../resources/edit-icon.png');
+		// }
+		// &.delete > div{
+		// 	background-image:url('../resources/delete-icon.png');
+		// }
+		// &.tick > div{
+		// 	background-image:url('../resources/tick-icon.png');
+		// }
+		// &.hide > div{
+		// 	background-image:url('../resources/tick-icon.png');
+		// }
+
+	}
 }
 
 .add-note{

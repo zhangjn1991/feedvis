@@ -1,5 +1,6 @@
 <div class="note-bar h-bar" >
-	<div class="note-container h-container" ng-repeat="columnData in data" ng-controller="NoteListCtrl as noteListCtrl">
+	<div class="place-holder"></div>
+	<div class="note-container h-container" ng-repeat="columnData in data" ng-controller="NoteListCtrl as noteListCtrl" ng-show="graphTableCtrl.isColumnVisible($index)">
 		<div class="note" ng-controller="NoteCtrl as noteCtrl" ng-repeat="noteData in noteListCtrl.allNoteData">
 			<div class="short note-content" ng-hide="noteCtrl.isExpanded">
 			<!-- <div class="short note-content" > -->
@@ -9,7 +10,7 @@
 					<div></div>
 				</div>			
 				<div class="button-container">					
-					<div class="button expand" ng-click="noteCtrl.startEditing()">
+					<div class="button edit" ng-click="noteCtrl.startEditing()">
 						<div></div>
 					</div>
 					<div class="button delete" ng-click="noteListCtrl.tryDeleteNote($index)">

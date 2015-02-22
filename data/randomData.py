@@ -11,7 +11,7 @@ def getTimeStamp(date):
 all_data=[];
 graph_series = {'Sentiment':['negative', 'neutral', 'positive'], 'Post types': ['photo', 'video', 'text', 'shared link', 'HPB', 'comment', 'like'],'Closeness': ['close friends', 'acquaintances']}
 
-for i in range(0,5):
+for i in range(0,6):
 	start_date = datetime.now()+timedelta(days=i*7)
 	end_date = start_date+timedelta(days=6);
 
