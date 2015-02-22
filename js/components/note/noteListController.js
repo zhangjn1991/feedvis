@@ -1,28 +1,28 @@
 angular.module('feedVisApp')
 .controller('NoteListCtrl', function($scope){
-	var newDate = new Date(1422921600*1000);
+	var newDate = new Date();
 	this.allNoteData = [
-		// {
-		// 	goalId:2,
-		// 	date: newDate,
-		// 	activity:"Test Activity 2",
-		// 	result:"Test Result",
-		// 	resultType:0
-		// },
-		// {
-		// 	goalId:3,
-		// 	date: newDate,
-		// 	activity:"Test Activity",
-		// 	result:"Test Result",
-		// 	resultType:-1
-		// },
-		// {
-		// 	goalId:1,
-		// 	date: newDate,
-		// 	activity:"Test Activity",
-		// 	result:"Test Result",
-		// 	resultType:1
-		// }
+		{
+			goalId:2,
+			date: newDate,
+			activity:"Visit my brother's time-line and comment on all his recent posts.",
+			result:"No visible difference yet",
+			resultType:0
+		},
+		{
+			goalId:3,
+			date: newDate,
+			activity:"I mark every political feeds in my post as I don't want to see this.",
+			result:"No more political feeds in my current feeds for now.",
+			resultType:1
+		},
+		{
+			goalId:1,
+			date: newDate,
+			activity:"I published some photos to my album",
+			result:"There seems to be less photos in my feeds to me",
+			resultType:-1
+		}
 
 
 	]

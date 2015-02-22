@@ -23,7 +23,7 @@ body {
   .graph-view-container table {
     margin-left: 110px;
     margin-top: 110px;
-    margin-bottom: 150px;
+    margin-bottom: 200px;
     /* 		padding-right:$side-bar-width; */
     border-spacing: 0px;
     /* 		border-collapse:collapse; */
@@ -87,7 +87,7 @@ body {
 .note-label {
   bottom: 0;
   background: #f7f7f7;
-  height: 150px;
+  height: 200px;
   color: #999999;
   text-transform: uppercase;
   box-shadow: -10px 10px 50px 5px rgba(0, 0, 0, 0.5); }
@@ -118,7 +118,7 @@ body {
       margin-top: 110px; }
     .side-bar .graph-title:last-of-type {
       padding-bottom: 20px;
-      margin-bottom: 150px; }
+      margin-bottom: 200px; }
 
 .h-bar {
   display: flex;
@@ -149,7 +149,7 @@ body {
 
 .note-bar {
   bottom: 0;
-  height: 150px;
+  height: 200px;
   box-shadow: 0px 10px 50px 5px rgba(0, 0, 0, 0.5); }
   .note-bar::-webkit-scrollbar {
     display: none; }
@@ -385,6 +385,8 @@ td:first-of-type .card-container {
         stroke: transparent; }
     .graph svg .axis.y line {
       stroke-dasharray: 3,3; }
+    .graph svg .axis.y text {
+      font-size: 8pt; }
     .graph svg .axis text {
       fill: #999999; }
     .graph svg .axis .tick line {
@@ -404,6 +406,8 @@ td:first-of-type .card-container {
   position: absolute;
   top: 0;
   left: 300px;
+  max-height: 200px;
+  overflow: scroll;
   padding: 0.5em 0;
   z-index: 1;
   opacity: 0;
@@ -434,7 +438,8 @@ td:first-of-type .card-container {
       -webkit-transition: background 0.5s; }
     .legend .item .label {
       display: table-cell;
-      vertical-align: middle; }
+      vertical-align: middle;
+      white-space: nowrap; }
 
 td:last-of-type .legend {
   left: auto;
@@ -468,5 +473,15 @@ td:last-of-type .legend {
   background: #7b69dd;
   stroke: #7b69dd;
   border-color: #7b69dd; }
+
+.series5 .color, .series5.line {
+  background: #e763b4;
+  stroke: #e763b4;
+  border-color: #e763b4; }
+
+.series6 .color, .series6.line {
+  background: #6097e0;
+  stroke: #6097e0;
+  border-color: #6097e0; }
 
 /*# sourceMappingURL=index.css.map */

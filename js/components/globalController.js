@@ -1,30 +1,30 @@
 angular.module('feedVisApp')
 .controller('GlobalCtrl', function($scope){
 	
-	var newDate = new Date(1422921600*1000);
+	var newDate = new Date();
 	this.allGoalData = [
 		{
-			title:"Test Title 1",
+			title:"See more Photos",
 			date: newDate,
-			desc:"Test Activity 2",
+			desc:"I want to see more photo posts in my feeds.",
 			id:1
 		},
 		{
-			title:"Test Title 2",
+			title:"More brother's posts",
 			date: newDate,
-			desc:"Test Activity 2",
+			desc:"I want to see more posts from by brother, or even all posts.",
 			id:2
 		},
 		{
-			title:"Test Title 3",
+			title:"Less Politics",
 			date: newDate,
-			desc:"Test Activity 2",
+			desc:"I would like to reduce the amount of political posts from my feeds.",
 			id:3
 		},
 		{
-			title:"Test Title 4",
+			title:"More Technical Post",
 			date: newDate,
-			desc:"Test Activity 2",
+			desc:"I like to read more post related to technology.",
 			id:4
 		}
 

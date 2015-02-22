@@ -9,20 +9,24 @@ def getTimeStamp(date):
 	# return str(date)
 
 all_data=[];
-for i in range(0,5):
-	start_date = datetime.now()+timedelta(days=i)
-	end_date = start_date+timedelta(days=7);
+graph_series = {'Sentiment':['negative', 'neutral', 'positive'], 'Post types': ['photo', 'video', 'text', 'shared link', 'HPB', 'comment', 'like'],'Closeness': ['close friends', 'acquaintances']}
 
-	day = {'date_range':{'start':getTimeStamp(start_date), 'end': getTimeStamp(start_date+timedelta(days=7))}}
+for i in range(0,5):
+	start_date = datetime.now()+timedelta(days=i*7)
+	end_date = start_date+timedelta(days=6);
+
+	day = {'date_range':{'start':getTimeStamp(start_date), 'end': getTimeStamp(end_date)}}
 	day['graphs']=[];
-	for j in range(0,5):
-		graph = {'graph_name':'graph'+str(j)}
+	for graph_name in graph_series.keys():
+		graph = {'graph_name':graph_name}
 		graph['series'] = []
-		for k in range(0,5):
-			serie = {'series_name':'series'+str(k)}
+		for series_name in graph_series[graph_name]:
+			serie = {'series_name':series_name}
 			serie['data'] = []
+			cur_value = random.uniform(0.2,0.8)
 			for l in range(0,7):
-				serie['data'].append({'value':random.randint(1,10), 'date':getTimeStamp(start_date+timedelta(days=l))})
+				cur_value += random.uniform(-0.15,0.15)
+				serie['data'].append({'value':cur_value, 'date':getTimeStamp(start_date+timedelta(days=l))})
 			graph['series'].append(serie)
 		day['graphs'].append(graph)
 	day['feeds']=[];

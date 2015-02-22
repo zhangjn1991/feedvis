@@ -11,6 +11,7 @@ angular.module('feedVisApp')
 
 
 	var axisDateFormat = d3.time.format('%e');
+	var axisValueFormat = d3.format('%');
 
 	var x = d3.scale.linear()
 	  	.range([0, svgWidth])  	
@@ -38,6 +39,7 @@ angular.module('feedVisApp')
 		.ticks(5)
 		// .tickPadding(5)
 		.tickSize(-svgWidth)
+		.tickFormat(axisValueFormat)
 
 
 	var line = d3.svg.line()
@@ -62,6 +64,10 @@ angular.module('feedVisApp')
 			self.graphData = newVal;
 			self.visibleDict = _.map(newVal.series, function(d){return true;});
 			self.drawLineChart();
+
+			// for (var i = newVal.series.length - 1; i > 0; i--) {
+			// 	self.toggleVisible(i);
+			// };
 
 		})
 	};
@@ -88,7 +94,8 @@ angular.module('feedVisApp')
 		
 		x.domain(d3.extent(allData,function(d) { return d.date; }));
 
-		y.domain(d3.extent(allData,function(d) { return d.value; }));
+		y.domain([0,1]);
+		// y.domain(d3.extent(allData,function(d) { return d.value; }));
 		
 		this.svg.append('g')
 			.attr('class','x axis')

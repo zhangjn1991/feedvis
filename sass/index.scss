@@ -637,6 +637,9 @@ td:first-of-type{
 				line{
 					stroke-dasharray: 3,3;
 				}
+				text{
+					font-size:8pt;
+				}
 			}
 			
 			text{
@@ -674,6 +677,9 @@ td:first-of-type{
 	top: 0;
 	left: $svg-width;
 
+	max-height:$svg-height;
+	overflow:scroll;
+
 	padding: 0.5em 0;		
 
 	z-index:$z-legend;
@@ -697,11 +703,11 @@ td:first-of-type{
 
 		text-transform:capitalize;
 
-		cursor: pointer;
+		cursor: pointer;		
 
 		background:transparent;
 
-		-webkit-transition: background 0.5s;
+		-webkit-transition: background 0.5s;		
 
 		&:hover{
 			background:$primary-color-highlight;
@@ -728,6 +734,7 @@ td:first-of-type{
 			display: table-cell;
 
 			vertical-align: middle;
+			white-space:nowrap;
 		}
 	}
 }
@@ -748,7 +755,9 @@ $series-list: #69c3dd,
 #f7ca2e, 
 #fc6c6e, 
 #4cb7ae,
-#7b69dd;
+#7b69dd,
+#e763b4,
+#6097e0;
 
 @each $color in $series-list{
 	$i: index($series-list, $color);
