@@ -755,7 +755,8 @@ td:first-of-type{
 	-webkit-transition: opacity 0.5s;	
 
 	.item{
-		display: table;
+		display:flex;
+		align-items:center;
 
 		padding: 0.5em 1em;
 
@@ -763,7 +764,7 @@ td:first-of-type{
 
 		cursor: pointer;		
 
-		background:transparent;
+		font-weight:300;
 
 		-webkit-transition: background 0.5s;		
 
@@ -782,16 +783,13 @@ td:first-of-type{
 			height: $legend-color-size;
 			margin-right: 0.5em;
 
-			border-width:3px;
+			border-width:2px;
 			border-style:solid;
 
 			-webkit-transition: background 0.5s;
 		}
 
-		.label{
-			display: table-cell;
-
-			vertical-align: middle;
+		.label{			
 			white-space:nowrap;
 		}
 	}

@@ -446,11 +446,12 @@ td:first-of-type .card-container {
   color: #f2f2f2;
   -webkit-transition: opacity 0.5s; }
   .legend .item {
-    display: table;
+    display: flex;
+    align-items: center;
     padding: 0.5em 1em;
     text-transform: capitalize;
     cursor: pointer;
-    background: transparent;
+    font-weight: 300;
     -webkit-transition: background 0.5s; }
     .legend .item:hover {
       background: #1e202b; }
@@ -461,12 +462,10 @@ td:first-of-type .card-container {
       width: 15px;
       height: 15px;
       margin-right: 0.5em;
-      border-width: 3px;
+      border-width: 2px;
       border-style: solid;
       -webkit-transition: background 0.5s; }
     .legend .item .label {
-      display: table-cell;
-      vertical-align: middle;
       white-space: nowrap; }
 
 td:last-of-type .legend {
