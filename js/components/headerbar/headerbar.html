@@ -7,8 +7,8 @@
 			</div>
 		</div>
 		<div class="tab-container">						
-			<div class="tab" ng-class="{active: headerColumnCtrl.isGraphVisible()}" ng-click="headerColumnCtrl.setGraphVisible(true)">Analytic Graph</div>
-			<div class="tab" ng-class="{active: !headerColumnCtrl.isGraphVisible()}" ng-click="headerColumnCtrl.setGraphVisible(false)">Feed</div>
+			<div class="tab" ng-class="{active: graphTableCtrl.isGraphVisible($index)}" ng-click="graphTableCtrl.setGraphVisible(true,$index)">Analytic Graph</div>
+			<div class="tab" ng-class="{active: !graphTableCtrl.isGraphVisible($index)}" ng-click="graphTableCtrl.setGraphVisible(false,$index)">Feed</div>
 		</div>
 	</div>		
 </div>

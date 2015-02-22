@@ -11,12 +11,12 @@
 <div class="graph-view-container">		
 	<table>
 		<tr>				
-			<td ng-repeat="columnData in data" ng-controller="ColumnCtrl as columnCtrl">
-				<div class="card-container" ng-show="columnCtrl.isGraphVisible()">
+			<td ng-repeat="columnData in data" ng-controller="ColumnCtrl as columnCtrl" ng-show="graphTableCtrl.isColumnVisible($index)">
+				<div class="card-container" ng-show="graphTableCtrl.isGraphVisible($index)">
 					<div graph class="graph card" data="graphData" ng-repeat="graphData in columnData.graphs"></div>
 				</div>
 
-				<div class="card-container feed-container" ng-show="!columnCtrl.isGraphVisible()">	
+				<div class="card-container feed-container" ng-hide="graphTableCtrl.isGraphVisible($index)">	
 					<div feed class="feed card" data="feedData" ng-repeat="feedData in columnCtrl.feedsData"></div>
 				</div>
 			</td>
