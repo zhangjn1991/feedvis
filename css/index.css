@@ -327,7 +327,7 @@ body {
     display: table-cell;
     vertical-align: bottom; }
   .title-container h2 {
-    text-transform: uppercase;
+    text-transform: capitalize;
     text-align: center;
     font-weight: 100; }
   .title-container h3 {
