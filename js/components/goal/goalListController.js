@@ -1,12 +1,12 @@
 angular.module('feedVisApp')
-.controller('GoalListCtrl', function($scope){	
+.controller('GoalListController', function($scope){	
 	this.addNewGoal = function(){		
-		$scope.globalCtrl.allGoalData.push({
+		$scope.GlobalController.allGoalData.push({
 			date: new Date()
 		});
 	}
 	this.deleteGoal = function(index){
-		$scope.globalCtrl.allGoalData.splice(index,1);
+		$scope.GlobalController.allGoalData.splice(index,1);
 	}
 });
 

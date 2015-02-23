@@ -1,5 +1,5 @@
 angular.module('feedVisApp')
-.controller('NoteCtrl', function($scope){
+.controller('NoteController', function($scope){
 		
 	this.isNewlyCreatedNote = function(){
 		return $scope.noteData.goalId == -1;
@@ -13,7 +13,7 @@ angular.module('feedVisApp')
 		this.isExpanded = false;		
 	}
 	this.getNoteGoal = function(){		
-		var goal = _.find($scope.globalCtrl.allGoalData, function(item){
+		var goal = _.find($scope.GlobalController.allGoalData, function(item){
 			return item.id == $scope.noteData.goalId;
 		})		
 		return goal? goal.title: "";
@@ -50,7 +50,7 @@ angular.module('feedVisApp')
 	this.cancelEditing = function(){		
 		if(this.isNewlyCreatedNote()){
 			if(confirm("Are you sure to cancel adding this note?"))
-				$scope.noteListCtrl.deleteNote($scope.$index);
+				$scope.NoteListController.deleteNote($scope.$index);
 		}
 		else if(confirm("Are you sure to cancel editing? All your changes will be lost.")){
 				$scope.noteData = this.backupNoteData;

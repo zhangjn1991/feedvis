@@ -1,5 +1,5 @@
 angular.module('feedVisApp')
-.controller('MenuCtrl', function(){
+.controller('MenuController', function(){
 
 	this.isMenuVisible = false;
 	this.toggleMenuVisible = function(visible){

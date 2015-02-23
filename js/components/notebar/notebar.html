@@ -1,50 +1,50 @@
 <div class="note-bar h-bar" >
 	<div class="place-holder"></div>
-	<div class="note-container h-container" ng-repeat="columnData in data" ng-controller="NoteListCtrl as noteListCtrl" ng-show="graphTableCtrl.isColumnVisible($index)">
-		<div class="note" ng-controller="NoteCtrl as noteCtrl" ng-repeat="noteData in noteListCtrl.allNoteData">
-			<div class="short note-content" ng-hide="noteCtrl.isExpanded">
+	<div class="note-container h-container" ng-repeat="columnData in data" ng-controller="NoteListController as NoteListController" ng-show="GraphTableController.isColumnVisible($index)">
+		<div class="note" ng-controller="NoteController as NoteController" ng-repeat="noteData in NoteListController.allNoteData">
+			<div class="short note-content" ng-hide="NoteController.isExpanded">
 			<!-- <div class="short note-content" > -->
 				<div class="date">{{noteData.date | date:'MM/dd/yyyy'}}</div>
-				<div class="title">{{noteCtrl.getNoteGoal()}}</div>	
-				<div class="result-indicator" ng-class="noteCtrl.getResultTypeClass()">
+				<div class="title">{{NoteController.getNoteGoal()}}</div>	
+				<div class="result-indicator" ng-class="NoteController.getResultTypeClass()">
 					<div></div>
 				</div>			
 				<div class="button-container">					
-					<div class="button edit" ng-click="noteCtrl.startEditing()">
+					<div class="button edit" ng-click="NoteController.startEditing()">
 						<div></div>
 					</div>
-					<div class="button delete" ng-click="noteListCtrl.tryDeleteNote($index)">
+					<div class="button delete" ng-click="NoteListController.tryDeleteNote($index)">
 						<div></div>
 					</div>
 				</div>
 			</div>		
-			<div class="long note-content" ng-show="noteCtrl.isExpanded">				
+			<div class="long note-content" ng-show="NoteController.isExpanded">				
 				<form action="" id="note-form">
 					<input type="date" name="date" ng-model="noteData.date">					
 					<select form="note-form" ng-model="noteData.goalId">
-						<option value="-1" disabled ng-selected="noteCtrl.isDefaultOptionSelected()">Select the goal you want to achieve</option>
-						<option value="{{goal.id}}" ng-selected="noteCtrl.isGoalSelected(goal)" ng-repeat="goal in globalCtrl.allGoalData">{{goal.title}}</option>						
+						<option value="-1" disabled ng-selected="NoteController.isDefaultOptionSelected()">Select the goal you want to achieve</option>
+						<option value="{{goal.id}}" ng-selected="NoteController.isGoalSelected(goal)" ng-repeat="goal in GlobalController.allGoalData">{{goal.title}}</option>						
 					</select>
 					
 					<textarea name="activity" rows="3" ng-model="noteData.activity" placeholder="Describe your activity"></textarea>
 					<div class="result-container">
-						<div class="result-indicator"  ng-class="noteCtrl.getResultTypeClass()" ng-click="noteCtrl.switchResultType()">
+						<div class="result-indicator"  ng-class="NoteController.getResultTypeClass()" ng-click="NoteController.switchResultType()">
 							<div></div>
 						</div>
 						<input type="text" ng-model="noteData.result" placeholder="What is the outcome?">
 					</div>
 				</form>
 				<div class="button-container">					
-					<div class="button tick" ng-click="noteCtrl.saveEditing()">
+					<div class="button tick" ng-click="NoteController.saveEditing()">
 						<div></div>
 					</div>
-					<div class="button delete" ng-click="noteCtrl.cancelEditing()">
+					<div class="button delete" ng-click="NoteController.cancelEditing()">
 						<div></div>
 					</div>
 				</div>
 			</div>
 		</div>		
-		<div class="add-note" ng-click="noteListCtrl.addNewNote()">
+		<div class="add-note" ng-click="NoteListController.addNewNote()">
 			<div class="add-button"></div>
 			<div>New Note</div>
 		</div>			

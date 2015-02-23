@@ -4,16 +4,16 @@
 	<link rel="stylesheet" href="css/index.css">
 	<link rel="stylesheet" href="css/goal.css">
 </head>
-<body ng-controller="GlobalCtrl as globalCtrl">
-	<div class="menu-label corner" ng-class="{active: menuCtrl.isMenuVisible}" ng-controller="MenuCtrl as menuCtrl">
+<body ng-controller="GlobalController as GlobalController">
+	<div class="menu-label corner" ng-class="{active: MenuController.isMenuVisible}" ng-controller="MenuController as MenuController">
 		<div>
-			<div class="menu-button" ng-click="menuCtrl.toggleMenuVisible()"></div>
+			<div class="menu-button" ng-click="MenuController.toggleMenuVisible()"></div>
 		</div>
 
-		<ul class="menu" ng-click="menuCtrl.toggleMenuVisible(false)">
+		<ul class="menu" ng-click="MenuController.toggleMenuVisible(false)">
 			<li><a href="#/graph">Graph</a></li>			
 			<li><a href="#/goal">Goal</a></li>			
-			<li><a href="#/graph" ng-click="globalCtrl.graphTableCtrl.showAllColumn()">Show All</a></li>			
+			<li><a href="#/graph" ng-click="GlobalController.GraphTableController.showAllColumn()">Show All</a></li>			
 			<li><a href="#/">Log out</a></li>
 		</ul>
 	</div>	

@@ -1,5 +1,5 @@
 angular.module('feedVisApp')
-.controller('NoteListCtrl', function($scope){
+.controller('NoteListController', function($scope){
 	var newDate = new Date();
 	this.allNoteData = [
 		{

@@ -4,8 +4,8 @@
 		<h1 class="title">Goals</h1>
 		
 	</div>
-	<div class="goal-list" ng-controller="GoalListCtrl as goalListCtrl">
-		<div class="goal-item" ng-repeat="goalData in globalCtrl.allGoalData" ng-controller="GoalItemCtrl as goalItemCtrl" ng-class="{editable: goalItemCtrl.isEditing}" >
+	<div class="goal-list" ng-controller="GoalListController as GoalListController">
+		<div class="goal-item" ng-repeat="goalData in GlobalController.allGoalData" ng-controller="GoalItemController as GoalItemController" ng-class="{editable: GoalItemController.isEditing}" >
 			<div class="goal-index">
 				<h2>{{$index + 1}}</h2>
 			</div>
@@ -13,28 +13,28 @@
 				<form>
 					<div class="goal-title-container">
 						<h3 class="label">Title</h3>
-						<input type="text" ng-model="goalData.title" ng-readonly="!goalItemCtrl.isEditing">
+						<input type="text" ng-model="goalData.title" ng-readonly="!GoalItemController.isEditing">
 					</div>
 					<div class="date-container">
 						<h3 class="label">Create Date</h3>
-						<input type="date" ng-model="goalData.date" ng-readonly="!goalItemCtrl.isEditing"></input>
+						<input type="date" ng-model="goalData.date" ng-readonly="!GoalItemController.isEditing"></input>
 					</div>
 					<div class="desc-container">
 						<h3 class="label">Description</h3>
-						<textarea row="8" ng-model="goalData.desc" ng-readonly="!goalItemCtrl.isEditing"></textarea>
+						<textarea row="8" ng-model="goalData.desc" ng-readonly="!GoalItemController.isEditing"></textarea>
 					</div>
 				</form>
 				<div class="button-container">
-					<div class="button" ng-class="{edit:!goalItemCtrl.isEditing, tick:goalItemCtrl.isEditing}" ng-click="goalItemCtrl.toggleEditing()">
+					<div class="button" ng-class="{edit:!GoalItemController.isEditing, tick:GoalItemController.isEditing}" ng-click="GoalItemController.toggleEditing()">
 						<div></div>
 					</div>
-					<div class="button delete" ng-click="goalListCtrl.deleteGoal($index)">
+					<div class="button delete" ng-click="GoalListController.deleteGoal($index)">
 						<div></div>
 					</div>
 				</div>
 			</div>
 		</div>
-		<div class="add-goal" ng-click="goalListCtrl.addNewGoal()">
+		<div class="add-goal" ng-click="GoalListController.addNewGoal()">
 			<div class="add-button"></div>
 			<div>New Goal</div>
 		</div>

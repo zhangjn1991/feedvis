@@ -1,5 +1,5 @@
 angular.module('feedVisApp')
-.controller('GraphCtrl', function($scope, $element){
+.controller('GraphController', function($scope, $element){
 	var self = this;
 	
 	var SERIES_PREFIX = 'series', TAB_NAMES=['Graph', 'Feed'];

@@ -1,8 +1,8 @@
 angular.module('feedVisApp')
-.controller('GlobalCtrl', function($scope){
+.controller('GlobalController', function($scope){
 	
 	var newDate = new Date();
-	this.graphTableCtrl = null;
+	this.GraphTableController = null;
 	this.allGoalData = [
 		{
 			title:"See more Photos",

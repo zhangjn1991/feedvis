@@ -1,8 +1,8 @@
 angular.module('feedVisApp')
-.controller('GraphTableCtrl', function($scope, $http){
+.controller('GraphTableController', function($scope, $http){
 	var self = this;
 	$scope.data = [];
-	$scope.globalCtrl.graphTableCtrl = this; //temp way to put show all column button
+	$scope.GlobalController.GraphTableController = this; //temp way to put show all column button
 
 	this.columnDict = [];
 

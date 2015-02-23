@@ -1,4 +1,4 @@
 angular.module('feedVisApp')
-.controller('HeaderColumnCtrl', function($scope){		
+.controller('HeaderColumnController', function($scope){		
 
 })

@@ -5,11 +5,11 @@ angular.module('feedVisApp')
 		scope:{
 			data:'='
 		},
-		controller:'GraphCtrl',
-		controllerAs:'graphCtrl',		
+		controller:'GraphController',
+		controllerAs:'GraphController',		
 		templateUrl:'js/components/graph/graph.html',
-		link: function(scope, element, attrs, graphCtrl){
-			graphCtrl.init(element);
+		link: function(scope, element, attrs, GraphController){
+			GraphController.init(element);
 		}
 	}
 });

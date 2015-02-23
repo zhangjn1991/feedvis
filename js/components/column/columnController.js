@@ -1,5 +1,5 @@
 angular.module('feedVisApp')
-.controller('ColumnCtrl', function($scope, $http){
+.controller('ColumnController', function($scope, $http){
 	var self = this;
 	this.feedsData = [];
 

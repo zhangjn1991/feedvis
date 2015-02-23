@@ -1,6 +1,6 @@
 <div class="header-bar h-bar">		
 	<div class="place-holder"></div>
-	<div class="header-container h-container" ng-repeat="columnData in data" ng-controller="HeaderColumnCtrl as headerColumnCtrl" ng-show="graphTableCtrl.isColumnVisible($index)">
+	<div class="header-container h-container" ng-repeat="columnData in data" ng-controller="HeaderColumnController as HeaderColumnController" ng-show="GraphTableController.isColumnVisible($index)">
 		<div class="title-container">
 			<div>
 				<h2>{{columnData.date_range | dateRangeFilter}}</h2>
@@ -8,15 +8,15 @@
 			</div>
 		</div>
 		<div class="tab-container">						
-			<div class="tab" ng-class="{active: graphTableCtrl.isGraphVisible($index)}" ng-click="graphTableCtrl.setGraphVisible(true,$index)">Analytic Graph</div>
-			<div class="tab" ng-class="{active: !graphTableCtrl.isGraphVisible($index)}" ng-click="graphTableCtrl.setGraphVisible(false,$index)">Feed</div>
+			<div class="tab" ng-class="{active: GraphTableController.isGraphVisible($index)}" ng-click="GraphTableController.setGraphVisible(true,$index)">Analytic Graph</div>
+			<div class="tab" ng-class="{active: !GraphTableController.isGraphVisible($index)}" ng-click="GraphTableController.setGraphVisible(false,$index)">Feed</div>
 		</div>
-		<!-- <div class="hide-button" ng-click="graphTableCtrl.setColumnVisible(false,$index)"></div> -->
+		<!-- <div class="hide-button" ng-click="GraphTableController.setColumnVisible(false,$index)"></div> -->
 		<div class="button-container">					
 			<div class="button edit">
 				<div></div>
 			</div>
-			<div class="button hide" ng-click="graphTableCtrl.setColumnVisible(false,$index)">
+			<div class="button hide" ng-click="GraphTableController.setColumnVisible(false,$index)">
 				<div></div>
 			</div>			
 		</div>
